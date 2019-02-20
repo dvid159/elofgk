@@ -1,16 +1,19 @@
 # FGK
 # EeLO
 
+# ---- Peña ---------
 # Departamento
 # Municipio
 # Class
 # Centro Escolar
 # -------------------
+# ---- Alfredo ---------
 # Ocupacio
 # Tipo de Responable
 # Cargo o Rol
 # Materia
 # -------------------
+# ---- David ---------
 # Periodo
 # Criterio
 # Aptitud

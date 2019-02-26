@@ -19,7 +19,7 @@ if(isset($_POST['bntAgregarMunicipio']))
 
     foreach ($departamentos as $item ) 
     {        
-        if ($item['id_departamento'] == $_POST['cbxDepartamento']) {
+        if ($item['id_departamento'] == $_POST['cbmDepartamento']) {
           $dep->setIdDepartamento($item['id_departamento']);
         }
     }
@@ -108,7 +108,7 @@ if(isset($_GET['action'])){
                                 <label for="lblMunicipio">Municipio</label>
                             </div>
                             <div class="input-field col s12">
-                                <select id="cmb" name="cbxDepartamento">
+                                <select name="cbmDepartamento">
                                     <option>
                                         Seleccione Departamento
                                     </option>
@@ -118,7 +118,6 @@ if(isset($_GET['action'])){
                                     </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <label>Departamento</label>
                             </div>
                             <button class="btn waves-effect waves-light" type="submit"
                                 name="bntAgregarMunicipio">Guardar

@@ -62,7 +62,7 @@ if (isset($_POST['btnAgregarClass']))
         <li><a href="Class.php" class="waves-effect red-text">Class</a></li>
         <li><a href="CentroEducativos.php" class="waves-effect red-text">Centro Educativo</a></li>
     </ul>
-
+    
     <main>
         <!-- Encabezado -->
         <div id="header" class="row z-depth-3">

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     $('.sidenav').sidenav();
     $('.modal').modal();
     $('select').formSelect();
@@ -27,9 +28,9 @@ $(document).ready(function () {
             },
         }
     });
-    /*
+    
     $("select").val('10');
     $('select').addClass("browser-default");
     $('select').material_select();
-    */    
+       
 });

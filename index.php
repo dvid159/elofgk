@@ -30,7 +30,7 @@
 
 <body>
 
-    <ul id="slide-out" class="sidenav sidenav-fixed">
+    <!--<ul id="slide-out" class="sidenav sidenav-fixed">
         <li>
             <div class="user-view z-depth-3" style="height: 200px; padding: 12px;">
                 <img src="img/oportunidades.png " style="width: 250px; height: 150px;">
@@ -40,7 +40,7 @@
         <li><a href="Departamentos.php" class="waves-effect red-text">Departamentos</a></li>
         <li><a href="Municipios.php" class="waves-effect red-text">Municipios</a></li>
         <li><a href="Class.php" class="waves-effect red-text">Class</a></li>
-    </ul>
+    </ul>-->
 
     <main>
         <div class="container">

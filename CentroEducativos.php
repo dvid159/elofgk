@@ -1,3 +1,38 @@
+<?php
+require_once "Controllers/CentroEscolarController.php";
+require_once "Models/CentroEscolar.php";
+
+require_once "Controllers/MunicipioController.php";
+require_once "Models/Municipio.php";
+
+$centroEducativoController = new CentroEscolarController();
+$centrosEducativos = $centroEducativoController->GetAll();
+
+$MunicipiosController = new MunicipioController();
+$municipios = $MunicipiosController->GetAll();
+
+//Para Agregar Centro Educativo
+if(isset($_POST['btnAgregarCentroEscolar']))
+{
+    $new_CentroEscolar = new CentroEscolar();
+    $mun = new Municipio();
+
+    foreach ($municipios as $item ) 
+    {        
+        if ($item['id_municipio'] == $_POST['cbmMunicipio']) {
+          $mun->setIdMunicipio($item['id_municipio']);
+        }
+    }
+    $new_CentroEscolar->setMunicipio($mun);
+    $new_CentroEscolar->setCodigo($_POST['txtCodigo']);
+    $new_CentroEscolar->setNombre($_POST['txtNombre']);
+    $new_CentroEscolar->setDireccion($_POST['txtDireccion']);
+    $new_CentroEscolar->setTelefono($_POST['txtTelefono']);
+    $new_CentroEscolar->setDescripcion($_POST['txtDescripcion']);
+    $centroEducativoController->Agregar($new_CentroEscolar);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +48,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
 
-    
+
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
     <script src="js/arranque.js"></script>
@@ -53,35 +88,50 @@
 
         <!-- Boton agregar-->
         <div class="fixed-action-btn">
-            <a class="btn-floating btn-large btn modal-trigger waves-effect waves-light red" href="#AddClass"><i
+            <a class="btn-floating btn-large btn modal-trigger waves-effect waves-light red" href="#AddCentroEscolar"><i
                     class=" material-icons">add</i></a>
         </div>
 
         <!--Modal Agregar-->
-        <div id="AddClass" class="modal" tabindex="-1">
+        <div id="AddCentroEscolar" class="modal" tabindex="-1">
             <div class="modal-content">
-                <h4>Nueva Class</h4>
+                <h4>Nuevo Centro Educativo</h4>
                 <div class="row">
-                    <form class="col s12" role="form" action="Class.php" method="post">
+                    <form class="col s12" role="form" action="CentroEducativos.php" method="post">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="txtClass" value="" id="lblClass" type="text" class="validate">
-                                <label for="lblClass">Class</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input name="txtAnhoIngreso" id="lblIngreso" type="text" class="validate">
-                                <label for="lblIngreso">Año de Ingreso</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input name="txtAnhoEgreso" id="lblEgreso" type="text" class="validate">
-                                <label for="lblEgreso">Año de Egreso</label>
+                                <input name="txtCodigo" value="" id="lblCodigo" type="text" class="validate">
+                                <label for="lblCodigo">Codigo</label>
                             </div>
                             <div class="input-field col s12">
-                                <textarea name="txtDescripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
+                                <input name="txtNombre" value="" id="lblNombre" type="text" class="validate">
+                                <label for="lblNombre">Nombre</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input name="txtDireccion" value="" id="lblDireccion" type="text" class="validate">
+                                <label for="lblDireccion">Direccion</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="txtTelefono" id="lblTelefono" type="text" class="validate">
+                                <label for="lblTelefono">Telefono</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="cbmMunicipio" class="browser-default">
+                                    <option value="" disabled selected>Seleccione Municipio</option>
+                                    <?php foreach($municipios as $registro): ?>
+                                    <option value="<?php echo $registro['id_municipio'] ?>">
+                                        <?php echo $registro['municipio']?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="input-field col s12">
+                                <textarea name="txtDescripcion" id="lblDescripcion"
+                                    class="materialize-textarea"></textarea>
                                 <label for="lblDescripcion">Descripcion</label>
                             </div>
                             <button class="btn waves-effect waves-light" type="submit"
-                                name="btnAgregarClass">Guardar
+                                name="btnAgregarCentroEscolar">Guardar
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -99,14 +149,21 @@
                         <table id="example" class="display mdl-data-table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 100px">Codigo</th>
-                                    <th style="width: 150px">Nombre</th>
-                                    <th style="width: 350px">Direccion</th>
-                                    <th style="width: 75px">Telefono</th>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Direccion</th>
+                                    <th>Telefono</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <?php foreach($centrosEducativos as $registro): ?>
+                                <tr>
+                                    <td><?php echo $registro['codigo_centro_educativo']; ?></td>
+                                    <td><?php echo $registro['nombre_centro_educativo']; ?></td>
+                                    <td><?php echo $registro['direccion']; ?></td>
+                                    <td><?php echo $registro['telefono']; ?></td>
+                                </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

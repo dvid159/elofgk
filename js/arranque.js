@@ -28,9 +28,12 @@ $(document).ready(function () {
             },
         }
     });
+
+    $('#example').editableTableWidget({ editor: $('<input>'), preventColumns: [ 2, 3 ] });
     
+    /*
     $("select").val('10');
     $('select').addClass("browser-default");
     $('select').material_select();
-       
+     */  
 });

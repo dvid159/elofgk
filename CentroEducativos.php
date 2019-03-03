@@ -93,7 +93,8 @@ if(isset($_POST['btnAgregarCentroEscolar']))
         </div>
 
         <!--Modal Agregar-->
-        <div id="AddCentroEscolar" class="modal" tabindex="-1">
+        <div id="AddCentroEscolar" class="modal" tabindex="-1"
+            style="width: 50% !important ; max-height: 85% !important ; overflow-y: hidden !important ;">
             <div class="modal-content">
                 <h4>Nuevo Centro Educativo</h4>
                 <div class="row">
@@ -130,18 +131,18 @@ if(isset($_POST['btnAgregarCentroEscolar']))
                                     class="materialize-textarea"></textarea>
                                 <label for="lblDescripcion">Descripcion</label>
                             </div>
-                            <button class="btn waves-effect waves-light" type="submit"
-                                name="btnAgregarCentroEscolar">Guardar
-                                <i class="material-icons right">send</i>
-                            </button>
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light" type="submit"
+                                    name="btnAgregarCentroEscolar">Guardar
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
         <!--Tabla-->
-
         <div id="dataTable" class="container">
             <div class="row">
                 <div class="col s12">
@@ -158,7 +159,9 @@ if(isset($_POST['btnAgregarCentroEscolar']))
                             <tbody>
                                 <?php foreach($centrosEducativos as $registro): ?>
                                 <tr>
-                                    <td><?php echo $registro['codigo_centro_educativo']; ?></td>
+                                    <td> <a class="waves-effect waves-light btn modal-trigger" href="DetalleCE.php"
+                                            data-target="Detalle"><?php echo $registro['codigo_centro_educativo'] ?></a>
+                                    </td>
                                     <td><?php echo $registro['nombre_centro_educativo']; ?></td>
                                     <td><?php echo $registro['direccion']; ?></td>
                                     <td><?php echo $registro['telefono']; ?></td>

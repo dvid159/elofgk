@@ -93,11 +93,11 @@ if (isset($_POST['btnAgregarClass']))
                                 <label for="lblClass">Class</label>
                             </div>
                             <div class="input-field col s6">
-                                <input name="txtAnhoIngreso" id="lblIngreso" type="text" class="validate">
+                                <input name="txtAnhoIngreso" id="lblIngreso" type="number" min="2012" max="2100" class="validate">
                                 <label for="lblIngreso">Año de Ingreso</label>
                             </div>
                             <div class="input-field col s6">
-                                <input name="txtAnhoEgreso" id="lblEgreso" type="text" class="validate">
+                                <input name="txtAnhoEgreso" id="lblEgreso" type="number" min="2012" max="2100" class="validate">
                                 <label for="lblEgreso">Año de Egreso</label>
                             </div>
                             <div class="input-field col s12">
@@ -132,7 +132,7 @@ if (isset($_POST['btnAgregarClass']))
                             <tbody>
                                 <?php foreach($class as $registro): ?>
                                 <tr>
-                                    <td><?php echo $registro['id_class'] ?></td>
+                                    <td><a href="#"><?php echo $registro['id_class'] ?></a></td>
                                     <td><?php echo $registro['anho_ingreso'] ?></td>
                                     <td><?php echo $registro['anho_egreso'] ?></td>
                                     <td><?php echo $registro['descripcion'] ?></td>

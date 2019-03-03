@@ -29,8 +29,8 @@
 </head>
 
 <body>
-
-    <!--<ul id="slide-out" class="sidenav sidenav-fixed">
+<!--
+    <ul id="slide-out" class="sidenav sidenav-fixed">
         <li>
             <div class="user-view z-depth-3" style="height: 200px; padding: 12px;">
                 <img src="img/oportunidades.png " style="width: 250px; height: 150px;">
@@ -40,11 +40,12 @@
         <li><a href="Departamentos.php" class="waves-effect red-text">Departamentos</a></li>
         <li><a href="Municipios.php" class="waves-effect red-text">Municipios</a></li>
         <li><a href="Class.php" class="waves-effect red-text">Class</a></li>
-    </ul>-->
-
+        <li><a href="CentroEducativos.php" class="waves-effect red-text">Centro Educativo</a></li>
+    </ul>
+-->
     <main>
         <div class="container">
-            <iframe id="frame1" src="Class.php" frameborder="0" name="framePrincipal"
+            <iframe id="frame" src="Class.php" frameborder="0" name="framePrincipal"
                 style="width: 100%; min-height: 100%; height: auto !important; position: fixed; top:0; left:0;"></iframe>
         </div>
     </main>

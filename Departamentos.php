@@ -15,10 +15,10 @@ if (isset($_POST['bntAgregarDepartamento']))
 
 //Para Eliminar
 if(isset($_GET['action'])){
-    if(isset($_GET['id_municipio'])){
-        $id_municipio = $_GET['id_municipio'];
-        $municipios = $MunicipiosController->Eliminar($id_municipio);
-        $municipios = $MunicipiosController->GetAll();
+    if(isset($_GET['id_departamento'])){
+        $id_departamento = $_GET['id_departamento'];
+        $departamentos = $DetartamentosController->Eliminar($id_departamento);
+        $departamentos = $DetartamentosController->GetAll();
     }
 }
 
@@ -39,7 +39,7 @@ if(isset($_GET['action'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
 
-    
+
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
     <script src="js/arranque.js"></script>
@@ -113,7 +113,6 @@ if(isset($_GET['action'])){
                                     <th style="width: 75px">N°</th>
                                     <th style="width: 450px">Departamento</th>
                                     <th style="width: 170px"></th>
-                                    <th style="width: 180px"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,9 +120,12 @@ if(isset($_GET['action'])){
                                 <tr>
                                     <td><?php echo $registro['id_departamento'] ?></td>
                                     <td><?php echo $registro['departamento'] ?></td>
-                                    <td><a class="waves-effect waves-light btn-small"><i class="material-icons right">edit</i>Editar</a></td>
-                                    <td><a class="waves-effect waves-light btn-small red"
-                                            href="Municipios.php?action=delete&id_departamento=<?php echo $registro['id_departamento'] ?>"><i class="material-icons right">delete</i>Eliminar</a></td>
+                                    <td>
+                                    <a class="waves-effect waves-light btn-small"><i
+                                                class="material-icons">edit</i></a>
+                                    <a class="waves-effect waves-light btn-small red"
+                                            href="Departamentos.php?action=delete&id_departamento=<?php echo $registro['id_departamento'] ?>"><i
+                                                class="material-icons">delete</i></a></td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

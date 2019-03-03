@@ -26,5 +26,12 @@ class MunicipioController
 		$eliminar = $connection->prepare("DELETE FROM municipio WHERE id_municipio = '$municipio'");	
 		return $eliminar->execute();
 	}
+
+	public function Editar(Municipio $item){
+		$connection = BaseDatos::instance();
+		$departamento = $item->getDepartamento();
+		$modificar = $connection->prepare("UPDATE municipio SET municipio=?, id_departamento=? WHERE id_municipio=?");
+		return $modificar->execute([$item->getmunicipio(), $departamento->getIdDepartamento(), $item->getIdmunicipio()]);
+	}
 }
 ?>

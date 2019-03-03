@@ -23,6 +23,12 @@ class ClassController
             $item->getAnhoEgreso(),
             $item->getDescripcion()
         ));
-    }
+	}
+	
+	public function Eliminar($id_class){
+		$connection = BaseDatos::instance();
+		$eliminar = $connection->prepare("DELETE FROM class WHERE id_class = '$id_class'");	
+		return $eliminar->execute();
+	}
 }
 ?>

@@ -54,7 +54,7 @@ if(isset($_GET['action'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
 
-    
+
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
     <script src="js/arranque.js"></script>
@@ -107,7 +107,7 @@ if(isset($_GET['action'])){
                                 <input id="lblMunicipio" type="text" class="validate" name="txtMunicipio">
                                 <label for="lblMunicipio">Municipio</label>
                             </div>
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 right-align">
                                 <select name="cbmDepartamento">
                                     <option>
                                         Seleccione Departamento
@@ -147,8 +147,12 @@ if(isset($_GET['action'])){
                                 <tr>
                                     <td><?php echo $registro['departamento']; ?></td>
                                     <td><?php echo $registro['municipio']; ?></td>
-                                    <td><a class="waves-effect waves-light btn-small red"
-                                            href="Municipios.php?action=delete&id_municipio=<?php echo $registro['id_municipio'] ?>">Eliminar</a>
+                                    <td>
+                                        <a class="waves-effect waves-light btn-small"><i
+                                                class="material-icons">edit</i></a>
+                                        <a class="waves-effect waves-light btn-small red"
+                                            href="Municipios.php?action=delete&id_municipio=<?php echo $registro['id_municipio'] ?>"><i
+                                                class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -158,7 +162,7 @@ if(isset($_GET['action'])){
                 </div>
             </div>
         </div>
-    </main>    
+    </main>
 </body>
 
 </html>

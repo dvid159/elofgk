@@ -32,7 +32,7 @@ class CentroEscolarController
 
 	public function Eliminar($codigo){
 		$connection = BaseDatos::instance();
-		$eliminar = $connection->prepare("DELETE FROM centro_educativo WHERE codigo_centro_educativo = '$municipio'");	
+		$eliminar = $connection->prepare("DELETE FROM centro_educativo WHERE codigo_centro_educativo = '$codigo'");	
 		return $eliminar->execute();
 	}
 }

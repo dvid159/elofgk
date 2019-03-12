@@ -35,5 +35,21 @@ class CentroEscolarController
 		$eliminar = $connection->prepare("DELETE FROM centro_educativo WHERE codigo_centro_educativo = '$codigo'");	
 		return $eliminar->execute();
 	}
+
+	public function Editar(CentroEscolar $item){
+		$connection = BaseDatos::instance();
+		$municipio = $item->getMunicipio();
+		
+		$modificar = $connection->prepare("UPDATE centro_educativo SET nombre_centro_educativo=?, 
+		direccion=?, telefono=?, id_municipio=?, descripcion=? WHERE codigo_centro_educativo=?");
+		
+		return $modificar->execute([
+			$item->getNombre(), 
+			$item->getDireccion(),
+			$item->getTelefono(),
+			$municipio->getIdMunicipio(), 
+			$item->getDescripcion(),
+			$item->getCodigo()]);
+	}
 }
 ?>

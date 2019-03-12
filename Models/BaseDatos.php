@@ -1,7 +1,6 @@
 <?php
 class BaseDatos
 {
-
     private $_dbUser;
     private $_dbPassword;
     private $_dbHost;

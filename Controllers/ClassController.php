@@ -30,5 +30,18 @@ class ClassController
 		$eliminar = $connection->prepare("DELETE FROM class WHERE id_class = '$id_class'");	
 		return $eliminar->execute();
 	}
+
+	public function Editar(Clase $item){
+		$connection = BaseDatos::instance();
+
+		$modificar = $connection->prepare("UPDATE class SET anho_ingreso=?, 
+		anho_egreso=?, descripcion=? WHERE id_class=?");
+		
+		return $modificar->execute([
+			$item->getAnhoIngreso(), 
+			$item->getAnhoEgreso(),
+			$item->getDescripcion(),
+			$item->getClass()]);
+	}
 }
 ?>

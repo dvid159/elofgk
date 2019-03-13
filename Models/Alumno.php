@@ -3,8 +3,8 @@ class Alumno
 {
     private $carnet_alumno;
     private $class;
-    private $nombre;
-    private $apellido;
+    private $nombres;
+    private $apellidos;
     private $sexo;
     private $fecha_nacimiento;
     private $direccion;
@@ -29,14 +29,14 @@ class Alumno
         return $this->class;
     }
 
-    public function getNombre()
+    public function getNombres()
 	{
-        return $this->nombre;
+        return $this->nombres;
     }
 
-    public function getApellido()
+    public function getApellidos()
 	{
-        return $this->apellido;
+        return $this->apellidos;
     }
 
     public function getSexo()
@@ -110,14 +110,14 @@ class Alumno
         $this->class=$class;
     }
 
-    public function setNombre($nombre)
+    public function setNombres($nombres)
 	{
-        $this->nombre=$nombre;
+        $this->nombres=$nombres;
     }
 
-    public function setApellido($apellido)
+    public function setApellido($apellidos)
 	{
-        $this->apellido=$apellido;
+        $this->apellidos=$apellidos;
     }
 
     public function setSexo($sexo)

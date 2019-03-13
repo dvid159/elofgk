@@ -8,8 +8,8 @@ class CentroEscolarController
     public function GetAll()
 	{
 		$connection = BaseDatos::instance();
-		$select = $connection->prepare("select ce.codigo_centro_educativo, ce.nombre_centro_educativo, ce.direccion, ce.telefono, d.departamento, m.municipio
-        from centro_educativo ce join municipio m on (m.id_municipio = ce.id_municipio) join departamento d on (d.id_departamento = m.id_departamento)");
+		$select = $connection->prepare("SELECT ce.codigo_centro_educativo, ce.nombre_centro_educativo, ce.direccion, ce.telefono, d.departamento, m.municipio
+        FROM centro_educativo ce JOIN municipio m ON (m.id_municipio = ce.id_municipio) JOIN departamento d ON (d.id_departamento = m.id_departamento)");
 		$select->execute();
 		return $select->fetchAll();
 	}
@@ -49,7 +49,8 @@ class CentroEscolarController
 			$item->getTelefono(),
 			$municipio->getIdMunicipio(), 
 			$item->getDescripcion(),
-			$item->getCodigo()]);
+			$item->getCodigo()
+		]);
 	}
 }
 ?>

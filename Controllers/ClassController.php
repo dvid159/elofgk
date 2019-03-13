@@ -41,7 +41,8 @@ class ClassController
 			$item->getAnhoIngreso(), 
 			$item->getAnhoEgreso(),
 			$item->getDescripcion(),
-			$item->getClass()]);
+			$item->getClass()
+		]);
 	}
 }
 ?>

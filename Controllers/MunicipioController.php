@@ -8,7 +8,7 @@ class MunicipioController
     public function GetAll()
 	{
 		$connection = BaseDatos::instance();
-		$select = $connection->prepare("select m.id_municipio, d.departamento, m.municipio from municipio m join departamento d on (d.id_departamento=m.id_departamento)");
+		$select = $connection->prepare("SELECT m.id_municipio, d.departamento, m.municipio FROM municipio m JOIN departamento d ON (d.id_departamento=m.id_departamento)");
 		$select->execute();
 		return $select->fetchAll();
 	}
@@ -31,7 +31,11 @@ class MunicipioController
 		$connection = BaseDatos::instance();
 		$departamento = $item->getDepartamento();
 		$modificar = $connection->prepare("UPDATE municipio SET municipio=?, id_departamento=? WHERE id_municipio=?");
-		return $modificar->execute([$item->getmunicipio(), $departamento->getIdDepartamento(), $item->getIdmunicipio()]);
+		return $modificar->execute([
+			$item->getmunicipio(), 
+			$departamento->getIdDepartamento(), 
+			$item->getIdmunicipio()
+		]);
 	}
 }
 ?>

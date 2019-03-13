@@ -28,7 +28,10 @@ class DepartamentoController
 	public function Editar(Departamento $departamento){
 		$connection = BaseDatos::instance();
 		$modificar = $connection->prepare("UPDATE departamento SET departamento=? WHERE id_departamento=?");
-		return $modificar->execute([$departamento->getDepartamento(), $departamento->getIdDepartamento()]);
+		return $modificar->execute([
+			$departamento->getDepartamento(), 
+			$departamento->getIdDepartamento()
+		]);
 	}
 }
 ?>

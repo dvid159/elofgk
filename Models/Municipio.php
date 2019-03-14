@@ -5,6 +5,22 @@ class Municipio
     private $departamento;
     private $municipio;
     
+    //GET
+    public function getIdMunicipio()
+	{
+        return $this->id_municipio;
+    }
+    
+    public function getDepartamento()
+	{
+        return $this->departamento;
+    }
+    
+    public function getMunicipio()
+	{
+		return $this->municipio;
+    }
+    
     //SET
     public function setIdMunicipio($id_municipio)
 	{
@@ -20,20 +36,4 @@ class Municipio
 	{
         $this->municipio=$municipio;
     }
-
-    //GET
-    public function getIdMunicipio()
-	{
-        return $this->id_municipio;
-    }
-    
-    public function getDepartamento()
-	{
-        return $this->departamento;
-    }
-    
-    public function getMunicipio()
-	{
-		return $this->municipio;
-	}
 }

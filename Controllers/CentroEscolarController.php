@@ -1,5 +1,5 @@
 <?php 
-require_once "Models/BaseDatos.php";
+require_once "config/BaseDatos.php";
 require_once "Models/CentroEscolar.php";
 require_once "Models/Municipio.php";
 

@@ -1,0 +1,136 @@
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+body{
+    background-image: url("../img/background-greywhite.jpg");
+    background-attachment: fixed;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+  }
+
+/*ESTILO DE MENU*/
+
+#logo{
+    width: 200px;
+    margin: 0px auto;
+}
+
+.user-view.encabezado-aside{
+    background-color: rgb(241, 241, 241);
+    margin-bottom: 0px;
+}
+
+
+.collapsible-header.waves-effect.principal-item:hover{
+    background-color: rgba(212, 18, 18, 0.911);
+    color: white;
+}
+
+.waves-effect.secundary-item:hover{
+    background-color: rgba(179, 172, 172, 0.911);
+    color: rgb(0, 0, 0);
+}
+
+/*ENCABEZADOS*/
+
+h5{
+    background-color: #e63d3b;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+/* MAIN - CONTENIDO*/
+
+main{
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 975px) {
+    main{
+        padding-left: 0;
+    }
+}
+
+.container{
+    width: 90%;
+}
+
+
+/*NUEVO REGISTRO - CRUDS - TABLAS SENCILLAS */
+
+.fondo-cuerpo{
+    background-color: white;
+    padding-top: 20px;
+}
+
+.row.nuevo-registro{
+    padding-left: 15px;
+    vertical-align:center;
+}
+
+.waves-effect.waves-light.btn.add{
+        margin-top: 15px;
+}
+
+#nuevo-input:focus{
+    border-bottom: 1px solid #90a4ae;
+    box-shadow: 0 1px 0 0 #90a4ae;
+}
+
+.lbl-input-nuevo{
+    font-weight: bold;
+}
+
+.item-periodo{
+    font-weight: bold;
+}
+
+.table-notas-head{
+    font-size: 5%;
+
+}
+
+
+#dataTable{
+    padding-top: 10px;
+}
+
+th{
+    font-size: 16px;
+}
+
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }
+
+  #btnGuardar-notas{
+     margin-left: 5%;
+     margin-bottom: 15px;
+
+  }
+
+  .row.primer-fila{
+      margin-top: 25px;
+
+  }
+
+  .collapsible-body.asignacion-seccion{
+        background-color: white;
+  }
+
+  #filtro-alumno-secciones{
+        padding-left: 20px;
+  }
+

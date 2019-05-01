@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Aptitud;
+use Illuminate\Support\Facades\Session;
+
+class AptitudController extends Controller
+{
+    public function index()
+    {
+        $data = DB::select('SELECT a.id_aptitud, a.id_criterio, a.nombre_aptitud, c.nombre_criterio  FROM aptitud a JOIN criterio c ON (c.id_criterio = a.id_criterio)');
+        $criterio = DB::table('criterio')->get();
+
+        return view('admin.aptitud', compact('data', 'criterio'));
+    }
+
+    public function store(Request $request)
+    {
+       $aptitud = new Aptitud(array(
+        'id_criterio' => $request->get('id_criterio'),
+        'nombre_aptitud' => $request->get('criterio')
+        ));
+       $aptitud->save();
+	   return redirect('/aptitudes');
+    }
+
+    public function destroy ($id)
+    {
+        Aptitud::where('id_aptitud',$id)->delete();
+        return redirect('/aptitudes');
+    }
+}

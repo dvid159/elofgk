@@ -108,7 +108,7 @@ $(document).ready(function(){
         });
 
 		confirm.set('oncancel', function(){
-			alertify.success('Eliminacion Cancelada!');
+			alertify.error('Eliminacion Cancelada!');
 		})
     });
 

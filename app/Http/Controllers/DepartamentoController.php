@@ -23,13 +23,11 @@ class DepartamentoController extends Controller
         'departamento' => $request->get('departamento')
         ));
        $departamento->save();
-	   //return redirect('/departamentos');
     }
 
     public function destroy ($id)
     {
         Departamento::where('id_departamento',$id)->delete();
-        //return redirect('/departamentos');
     }
 
 
@@ -42,6 +40,5 @@ class DepartamentoController extends Controller
     public function update ($id, Request $request)
     {
         Departamento::where('id_departamento',$id)->update(['departamento' => $request->get('departamento')]);
-        //return redirect('/departamentos');
     }
 }

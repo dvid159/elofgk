@@ -11,7 +11,7 @@ class EmpleadoController extends Controller
 {
     public function index()
     {
-        $data = DB::table('empleado')->get();
+        $data = DB::select('SELECT e.carnet_empleado, c.cargo, e.nombres, e.apellidos, e.telefono FROM empleado e JOIN cargo c ON (c.id_cargo = e.id_cargo) ORDER BY e.carnet_empleado DESC');
         $cargo = DB::table('cargo')->get();
         $municipio = DB::table('municipio')->get();
 
@@ -32,17 +32,15 @@ class EmpleadoController extends Controller
         'fecha_nacimiento' => $request->get('fecha'),
         'telefono' => $request->get('telefono'),
         'direccion' => $request->get('direccion'),
-        'id_municipio' => $request->get('municipio')
-        //'observaciones' => $request->get('observaciones')
+        'id_municipio' => $request->get('municipio'),
+        'observaciones' => $request->get('observaciones')
         ));
        $empleado->save();
-	   //return redirect('/departamentos');
     }
 
     public function destroy ($id)
     {
         Empleado::where('carnet_empleado',$id)->delete();
-        //return redirect('/departamentos');
     }
 
 
@@ -67,6 +65,5 @@ class EmpleadoController extends Controller
             'id_municipio' => $request->get('municipio'),
             'observaciones' => $request->get('observaciones')
         ]);
-        //return redirect('/departamentos');
     }
 }

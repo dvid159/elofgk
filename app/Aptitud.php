@@ -8,5 +8,5 @@ class Aptitud extends Model
 {
     protected $table = 'aptitud';
     public $timestamps = false;
-	protected $fillable = ['id_criterio','nombre_aptitud'];
+	protected $fillable = ["id_aptitud", "id_criterio", "nombre_aptitud", "descripcion"];
 }

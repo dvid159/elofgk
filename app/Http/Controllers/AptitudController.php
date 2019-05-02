@@ -21,15 +21,27 @@ class AptitudController extends Controller
     {
        $aptitud = new Aptitud(array(
         'id_criterio' => $request->get('id_criterio'),
-        'nombre_aptitud' => $request->get('criterio')
+        'nombre_aptitud' => $request->get('aptitud')
         ));
        $aptitud->save();
-	   return redirect('/aptitudes');
     }
 
     public function destroy ($id)
     {
         Aptitud::where('id_aptitud',$id)->delete();
-        return redirect('/aptitudes');
+    }
+
+    public function show($id)
+    {
+        $aptitud = Aptitud::where('id_aptitud',$id)->get();
+        return response()->json($aptitud->toArray());
+    }
+
+    public function update ($id, Request $request)
+    {
+        Aptitud::where('id_aptitud',$id)->update([
+            'id_criterio' => $request->get('id_criterio'),
+            'nombre_aptitud' => $request->get('aptitud')
+        ]);
     }
 }

@@ -2,65 +2,43 @@ $(document).ready(function(){
     //Nuevo registro
     $('#addform').on('submit', function(e){
         e.preventDefault();
-
         $.ajax({
             type:"POST",
-            url: "/empleados",
+            url: "/secciones",
             data: $("#addform").serialize(),
             success: function(resonse){
                 console.log(resonse);
-                M.toast({html: 'Empleado guardado exitosamente!', classes: 'rounded', inDuration: 5000});
+                M.toast({html: 'Seccion guardada exitosamente!', classes: 'rounded', inDuration: 5000});
                 location.reload();
             },
             error: function(error){
-                var datos = $("#addform").serialize();
-                console.log(datos);
                 console.log(error);
                 console.log("ERROR");
             }
         });
-
     });
 
     //Obtener registro y llenar modal
     $(".edit").click(function(){
         var id = $(this).data("id");
         console.log(id);
-
         $.ajax(
         {
-            url:"/empleados/"+id,
+            url:"/secciones/"+id,
             method:'GET',
             dataType:'json',
             success:function(data)
             {
                 console.log(data);
 
-                $('#editform #lblNombre').val(data[0].nombres);
-                $('#editform #lblApellido').val(data[0].apellidos);
-
-                if(data[0].sexo == 'F')
-                {
-                    $('#editform #sexo')[0].checked = true;
-                }else
-                {
-                    $('#editform #sexo')[1].checked = true;
-                }
-
-                $('#editform #fecha').val(data[0].fecha_nacimiento);
-                $('#editform #lblDUI').val(data[0].dui);
-                $('#editform #lblNIT').val(data[0].nit);
-                $('#editform #lblCarnet').val(data[0].carnet_empleado);
-                $('#editform #cargo').val(data[0].id_cargo);
-                $('#editform #lblTelefono').val(data[0].telefono);
-                $('#editform #municipio').val(data[0].id_municipio);
-                $('#editform #lblDireccion').val(data[0].direccion);
-                $('#editform #lblObservaciones').val(data[0].observaciones);
+                $('#editform #lblSeccion').val(data[0].id_seccion);
+                $('#editform #clases').val(data[0].id_class);
+                $('#editform #lblIngreso').val(data[0].anho);
+                $('#editform #lblDescripcion').val(data[0].descripcion);
 
                 M.updateTextFields();
                 $('select').formSelect();
                 $('#ModalEdit').modal('open');
-
             }
         });
     });
@@ -70,16 +48,15 @@ $(document).ready(function(){
     $('#editform').on('submit', function(e){
         e.preventDefault();
 
-        console.log($('#editform #lblCarnet').val());
-        var id = $('#editform #lblCarnet').val();
+        var id = $('#editform #lblSeccion').val();
 
         $.ajax({
             type:"PUT",
-            url: "/empleados/"+id,
+            url: "/secciones/"+id,
             data: $("#editform").serialize(),
             success: function(resonse){
-                M.toast({html: 'Empleado actualizado exitosamente!', classes: 'rounded', inDuration: 5000});
-                $('#ModalEdit').modal('close');
+                console.log(resonse);
+                M.toast({html: 'Seccion actualizada exitosamente!', classes: 'rounded', inDuration: 5000});
                 location.reload();
             },
             error: function(error){
@@ -87,7 +64,6 @@ $(document).ready(function(){
                 console.log("ERROR");
             }
         });
-
     });
 
     //Eliminar registro
@@ -95,20 +71,19 @@ $(document).ready(function(){
         var id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
 
-        var confirm= alertify.confirm('Municipios','Confirmar Eliminacion?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});
+        var confirm= alertify.confirm('Secciones','Confirmar Eliminacion?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});
 
 		confirm.set('onok', function(){
             $.ajax(
             {
-                url: "empleados/"+id,
+                url: "secciones/"+id,
                 type: 'DELETE',
                 data: {
                     "id": id,
                     "_token": token
                 },
                 success: function (resonse){
-                    console.log("Empleado eliminado exitosamente!");
-                    alertify.success('Empleado eliminado exitosamente!');
+                    alertify.success('Seccion eliminada exitosamente!');
                     window.setInterval(location.reload(), 5000)
                 },
                     error: function(error){
@@ -119,7 +94,7 @@ $(document).ready(function(){
         });
 
 		confirm.set('oncancel', function(){
-			alertify.success('Eliminacion Cancelada!');
+			alertify.error('Eliminacion Cancelada!');
 		})
     });
 

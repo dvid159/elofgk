@@ -22,12 +22,21 @@ class CriterioController extends Controller
         'nombre_criterio' => $request->get('criterio')
         ));
        $criterio->save();
-	   return redirect('/criterios');
     }
 
     public function destroy ($id)
     {
         Criterio::where('id_criterio',$id)->delete();
-        return redirect('/criterios');
+    }
+
+    public function show($id)
+    {
+        $criterio = Criterio::where('id_criterio',$id)->get();
+        return response()->json($criterio->toArray());
+    }
+
+    public function update ($id, Request $request)
+    {
+        Criterio::where('id_criterio',$id)->update(['nombre_criterio' => $request->get('criterio')]);
     }
 }

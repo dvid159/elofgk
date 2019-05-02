@@ -33,6 +33,20 @@ class SeccionController extends Controller
     public function destroy ($id)
     {
         Seccion::where('id_seccion',$id)->delete();
-        return redirect('/secciones');
+    }
+
+    public function show($id)
+    {
+        $seccion = Seccion::where('id_seccion',$id)->get();
+        return response()->json($seccion->toArray());
+    }
+
+    public function update ($id, Request $request)
+    {
+        Seccion::where('id_seccion',$id)->update([
+            'id_class' => $request->get('class'),
+            'anho' => $request->get('anho'),
+            'descripcion' => $request->get('descripcion')
+        ]);
     }
 }

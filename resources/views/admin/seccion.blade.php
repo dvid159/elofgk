@@ -1,5 +1,9 @@
 @extends('layout.admin')
 
+@section('js')
+<script src="{{ asset('js/seccion.js') }}"></script>
+@endsection
+
 @section('contenido')
 <div class="container">
 
@@ -12,7 +16,7 @@
         <li>
             <div class="collapsible-header"><i class="material-icons">add</i>Agregar Sección</div>
             <div class="collapsible-body asignacion-seccion">
-                <form class="col s12" action="{{ route('secciones.store') }}" method="POST">
+                <form id="addform">
                     @csrf
                     <!--formulario nuevo registro-->
                     <div class="row primer-fila">
@@ -43,7 +47,7 @@
                         </div>
                     </div>
                         <!--Boton agregar-->
-                        <button class="waves-effect waves-light btn add blue-grey lighten-2"><i class="material-icons right">add</i>Agregar</button>
+                        <button class="waves-effect waves-light btn add blue-grey lighten-2" type="submit"><i class="material-icons right">add</i>Agregar</button>
                 </form>
             </div>
         </li>
@@ -53,7 +57,7 @@
     <!--Tabla-->
     <div id="dataTable" >
         <div class="card-panel">
-            <table id="example" class="mdl-data-table striped" style="width:100%">
+            <table id="example" class="mdl-data-table responsive-table striped" style="width:100%">
                 <thead>
                     <tr>
                         <th style="width: 35%;">Class</th>
@@ -69,20 +73,13 @@
                         <td>{{ $item->id_seccion }}</td>
                         <td>{{ $item->anho }}</td>
                         <td>
-                            <div class="row">
-                                <div class="col s6">
-                                    <button class="waves-effect waves-light btn-small blue-grey lighten-2 modal-trigger"data-target="EditModal">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                </div>
-                                <div class=" col s6">
-                                    <form action="{{ route('secciones.destroy', $item->id_seccion) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="waves-effect waves-light btn-small red"><i class="material-icons">delete</i></button>
-                                    </form>
-                                </div>
-                            </div>
+                            <button class="waves-effect waves-light btn-small blue-grey lighten-2 edit"
+                                    data-id="{{ $item->id_seccion }}">
+                                    <i class="material-icons">edit</i></button>
+
+                                <button class="waves-effect waves-light btn-small red delete"
+                                    data-id="{{ $item->id_seccion }}">
+                                    <i class="material-icons">delete</i></button>
                         </td>
                     </tr>
                     @endforeach
@@ -90,5 +87,44 @@
             </table>
         </div>
     </div>
+</div>
+
+<!--Edit-->
+<div id="ModalEdit" class="modal">
+    <form id="editform">
+        @csrf
+        <div class="modal-content">
+            <h5>Modificar</h5>
+            <div class="row">
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">class</i>
+                    <input name="seccion" value="" id="lblSeccion" type="text" class="validate">
+                    <label for="lblSeccion">Seccion</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <select name="class" id="clases">
+                        @foreach ($class as $c)
+                        <option value="{{ $c->id_class }}">{{ $c->id_class }}</option>
+                        @endforeach
+                    </select>
+                    <label class="lbl-select">Class</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">date_range</i>
+                    <input name="anho" id="lblIngreso" type="number" min="2012" max="2100" class="validate">
+                   <label for="lblIngreso">Año</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">insert_comment</i>
+                    <textarea name="descripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
+                    <label for="lblDescripcion">Descripcion</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn waves-effect waves-light blue-grey  lighten-2" type="submit">Guardar<i
+                    class="material-icons right">send</i></button>
+        </div>
+    </form>
 </div>
 @endsection

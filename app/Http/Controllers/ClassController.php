@@ -32,6 +32,20 @@ class ClassController extends Controller
     public function destroy ($id)
     {
         Clase::where('id_class',$id)->delete();
-        return redirect('/clases');
+    }
+
+    public function show($id)
+    {
+        $clase = Clase::where('id_class',$id)->get();
+        return response()->json($clase->toArray());
+    }
+
+    public function update ($id, Request $request)
+    {
+        Clase::where('id_class',$id)->update([
+            'anho_ingreso' => $request->get('ingreso'),
+            'anho_egreso' => $request->get('egreso'),
+            'descripcion' => $request->get('descripcion')
+        ]);
     }
 }

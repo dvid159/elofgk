@@ -25,13 +25,12 @@ class MunicipioController extends Controller
         'municipio' => $request->get('municipio')
        ));
        $municipio->save();
-	   //return redirect('/municipios');
     }
 
     public function show($id)
     {
-        $departamento = Municipio::where('id_municipio',$id)->get();
-        return response()->json($departamento->toArray());
+        $municipio = Municipio::where('id_municipio',$id)->get();
+        return response()->json($municipio->toArray());
     }
 
     public function update ($id, Request $request)
@@ -39,12 +38,10 @@ class MunicipioController extends Controller
         Municipio::where('id_municipio',$id)->update([
             'municipio' => $request->get('municipio'),
             'id_departamento' => $request->get('id_departamento')]);
-        //return redirect('/departamentos');
     }
 
     public function destroy ($id)
     {
         Municipio::where('id_municipio',$id)->delete();
-        //return redirect('/municipios');
     }
 }

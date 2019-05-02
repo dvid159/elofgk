@@ -22,12 +22,21 @@ class MateriaController extends Controller
         'nombre_materia' => $request->get('materia')
         ));
        $materia->save();
-	   return redirect('/materias');
     }
 
     public function destroy ($id)
     {
         Materia::where('id_materia',$id)->delete();
-        return redirect('/materias');
+    }
+
+    public function show($id)
+    {
+        $materia = Materia::where('id_materia',$id)->get();
+        return response()->json($materia->toArray());
+    }
+
+    public function update ($id, Request $request)
+    {
+        Materia::where('id_materia',$id)->update(['nombre_materia' => $request->get('materia')]);
     }
 }

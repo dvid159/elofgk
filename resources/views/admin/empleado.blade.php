@@ -18,6 +18,7 @@
 
              <div class="collapsible-body asignacion-seccion">
                  <form id="addform">
+                     @csrf
                      <div class="row primer-fila">
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">account_circle</i>
@@ -48,7 +49,7 @@
                      <div class="row segunda-fila">
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">date_range</i>
-                             <input id="fecha" name="fecha " type="text" class="datepicker">
+                             <input id="fecha" name="fecha" type="text" class="datepicker">
                              <label for="fecha">Fecha de Nacimiento</label>
                          </div>
 
@@ -97,12 +98,17 @@
                              <label>Municipio</label>
                          </div>
 
+                         <div class="input-field col s12 m8">
+                            <input name="direccion" id="lblDireccion" type="text" class="validate">
+                            <label for="lblDireccion">Direccion</label>
+                        </div>
+
                      </div>
 
                      <div class="row cuarta-fila">
                          <div class="input-field col s12">
-                             <input name="direccion" id="lblDireccion" type="text" class="validate">
-                             <label for="lblDireccion">Direccion</label>
+                             <input name="observaciones" id="lblObservaciones" type="text" class="validate">
+                             <label for="lblObservaciones">Observaciones</label>
                          </div>
                      </div>
                      <!--Boton agregar-->
@@ -128,34 +134,24 @@
                      </tr>
                  </thead>
                  <tbody>
-                     <tr>
-                         <td>FT-JP2021</td>
-                         <td>Docente</td>
-                         <td>Juan Pedro</td>
-                         <td>Perez Perez</td>
-                         <td>0000-0000</td>
-                         <td>
-                             <button class="waves-effect waves-light btn-small blue-grey lighten-2 edit" data-id="id">
-                                 <i class="material-icons">edit</i></button>
+                    @foreach ($data as $item)
+                    <tr>
+                        <td>{{ $item->carnet_empleado }}</td>
+                        <td>{{ $item->cargo }}</td>
+                        <td>{{ $item->nombres }}</td>
+                        <td>{{ $item->apellidos }}</td>
+                        <td>{{ $item->telefono }}</td>
+                        <td>
+                            <button class="waves-effect waves-light btn-small blue-grey lighten-2 edit"
+                                data-id="{{ $item->carnet_empleado }}">
+                                <i class="material-icons">edit</i></button>
 
-                             <button class="waves-effect waves-light btn-small red delete" data-id="id">
-                                 <i class="material-icons">delete</i></button>
-                         </td>
-                     </tr>
-                     <tr>
-                         <td>FT-JP2021</td>
-                         <td>Docente</td>
-                         <td>Juan Pedro</td>
-                         <td>Perez Perez</td>
-                         <td>0000-0000</td>
-                         <td>
-                             <button class="waves-effect waves-light btn-small blue-grey lighten-2 edit" data-id="id">
-                                 <i class="material-icons">edit</i></button>
-
-                             <button class="waves-effect waves-light btn-small red delete" data-id="id">
-                                 <i class="material-icons">delete</i></button>
-                         </td>
-                     </tr>
+                            <button class="waves-effect waves-light btn-small red delete"
+                                data-id="{{ $item->carnet_empleado }}">
+                                <i class="material-icons">delete</i></button>
+                        </td>
+                    </tr>
+                    @endforeach
                  </tbody>
              </table>
          </div>
@@ -244,10 +240,15 @@
                      <label>Municipio</label>
                  </div>
 
-                 <div class="input-field col s12">
-                     <input name="direccion" id="lblDireccion" type="text" class="validate">
-                     <label for="lblDireccion">Direccion</label>
-                 </div>
+                 <div class="input-field col s12 m8">
+                        <input name="direccion" id="lblDireccion" type="text" class="validate">
+                        <label for="lblDireccion">Direccion</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                            <input name="observaciones" id="lblObservaciones" type="text" class="validate">
+                            <label for="lblObservaciones">Observaciones</label>
+                        </div>
              </div>
          </div>
          <div class="modal-footer">

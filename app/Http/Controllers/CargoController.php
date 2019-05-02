@@ -22,12 +22,21 @@ class CargoController extends Controller
         'cargo' => $request->get('cargo')
         ));
        $cargo->save();
-	   return redirect('/cargos');
     }
 
     public function destroy ($id)
     {
         Cargo::where('id_cargo',$id)->delete();
-        return redirect('/cargos');
+    }
+
+    public function show($id)
+    {
+        $cargo = Cargo::where('id_cargo',$id)->get();
+        return response()->json($cargo->toArray());
+    }
+
+    public function update ($id, Request $request)
+    {
+        Cargo::where('id_cargo',$id)->update(['cargo' => $request->get('cargo')]);
     }
 }

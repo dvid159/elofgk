@@ -41,7 +41,7 @@
         <!--Tabla-->
         <div id="dataTable">
             <div class="card-panel">
-                <table id="example" class="mdl-data-table striped" style="width:100%">
+                <table id="example" class="mdl-data-table responsive-table striped" style="width:100%">
                     <thead>
                         <tr>
                             <th style="width: 10%;">N°</th>

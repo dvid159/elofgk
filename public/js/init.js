@@ -7,7 +7,7 @@
         $('.modal').modal();
         $('.datepicker').datepicker({
             container: 'body',
-            format: 'dd-mm-yyyy',
+            format: 'yyyy-mm-dd',
             i18n: {
                 cancel: 'Cancelar',
                 months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto',

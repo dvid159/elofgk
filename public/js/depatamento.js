@@ -94,8 +94,8 @@ $(document).ready(function(){
 
         });
 
-		confirm.set('oncancel', function(){
-			return false;
+        confirm.set('oncancel', function(){
+			alertify.error('Eliminacion Cancelada!');
 		})
     });
 

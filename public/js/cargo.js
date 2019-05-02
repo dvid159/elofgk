@@ -4,12 +4,11 @@ $(document).ready(function(){
         e.preventDefault();
         $.ajax({
             type:"POST",
-            url: "/municipios",
+            url: "/cargos",
             data: $("#addform").serialize(),
             success: function(resonse){
                 console.log(resonse);
-                console.log('Municipio guardado exitosamente!');
-                M.toast({html: 'Municipio guardado exitosamente!', classes: 'rounded', inDuration: 5000});
+                M.toast({html: 'Cargo guardado exitosamente!', classes: 'rounded', inDuration: 5000});
                 location.reload();
             },
             error: function(error){
@@ -25,19 +24,16 @@ $(document).ready(function(){
         console.log(id);
         $.ajax(
         {
-            url:"/municipios/"+id,
+            url:"/cargos/"+id,
             method:'GET',
             dataType:'json',
             success:function(data)
             {
                 console.log(data);
-                console.log(data[0].id_departamento);
-                $('#lblId').val(data[0].id_municipio);
-                $('#departamento').val(data[0].id_departamento);
-                $('#lblMunicipio').val(data[0].municipio);
+                $('#lblId').val(data[0].id_cargo);
+                $('#editform #lblCargo').val(data[0].cargo);
 
                 M.updateTextFields();
-                $('select').formSelect();
                 $('#ModalEdit').modal('open');
             }
         });
@@ -53,12 +49,11 @@ $(document).ready(function(){
 
         $.ajax({
             type:"PUT",
-            url: "/municipios/"+id,
+            url: "/cargos/"+id,
             data: $("#editform").serialize(),
             success: function(resonse){
                 console.log(resonse);
-                console.log('Municipio actualizado exitosamente!');
-                M.toast({html: 'Municipio actualizado exitosamente!', classes: 'rounded', inDuration: 5000});
+                M.toast({html: 'Cargo actualizado exitosamente!', classes: 'rounded', inDuration: 5000});
                 location.reload();
             },
             error: function(error){
@@ -73,32 +68,35 @@ $(document).ready(function(){
         var id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
 
-        var confirm= alertify.confirm('Municipios','Confirmar Eliminacion?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});
+        var confirm= alertify.confirm('Cargos','Confirmar Eliminacion?',null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});
 
 		confirm.set('onok', function(){
             $.ajax(
             {
-                url: "municipios/"+id,
+                url: "/cargos/"+id,
                 type: 'DELETE',
                 data: {
                     "id": id,
                     "_token": token
                 },
                 success: function (resonse){
-                    console.log("Municipio eliminado exitosamente!");
-                    alertify.success('Municipio eliminado exitosamente!');
-                    window.setInterval(location.reload(), 5000)
+                    alertify.success('Cargo eliminado exitosamente!');
+                    window.setInterval(location.reload(), 5000);
+                    location.reload();
                 },
                     error: function(error){
-                    console.log(error);
+                    console.log("ERROR");
                 }
             });
 
         });
 
-		confirm.set('oncancel', function(){
+        confirm.set('oncancel', function(){
 			alertify.error('Eliminacion Cancelada!');
 		})
     });
 
 });
+
+
+

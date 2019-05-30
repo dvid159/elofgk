@@ -19,7 +19,7 @@ $(document).ready(function(){
         });
     });
 
-    //Obtener registro y llenar modal
+    //Obtener registro y llenar modal 
     $(".edit").click(function(){
         var id = $(this).data("id");
         console.log(id);

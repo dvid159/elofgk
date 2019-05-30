@@ -10,3 +10,4 @@ class CentroEducativo extends Model
     public $timestamps = false;
 	protected $fillable = ['codigo_centro_educativo','nombre_centro_educativo','direccion','telefono','id_municipio','descripcion','sector','zona','categoria'];
 }
+ 

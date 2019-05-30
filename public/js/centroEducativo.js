@@ -1,6 +1,32 @@
 $(document).ready(function(){
+
+    
+    function cargarmunicipios(){
+        var municipiosarray = municipios;
+        var datamuni = {};
+
+        for(var i=0; i<municipiosarray.length; i++){
+            datamuni[municipiosarray[i].id_municipio+"-"+municipiosarray[i].municipio]=null;
+        }
+
+        return datamuni;
+    }   
+
+    $('input.autocomplete').autocomplete({
+        data: cargarmunicipios(),
+        limit: 5,
+        onAutocomplete: function(texto){
+            var resultado = texto.split("-");
+            $("#addform #idm").val(resultado[0]);
+        }
+      });
+
+
     //Nuevo registro
     $('#addform').on('submit', function(e){
+        console.log($('#addform #idm').val());
+        var datos = $("#addform").serialize();
+        console.log(datos);
         e.preventDefault();
         $.ajax({
             type:"POST",
@@ -14,10 +40,10 @@ $(document).ready(function(){
             },
             error: function(error){
                 console.log(error);
-                console.log("ERROR");
+                console.log(data);
             }
         });
-    });
+    }); 
 
     //Obtener registro y llenar modal
     $(".edit").click(function(){
@@ -51,7 +77,6 @@ $(document).ready(function(){
             }
         });
     });
-
 
     //Actualizar registro
     $('#editform').on('submit', function(e){

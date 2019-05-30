@@ -6,16 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\CentroEducativo;
 use Illuminate\Support\Facades\Session;
+use JavaScript;
 
 class CentroEducativoController extends Controller
-{
+{ 
+
     public function index()
     {
         $data = DB::table('centro_educativo')->get();
-        $municipio = DB::table('municipio')->get();
+        $municipiosdb = DB::table('municipio')->select('id_municipio','municipio')->get();
 
-        return view('admin.school',compact('data','municipio'));
+        JavaScript::put([
+            'municipios'=>$municipiosdb
+        ]);
+    
+        return view('admin.school',compact('data','municipiosdb'));
     }
+
 
     public function store(Request $request)
     {
@@ -25,7 +32,7 @@ class CentroEducativoController extends Controller
         'nombre_centro_educativo' => $request->get('nombre'),
         'direccion' => $request->get('direccion'),
         'telefono' => $request->get('telefono'),
-        'id_municipio' => $request->get('id_municipio'),
+        'id_municipio' => $request->get('idm'),
         'descripcion' => $request->get('descripcion'),
         'sector' => $request->get('sector'),
         'zona' => $request->get('zona'),

@@ -4,6 +4,8 @@
 <script src="{{ asset('js/centroEducativo.js') }}"></script>
 @endsection
 
+@include ('footer')
+
 @section('contenido')
 <div class="container" style="width: 95%;">
 
@@ -24,16 +26,14 @@
                             <input name="codigo" value="" id="lblCodigo" type="text" class="validate">
                             <label for="lblCodigo">Codigo</label>
                         </div>
+
                         <div class="input-field col s12 m5">
-                            <i class="material-icons prefix">place</i>
-                            <select name="id_municipio">
-                                <option value="" disabled selected>Seleccione Municipio</option>
-                                @foreach ($municipio as $m)
-                                <option value="{{ $m->id_municipio }}">{{ $m->municipio }}</option>
-                                @endforeach
-                            </select>
+                            <i class="material-icons prefix">textsms</i>
+                            <input type="text" name="id_municipio" id="municipio" class="autocomplete">  
                             <label>Municipio</label>
+                            <input type="hidden" id="idm" name="idm">
                         </div>
+
                         <div class="input-field col s12 m3">
                             <i class="material-icons prefix">phone</i>
                             <input name="telefono" id="lblTelefono" type="text" class="validate">
@@ -148,12 +148,12 @@
                     <i class="material-icons prefix">place</i>
                     <select name="id_municipio" id="id_municipio">
                         <option disabled selected>Seleccione Municipio</option>
-                        @foreach ($municipio as $m)
+                        @foreach ($municipiosdb as $m)
                         <option value="{{ $m->id_municipio }}">{{ $m->municipio }}</option>
                         @endforeach
                     </select>
                     <label>Municipio</label>
-                </div>
+                </div> 
 
                 <div class="input-field col s12 m3">
                     <i class="material-icons prefix">phone</i>
@@ -162,50 +162,50 @@
                 </div>
 
                 <div class="input-field col s12 m4">
-                        <i class="material-icons prefix">local_library</i>
-                        <select name="sector" id="sector">
-                            <option value="Público">Público</option>
-                            <option value="Privado">Privado</option>
-                        </select>
-                        <label>Sector</label>
-                    </div>
+                    <i class="material-icons prefix">local_library</i>
+                    <select name="sector" id="sector">
+                        <option value="Público">Público</option>
+                        <option value="Privado">Privado</option>
+                    </select>
+                    <label>Sector</label>
+                </div>
 
-                    <div class="input-field col s12 m4 ">
-                        <i class="material-icons prefix">description</i>
-                        <select name="categoria" id="categoria">
-                            <option value="Centro Escolar">Centro Escolar</option>
-                            <option value="Complejo Educativo">Complejo Educativo</option>
-                            <option value="Instituto Nacional">Instituto Nacional</option>
-                        </select>
-                        <label>Categoria</label>
-                    </div>
+                <div class="input-field col s12 m4 ">
+                    <i class="material-icons prefix">description</i>
+                    <select name="categoria" id="categoria">
+                        <option value="Centro Escolar">Centro Escolar</option>
+                        <option value="Complejo Educativo">Complejo Educativo</option>
+                        <option value="Instituto Nacional">Instituto Nacional</option>
+                    </select>
+                    <label>Categoria</label>
+                </div>
 
-                    <div class="input-field col s12 m4">
-                        <i class="material-icons prefix">pin_drop</i>
-                        <select name="zona" id="zona">
-                            <option value="Urbano">Urbano</option>
-                            <option value="Rural">Rural</option>
-                        </select>
-                        <label>Zona</label>
-                    </div>
+                <div class="input-field col s12 m4">
+                    <i class="material-icons prefix">pin_drop</i>
+                    <select name="zona" id="zona">
+                        <option value="Urbano">Urbano</option>
+                        <option value="Rural">Rural</option>
+                    </select>
+                    <label>Zona</label>
+                </div>
 
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">school</i>
-                        <input id="lblNombre" name="nombre" type="text" class="validate">
-                        <label class="active">Nombre</label>
-                    </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">school</i>
+                    <input id="lblNombre" name="nombre" type="text" class="validate">
+                    <label class="active">Nombre</label>
+                </div>
 
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">home</i>
-                        <input name="direccion" id="lblDireccion" type="text" class="validate">
-                        <label for="lblDireccion">Direccion</label>
-                    </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">home</i>
+                    <input name="direccion" id="lblDireccion" type="text" class="validate">
+                    <label for="lblDireccion">Direccion</label>
+                </div>
 
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">insert_comment</i>
-                        <textarea name="descripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
-                        <label for="lblDescripcion">Descripcion</label>
-                    </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">insert_comment</i>
+                    <textarea name="descripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
+                    <label for="lblDescripcion">Descripcion</label>
+                </div>
 
             </div>
         </div>
@@ -214,5 +214,6 @@
                     class="material-icons right">send</i></button>
         </div>
     </form>
+
 </div>
 @endsection

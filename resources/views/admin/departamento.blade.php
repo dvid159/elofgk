@@ -9,7 +9,7 @@
     <!--encabezado-->
     <header>
         <h5>Departamentos</h5>
-    </header>
+    </header> 
 
     <div class="fondo-cuerpo">
         <form id="addform">

@@ -4,22 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Empleado extends Model
+class Alumno extends Model
 {
-    protected $table = 'empleado';
+    protected $table = 'alumno';
     public $timestamps = false;
-    protected $fillable = [
-        'carnet_empleado',
-        'id_cargo',
-        'dui',
-        'nit',
+	protected $fillable = [
+        'carnet_alumno',
+        'id_class',
         'nombres',
         'apellidos',
         'sexo',
         'fecha_nacimiento',
+        'foto',
         'telefono',
         'direccion',
         'id_municipio',
+        'email',
+        'codigo_centro_educativo',
+        'turno_educativo',
         'estado',
         'observaciones'];
 }

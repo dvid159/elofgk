@@ -8,7 +8,7 @@ use App\Empleado;
 use Illuminate\Support\Facades\Session;
 
 class EmpleadoController extends Controller
-{
+{ 
     public function index()
     {
         $data = DB::select('SELECT e.carnet_empleado, c.cargo, e.nombres, e.apellidos, e.telefono FROM empleado e JOIN cargo c ON (c.id_cargo = e.id_cargo) ORDER BY e.carnet_empleado DESC');
@@ -33,6 +33,7 @@ class EmpleadoController extends Controller
         'telefono' => $request->get('telefono'),
         'direccion' => $request->get('direccion'),
         'id_municipio' => $request->get('municipio'),
+        'estado' => $request->get('estado'),
         'observaciones' => $request->get('observaciones')
         ));
        $empleado->save();

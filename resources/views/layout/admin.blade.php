@@ -10,14 +10,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../img/oportunidades_ico.ico" />
@@ -87,8 +83,7 @@
                 <div class="collapsible-header waves-effect principal-item"><i class="material-icons">school</i>Alumnos</div>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a href="alumno.php" class="waves-effect secundary-item">Nuevo Alumno</a></li>
-                        <li><a href="detalle_alumno.php" class="waves-effect secundary-item">Detalle de Alumno</a></li>
+                        <li><a href="/alumnos" class="waves-effect secundary-item">Listado de Alumnos</a></li>
                     </ul>
                 </div>
             </li>

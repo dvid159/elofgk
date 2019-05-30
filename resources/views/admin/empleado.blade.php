@@ -11,7 +11,7 @@
      <header>
          <h5>Empleados</h5>
      </header>
-
+ 
      <ul class="collapsible">
          <li>
              <div class="collapsible-header"><i class="material-icons">add</i>Agregar Empleado</div>
@@ -106,13 +106,25 @@
                      </div>
 
                      <div class="row cuarta-fila">
+                         <div class="input-field col s12 m4">
+                            <select id="estado" name="estado">
+                                 <option disabled selected>Seleccione Estado</option>
+                                 <option value="1">Activo</option>
+                                 <option value="0">Inactivo</option>
+
+                            </select>
+                            <label>Estado</label>
+                         </div>
+                     </div>
+
+                     <div class="row quinta-fila">
                          <div class="input-field col s12">
                              <input name="observaciones" id="lblObservaciones" type="text" class="validate">
                              <label for="lblObservaciones">Observaciones</label>
                          </div>
                      </div>
                      <!--Boton agregar-->
-                     <button class="waves-effect waves-light btn add blue-grey lighten-2">
+                     <button class="waves-effect waves-light btn add blue-grey lighten-2" type='submit'>
                          <i class="material-icons right">add</i>Agregar</button>
                  </form>
              </div>
@@ -248,7 +260,7 @@
                     <div class="input-field col s12">
                             <input name="observaciones" id="lblObservaciones" type="text" class="validate">
                             <label for="lblObservaciones">Observaciones</label>
-                        </div>
+                    </div>
              </div>
          </div>
          <div class="modal-footer">

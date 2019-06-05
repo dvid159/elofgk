@@ -10,7 +10,7 @@
     <div class="row nuevo-registro">
         <!--Boton agregar-->
         <a href="/nuevo-alumno" class="btn waves-effect waves-light blue-grey lighten-2">
-        Regisrar nuevo alumno<i class="material-icons right">add</i></a>
+        Registrar nuevo alumno<i class="material-icons right">add</i></a>
     </div>
 
     <div class="card-panel" style="border-radius: 7px;">

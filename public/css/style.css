@@ -107,7 +107,13 @@ main{
 }
 
 th{
-    font-size: 16px;
+    font-size: 14px;
+    padding-bottom: 0px;
+}
+
+tr{
+    font-size: 13px;
+    padding-bottom: 0px;
 }
 
   /* icon prefix focus color */

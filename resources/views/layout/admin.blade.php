@@ -84,6 +84,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="/alumnos" class="waves-effect secundary-item">Listado de Alumnos</a></li>
+                        <li><a href="/record_alumno" class="waves-effect secundary-item">Record de Alumno</a></li>
                     </ul>
                 </div>
             </li>

@@ -24,5 +24,5 @@
         $('select').formSelect();
         $('.dropdown-trigger').dropdown();
         $('.modal').modal();
-        
+        $('.tabs').tabs();
     });

@@ -29,7 +29,7 @@ Route::get('nuevo-alumno','AlumnoController@create');
 Route::resource('alumnos', 'AlumnoController');
 Route::resource('alumnos', 'AlumnoController');
 Route::resource('asignacion-docentes', 'GrupoMateriaController');
-
+Route::resource('record_alumno', 'recordController');
 
 
  

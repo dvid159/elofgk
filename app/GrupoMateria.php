@@ -10,3 +10,4 @@ class GrupoMateria extends Model
     public $timestamps = false;
 	protected $fillable = ['id_grupo_materia','id_seccion','id_materia','carnet_empleado','anho','descripcion'];
 }
+  

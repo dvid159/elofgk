@@ -17,67 +17,69 @@
         <li>
             <div class="collapsible-header"><i class="material-icons">add</i>Realizar Asignación</div>
             <div class="collapsible-body asignacion-seccion">
-            <form id="addform">
-                <!--formulario nuevo registro-->
-                <div class="row primer-fila">
+                <form id="addform">
+                    @csrf
+                    <!--formulario nuevo registro-->
+                    <div class="row primer-fila">
 
-                    <!--seccion-->
-                    <div class="input-field col s12 m3">
-                        <select name="seccion" id="seccion">
-                            <option value="" disabled selected>Seleccionar</option>
-                            @foreach ($seccionesdb as $sec)
-                            <option value="{{ $sec->id_seccion}}">{{ $sec->id_seccion}}</option>
-                            @endforeach
-                        </select>
-                        <label class="lbl-select">Sección</label>
+                        <!--seccion-->
+                        <div class="input-field col s12 m3">
+                            <select name="seccion" id="seccion">
+                                <option value="" disabled selected>Seleccionar</option>
+                                @foreach ($seccionesdb as $sec)
+                                <option value="{{ $sec->id_seccion}}">{{ $sec->id_seccion}}</option>
+                                @endforeach
+                            </select>
+                            <label class="lbl-select">Sección</label>
+                        </div>
+
+                        <!--Materia-->
+                        <div class="input-field col s12 m3">
+                            <select name="materia" id="materia">
+                                <option value="" disabled selected>Elegir materia</option>
+                                @foreach($materiasdb as $mat)
+                                <option value="{{ $mat->id_materia }}">{{$mat->nombre_materia}}</option>
+                                @endforeach
+                            </select>
+                            <label class="lbl-select">Materia</label>
+                            <input type="hidden" id="idmat" name="idmat">
+                        </div>
+
+                        <!--docente-->
+                        <div class="input-field col s12 m6">
+                            <select name="docente" id="docente">
+                                <option value="" disabled selected>Elegir Docente</option>
+                                @foreach($docentesdb as $doc)
+                                <option value="{{ $doc->carnet_empleado }}">{{$doc->nombres}} {{$doc->apellidos}}
+                                </option>
+                                @endforeach
+                            </select>
+                            <label class="lbl-select">Docente</label>
+                        </div>
+
+                    </div>
+                    <div class="row segunda-fila">
+
+                        <!--año-->
+                        <div class="input-field col s12 m3">
+                            <i class="material-icons prefix">date_range</i>
+                            <input name="anio" id="lblEgreso" type="number" min="2012" max="2100" class="validate">
+                            <label for="lblanio">Año</label>
+                        </div>
+
+                        <!--descripcion-->
+                        <div class="input-field col s12 m9">
+                            <textarea id="textarea1"  name="descripcion" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Descripción</label>
+                        </div>
+
                     </div>
 
-                    <!--Materia-->
-                    <div class="input-field col s12 m3">
-                        <select name="materia" id="materia">
-                            <option value="" disabled selected>Elegir materia</option>
-                            @foreach($materiasdb as $mat)
-                            <option value="{{ $mat->id_materia }}">{{$mat->nombre_materia}}</option>
-                            @endforeach
+                    <!--Boton agregar-->
+                    <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit">Agregar<i
+                            class="material-icons right">add</i></button>
 
-                        </select>
-                        <label class="lbl-select">Materia</label>
-                    </div>
-
-                    <!--docente-->
-                    <div class="input-field col s12 m6">
-                        <select name="docente" id="docente">
-                            <option value="" disabled selected>Elegir Docente</option>
-                            @foreach($docentesdb as $doc)
-                            <option value="{{ $doc->carnet_empleado }}">{{$doc->nombres}} {{$doc->apellidos}}</option>
-                            @endforeach
-                        </select>
-                        <label class="lbl-select">Docente</label>
-                    </div>
-
-                </div>
-                <div class="row segunda-fila">
-
-                    <!--año-->
-                    <div class="input-field col s12 m3">
-                        <i class="material-icons prefix">date_range</i>
-                        <input name="anio" id="lblEgreso" type="number" min="2012" max="2100" class="validate">
-                        <label for="lblanio">Año</label>
-                    </div>
-
-                    <!--descripcion-->
-                    <div class="input-field col s12 m9">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Descripción</label>
-                    </div>
-
-                </div>
-
-                <!--Boton agregar-->
-                <a class="waves-effect waves-light btn-small modal-trigger blue-grey lighten-2"
-                    href="#AddDepartamento"><i class="material-icons right">add</i>Registrar</a>
-
-            </form>
+                </form>
             </div>
         </li>
     </ul>
@@ -96,56 +98,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>A1</td>
-                        <td>Matemática</td>
-                        <td>David Fuentes</td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small blue-grey lighten-2 modal-trigger"
+                        @foreach
+                            <td>A1</td>
+                            <td>Matemática</td>
+                            <td>David Fuentes</td>
+                            <td>
+                                <a class="waves-effect waves-light btn-small blue-grey lighten-2 modal-trigger"
                                 href="edits/editDepartameto.php?id=1" data-target="EditDepartamento" data-id="1">
                                 <i class="material-icons">edit</i></a>
-
-                            <a class="waves-effect waves-light btn-small red">
-                                <i class="material-icons">delete</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>A1</td>
-                        <td>Matemática</td>
-                        <td>David Fuentes</td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small blue-grey lighten-2 modal-trigger"
-                                href="edits/editDepartameto.php?id=1" data-target="EditDepartamento" data-id="1">
-                                <i class="material-icons">edit</i></a>
-
-                            <a class="waves-effect waves-light btn-small red">
-                                <i class="material-icons">delete</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>A1</td>
-                        <td>Matemática</td>
-                        <td>David Fuentes</td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small blue-grey lighten-2 modal-trigger"
-                                href="edits/editDepartameto.php?id=1" data-target="EditDepartamento" data-id="1">
-                                <i class="material-icons">edit</i></a>
-
-                            <a class="waves-effect waves-light btn-small red">
-                                <i class="material-icons">delete</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>A1</td>
-                        <td>Matemática</td>
-                        <td>David Fuentes</td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small blue-grey lighten-2 modal-trigger"
-                                href="edits/editDepartameto.php?id=1" data-target="EditDepartamento" data-id="1">
-                                <i class="material-icons">edit</i></a>
-
-                            <a class="waves-effect waves-light btn-small red">
-                                <i class="material-icons">delete</i></a>
-                        </td>
+                            </td>
+                        @endforeach
                     </tr>
                 </tbody>
             </table>

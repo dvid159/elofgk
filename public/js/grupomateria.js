@@ -2,6 +2,12 @@ $(document).ready(function(){
    
     //Nuevo registro
     $('#addform').on('submit', function(e){
+        
+        var textmateria = $('select[name="materia"] option:selected').text();
+        textmateria = textmateria.slice(0,3);
+        textmateria = textmateria.toUpperCase();
+        $("#idmat").val(textmateria);
+
         e.preventDefault();
         $.ajax({
             type:"POST",
@@ -16,10 +22,10 @@ $(document).ready(function(){
                 var datos = $("#addform").serialize();
                 console.log(datos);
                 console.log(error);
-                console.log("ERROR");
+
             }
         });
-
     });
 
 })
+ 

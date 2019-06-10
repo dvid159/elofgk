@@ -161,9 +161,39 @@
                     class="material-icons right">add</i></button>
 
         </div>
-
     </form>
 
 
+
+    <header>
+        <h5>Responsables de Alumno</h5>
+    </header>
+    <!--Tabla responsables-->
+    <div class="card-panel" style="border-radius: 7px;">
+
+        <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modal1">
+        <i class="material-icons">add</i> Agregar Responsable</button>
+
+        <table class="highlight responsive-table" style="font-size: 10px">
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Parentesco</th>
+                    <th>Ocupacion</th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
 </div>
+
 @endsection

@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-<div class="container">
+<div class="container" style = "width: 98%;">
     <!--encabezado-->
     <header>
         <h5>Record de Alumnos</h5>
@@ -123,7 +123,7 @@
                                 </tr>
                                 <tr>
                                     <td>2019-SA-FT-002</td>
-                                    <td>Nombre1 Nombre2 Apellido1 Apellido2</td>
+                                    <td>Nombre1 Apellido1 </td>
                                     <!-- <td>Segundo año</td> -->
                                     <td style="text-align:center;">0.0</td>
                                     <td style="text-align:center;">0.0</td>
@@ -153,26 +153,26 @@
                                     <td>2019-SA-FT-004</td>
                                     <td>Nombre1 Nombre2 Apellido1 Apellido2</td>
                                     <!-- <td>Segundo año</td> -->
+                                    <td style="text-align:center;">10.0</td>
+                                    <td style="text-align:center;">5.50</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
                                     <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
-                                    <td style="text-align:center;">0.0</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
+                                    <td style="text-align:center;">0.00</td>
                                     <td><button class="waves-effect waves-light btn-small blue-grey lighten-2 edit">
                                             <i class="material-icons">edit</i></button></td>
                                 </tr>

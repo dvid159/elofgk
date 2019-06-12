@@ -74,7 +74,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="/asignacion-docentes" class="waves-effect secundary-item">Asignación Secciones-Docentes</a></li>
-                        <li><a href="alumnos-secciones.php" class="waves-effect secundary-item">Asignación Secciones-Alumnos</a></li>
+                        <li><a href="/asignacion-alumnos" class="waves-effect secundary-item">Asignación Secciones-Alumnos</a></li>
                         <li><a href="#" class="waves-effect">Asignación de Evaluaciones Apt.</a></li>
                     </ul>
                 </div>

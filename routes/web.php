@@ -30,6 +30,7 @@ Route::resource('alumnos', 'AlumnoController');
 Route::resource('alumnos', 'AlumnoController');
 Route::resource('asignacion-docentes', 'GrupoMateriaController');
 Route::resource('record_alumno', 'recordController');
+Route::resource('asignacion-alumnos','AlumnoSeccionController');
 
 
  

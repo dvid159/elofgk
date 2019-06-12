@@ -16,7 +16,11 @@ class GrupoMateriaController extends Controller
         $seccionesdb = DB::table('seccion')->get();
         $docentesdb = DB::table('empleado')->where('id_cargo', '2')->get();
         $anio = date("Y");
-        $gruposdb = DB::table('grupo_materia')->where('anho', $anio)->get();
+        $gruposdb = DB::table('grupo_materia')
+        ->join('materia','grupo_materia.id_materia','=','materia.id_materia')
+        ->join('empleado','grupo_materia.carnet_empleado','=','empleado.carnet_empleado')
+        ->select('grupo_materia.id_grupo_materia','materia.nombre_materia','grupo_materia.id_seccion', 'empleado.nombres', 'empleado.apellidos')
+        ->where('anho', $anio)->get();
         
         return view('admin.asignacion-docentes',compact('materiasdb','seccionesdb','docentesdb','gruposdb'));
 

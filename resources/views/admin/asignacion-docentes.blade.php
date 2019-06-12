@@ -97,18 +97,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($gruposdb as $grupo)
                     <tr>
-                        @foreach
-                            <td>A1</td>
-                            <td>Matemática</td>
-                            <td>David Fuentes</td>
+                            <td>{{ $grupo->id_seccion }}</td>
+                            <td>{{ $grupo->nombre_materia }}</td>
+                            <td>{{ $grupo->nombres }} {{ $grupo->apellidos }}</td>
                             <td>
                                 <a class="waves-effect waves-light btn-small blue-grey lighten-2 modal-trigger"
                                 href="edits/editDepartameto.php?id=1" data-target="EditDepartamento" data-id="1">
                                 <i class="material-icons">edit</i></a>
                             </td>
-                        @endforeach
                     </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

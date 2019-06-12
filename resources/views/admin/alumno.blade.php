@@ -164,15 +164,16 @@
     </form>
 
 
-
+    <!--Tabla responsables-->
     <header>
         <h5>Responsables de Alumno</h5>
     </header>
-    <!--Tabla responsables-->
+
     <div class="card-panel" style="border-radius: 7px;">
 
-        <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modal1">
-        <i class="material-icons">add</i> Agregar Responsable</button>
+        <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modalrespon" style="margin-bottom: 20px;">
+            <i class="material-icons">add</i> Agregar Responsable
+        </button>
 
         <table class="highlight responsive-table" style="font-size: 10px">
             <thead>
@@ -191,6 +192,110 @@
                 </tr>
             </tbody>
         </table>
+
+    </div>
+
+
+
+    <!-- modal registro de nuevos responsables -->
+
+    <div id="modalrespon" class="modal">
+        <div class="modal-content">
+            <h5>Responsable</h5>
+            <div class="dataTable" class="responsive-table">
+                <form class="col s12">
+
+                    <div class="row">
+                        <div class="input-field col s12 m4">
+                            <i class="material-icons prefix">account_box</i>
+                            <input id="DUI" type="text">
+                            <label for="DUI">DUI</label>
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <i class="material-icons prefix">person</i>
+                            <input id="first_name_r" type="text">
+                            <label for="first_name_r">Nombres</label>
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <i class="material-icons prefix">person</i>
+                            <input id="last_name_r" type="text">
+                            <label for="last_name_r">Apellidos</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m4">
+                            <i class="material-icons prefix">local_phone</i>
+                            <input id="phone_r" type="text" class="validate">
+                            <label for="phone_r">Telefono</label>
+                        </div>
+                        <div class="input-field col s12 m8">
+                            <i class="material-icons prefix">home</i>
+                            <input id="direction_r" type="text" class="validate">
+                            <label for="diretion_r">Direccion</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">accessibility</i>
+                            <select id="tipo_r">
+                                <option value="" disabled selected>Tipo</option>
+                                <option value="1">Familiar</option>
+                                <option value="2">Tutor</option>
+                                <option value="3">Otro</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">build</i>
+                            <select id="tipo_r">
+                                <option value="" disabled selected>Ocupacion
+                                </option>
+                                <option value="1">Carpintero</option>
+                                <option value="2">Vendedor</option>
+                                <option value="3">Ingeniero</option>
+                                <option value="4">Empresario</option>
+                                <option value="5">Abogado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <ul class="collapsible">
+                            <li>
+
+                                <div class="collapsible-header"><i class="large material-icons">add_box</i>
+                                    Agregar Ocupación
+                                </div>
+                                <div class="collapsible-body">
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s7">
+                                                <input id="add_ocupacion" type="text" class="validate">
+                                                <label for="add_ocupacion">Ocupacion</label>
+                                            </div>
+                                            <div class="input-field col s5">
+                                                <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit"
+                                                    name="action">Guardar
+                                                    <i class="material-icons right">send</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit" name="action">Guardar
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </div>
 

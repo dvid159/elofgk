@@ -15,12 +15,26 @@
 
     <!--formulario nuevo registro-->
     <div class="row primer-fila" id="filtro-alumno-secciones">
+
         <!--Class-->
-        <div class="input-field col s12 m4">
-            <select>
-                <option value="">Elegir CLASS</option>
-            </select>
-        </div>
+        <form id="filtro">
+            @csrf
+            <div class="input-field col s12 m4">
+                <select>
+                    <option value="">Elegir CLASS</option>
+                    @foreach ($clases as $clas)
+                    <option value="{{ $clas->id_class}}">{{ $clas->id_class}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col s12 m3" style="margin-top: 15px;">
+                <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit" name="action">
+                    <i class="material-icons left">send</i>Cargar
+                </button>
+            </div>
+        </form>
+
     </div>
 
     <!--Tabla-->

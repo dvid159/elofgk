@@ -12,7 +12,19 @@ class AlumnoSeccionController extends Controller
      
     public function index()
     {
-        return view('admin.asignacion-alumnos');
+        $anio = date("Y");
+
+        $clases = DB::table('class')
+        ->where("anho_egreso",">=",$anio)
+        ->get();
+
+        return view('admin.asignacion-alumnos',compact('clases'));
+    }
+
+    public function cargarSecciones()
+    {
+        
+        
     }
 
 

@@ -171,7 +171,8 @@
 
     <div class="card-panel" style="border-radius: 7px;">
 
-        <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modalrespon" style="margin-bottom: 20px;">
+        <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modalrespon"
+            style="margin-bottom: 20px;">
             <i class="material-icons">add</i> Agregar Responsable
         </button>
 
@@ -195,6 +196,28 @@
 
     </div>
 
+    <!--Tabla responsables-->
+    <header>
+        <h5>Centros Escolares</h5>
+    </header>
+
+    <div class="card-panel" style="border-radius: 7px;">
+    
+        <table class="highlight responsive-table" style="font-size: 10px">
+            <thead>
+                <tr>
+                    <th>Centro Escolar</th>
+                    <th>Grado Academico</th>
+                    <th>Año</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 
 
     <!-- modal registro de nuevos responsables -->
@@ -275,8 +298,8 @@
                                                 <label for="add_ocupacion">Ocupacion</label>
                                             </div>
                                             <div class="input-field col s5">
-                                                <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit"
-                                                    name="action">Guardar
+                                                <button class="btn waves-effect waves-light blue-grey lighten-2"
+                                                    type="submit" name="action">Guardar
                                                     <i class="material-icons right">send</i>
                                                 </button>
                                             </div>
@@ -289,7 +312,8 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit" name="action">Guardar
+                        <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit"
+                            name="action">Guardar
                             <i class="material-icons right">send</i>
                         </button>
                     </div>

@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
     </script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -24,7 +23,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="{{ asset('js/AlertifyJS/css/alertify.min.css') }}" />
-	<link rel="stylesheet" href="{{ asset('js/AlertifyJS/css/themes/semantic.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('js/AlertifyJS/css/themes/semantic.min.css') }}" />
     <script src="{{ asset('js/AlertifyJS/alertify.min.js') }}"></script>
 
     @yield('js')
@@ -35,6 +34,7 @@
 <body>
     <!--MENU-->
     <ul id="slide-out" class="sidenav sidenav-fixed z-depth-3">
+   
         <li>
             <div class="user-view encabezado-aside">
                 <div>
@@ -84,7 +84,23 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="/alumnos" class="waves-effect secundary-item">Listado de Alumnos</a></li>
-                        <li><a href="/record_alumno" class="waves-effect secundary-item">Record de Alumno</a></li>
+                                                
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header waves-effect secundary-item"><i class="material-icons">assessment</i>Record de Alumno</div>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="/record_escolar" class="sidenav-close waves-effect secundary-item">Promedios Centro Escolar</a></li>
+                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Materias Oportunidades</a></li>
+                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Aptitudinales</a></li>
+                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Consolidados</a></li>
+                                    </ul>
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    
                     </ul>
                 </div>
             </li>

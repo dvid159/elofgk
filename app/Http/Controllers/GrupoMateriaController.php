@@ -14,7 +14,7 @@ class GrupoMateriaController extends Controller
     {
         $materiasdb = DB::table('materia')->get();
         $seccionesdb = DB::table('seccion')->get();
-        $docentesdb = DB::table('empleado')->where('id_cargo', '2')->get();
+        $docentesdb = DB::table('empleado')->where('id_cargo', '1')->get();
         $anio = date("Y");
         $gruposdb = DB::table('grupo_materia')
         ->join('materia','grupo_materia.id_materia','=','materia.id_materia')

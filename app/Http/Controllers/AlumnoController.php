@@ -11,10 +11,10 @@ use JavaScript;
 
 class AlumnoController extends Controller
 {
-    
     public function index()
     {
-        return view('admin.listado-alumnos');
+        $data = DB::select('SELECT * FROM alumno WHERE estado = 0 ORDER BY id_class DESC');
+        return view('admin.listado-alumnos', compact('data'));
     }
 
     public function create()
@@ -22,6 +22,8 @@ class AlumnoController extends Controller
         $muni = DB::table('municipio')->get();
         $ce = DB::table('centro_educativo')->get();
         $class = DB::table('class')->get();
+
+
 
         JavaScript::put([
             'municipios'=>$muni,
@@ -32,7 +34,7 @@ class AlumnoController extends Controller
     }
 
     public function store(Request $request){
-        
+
         //2019-SA-FT-001
         $anio = $request->get('clase');
         $anio2 = explode('-',$anio);
@@ -48,7 +50,6 @@ class AlumnoController extends Controller
        }
 
        $nuevoAlumno = new Alumno(array(
-
             'carnet_alumno'=>$carnet,
             'nombres'=>$request->get('nombres'),
             'apellidos'=>$request->get('apellidos'),
@@ -62,17 +63,9 @@ class AlumnoController extends Controller
             'turno_educativo'=>$request->get('turno'),
             'estado'=>$request->get('estado'),
             'id_class'=>$request->get('clase')
-
        ));
 
        $nuevoAlumno->save();
-        
+
     }
-
-
-
-
- 
-
-
 }

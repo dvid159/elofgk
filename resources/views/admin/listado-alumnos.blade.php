@@ -28,28 +28,30 @@
             </thead>
 
             <tbody>
+                @foreach ($data as $item)
                 <tr>
-                    <td>0000000000</td>
-                    <td>Nombre1 Nombre2</td>
-                    <td>Apellido1 Apellido2</td>
-                    <td>----</td>
-                    <td>Tarde</td>
-                    <td>----</td>
-                </tr>
+                    <td>{{ $item->carnet_alumno }}</td>
+                    <td>{{ $item->nombres }}</td>
+                    <td>{{ $item->apellidos }}</td>
+                    <td>{{ $item->id_class }}</td>
 
-                <tr>
-                    <td>11111111-1</td>
-                    <td>Nombre1 Nombre2</td>
-                    <td>Apellido1 Apellido2</td>
-                    <td>----</td>
-                    <td>Mañana</td>
-                    <td>----</td>
+                    @if ($item->turno_educativo==0)
+                        <td>Matutino</td>
+                    @else
+                        <td>Vespertino</td>
+                    @endif
+
+                    @if ($item->estado==0)
+                        <td>Activo</td>
+                    @else
+                        <td>Inactivo</td>
+                    @endif
                 </tr>
-            </tbody>
+                @endforeach
+             </tbody>
 
         </table>
     </div>
-
 </div>
 
 @endsection

@@ -9,7 +9,7 @@ $(document).ready(function(){
         }
         console.log(datamuni);
         return datamuni;
-    }  
+    }
 
     $('#autocompleteMunicipio').autocomplete({
         data: cargarmunicipios(),
@@ -29,7 +29,7 @@ $(document).ready(function(){
         }
         console.log(datace);
         return datace;
-    } 
+    }
 
     $('#autocompleteCE').autocomplete({
         data: cargarCentroEscolar(),
@@ -58,8 +58,4 @@ $(document).ready(function(){
             }
         });
     });
-
-
-
-
 });

@@ -19,10 +19,9 @@ class Alumno extends Model
         'telefono',
         'direccion',
         'id_municipio',
-        'email',
+        'email', 'contrasenha',
         'codigo_centro_educativo',
         'turno_educativo',
-        'estado',
-        'observaciones'];
+        'estado', 'observaciones'
+    ];
 }
- 

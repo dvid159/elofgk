@@ -267,14 +267,11 @@
                         </div>
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">build</i>
-                            <select id="tipo_r">
-                                <option value="" disabled selected>Ocupacion
-                                </option>
-                                <option value="1">Carpintero</option>
-                                <option value="2">Vendedor</option>
-                                <option value="3">Ingeniero</option>
-                                <option value="4">Empresario</option>
-                                <option value="5">Abogado</option>
+                            <select name="ocupacion" id="ocupacion">
+                                <option value="" disabled selected>Seleccionar</option>
+                                @foreach ($ocupacion as $ocu)
+                                <option value="{{ $ocu->id_ocupacion}}">{{ $ocu->ocupacion }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

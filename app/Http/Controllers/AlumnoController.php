@@ -22,15 +22,14 @@ class AlumnoController extends Controller
         $muni = DB::table('municipio')->get();
         $ce = DB::table('centro_educativo')->get();
         $class = DB::table('class')->get();
-
-
+        $ocupacion = DB::table('ocupacion')->get();
 
         JavaScript::put([
             'municipios'=>$muni,
             'schools'=>$ce,
         ]);
 
-        return view('admin.alumno',compact('class'));
+        return view('admin.alumno',compact('class','ocupacion'));
     }
 
     public function store(Request $request){
@@ -67,5 +66,27 @@ class AlumnoController extends Controller
 
        $nuevoAlumno->save();
 
+    }
+
+    public function edit($id)
+    {
+        $muni = DB::table('municipio')->get();
+        $ce = DB::table('centro_educativo')->get();
+        $class = DB::table('class')->get();
+        $ocupacion = DB::table('ocupacion')->get();
+        $alumno = $id;
+
+        JavaScript::put([
+            'municipios'=>$muni,
+            'schools'=>$ce,
+        ]);
+
+        return view('admin.alumnodetalle',compact('class','ocupacion','alumno'));
+    }
+
+    public function show($id)
+    {
+        $alumno = Alumno::where('carnet_alumno',$id)->get();
+        return response()->json($alumno->toArray());
     }
 }

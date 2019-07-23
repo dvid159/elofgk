@@ -50,18 +50,17 @@
                         <div class="input-field col s12 m6" name="sexo" id="div-genero">
                             <p> <label>Sexo</label>
                                 <label>
-                                    <input name="sexo" id="sexo" value="f" type="radio" />
+                                    <input name="sexo" id="sexo" value="F" type="radio" />
                                     <span>F</span>
                                 </label>
                                 <label>
-                                    <input name="sexo" id="sexo" value="m" type="radio" />
+                                    <input name="sexo" id="sexo" value="M" type="radio" />
                                     <span>M</span>
                                 </label>
                             </p>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="row">
@@ -157,12 +156,10 @@
 
             </div>
 
-            <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit">Agregar<i
-                    class="material-icons right">add</i></button>
+            <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit">Agregar<i class="material-icons right">add</i></button>
 
         </div>
     </form>
-
 
     <!--Tabla responsables-->
     <header>
@@ -171,8 +168,7 @@
 
     <div class="card-panel" style="border-radius: 7px;">
 
-        <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modalrespon"
-            style="margin-bottom: 20px;">
+        <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modalrespon" style="margin-bottom: 20px;">
             <i class="material-icons">add</i> Agregar Responsable
         </button>
 
@@ -202,7 +198,7 @@
     </header>
 
     <div class="card-panel" style="border-radius: 7px;">
-    
+
         <table class="highlight responsive-table" style="font-size: 10px">
             <thead>
                 <tr>
@@ -298,8 +294,7 @@
                                                 <label for="add_ocupacion">Ocupacion</label>
                                             </div>
                                             <div class="input-field col s5">
-                                                <button class="btn waves-effect waves-light blue-grey lighten-2"
-                                                    type="submit" name="action">Guardar
+                                                <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit" name="action">Guardar
                                                     <i class="material-icons right">send</i>
                                                 </button>
                                             </div>
@@ -312,8 +307,7 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit"
-                            name="action">Guardar
+                        <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit" name="action">Guardar
                             <i class="material-icons right">send</i>
                         </button>
                     </div>

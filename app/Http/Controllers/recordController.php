@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\record;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Auth\Access\Response;
+
 
 class recordController extends Controller
 {

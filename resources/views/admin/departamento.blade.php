@@ -17,7 +17,7 @@
             <div class="row nuevo-registro">
 
                 <div class="input-field nuevo col s12 m4">
-                    <input id="nuevo-input" type="text" name="departamento">
+                    <input id="nuevo-input" type="text" name="departamento" autocomplete="off">
                     <label for="nuevo" class="blue-grey-text text-lighten-2 lbl-input-nuevo">Departamento</label>
                 </div>
 

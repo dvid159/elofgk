@@ -11,7 +11,7 @@
         <h5>Record de Alumnos</h5>
     </header>
     <div class="fondo-cuerpo">
-
+        @csrf
         <div class="card transparent">
             <div class="card-content  lighten-4">
 
@@ -33,8 +33,11 @@
                             @endforeach                           
                         </select>                        
                     </div>
-                    <div style="float:left; width:25%; margin:10px;">
+                    <div class="input-field col s6" style="float:left; width:25%; margin:10px;">
+                        
+                        <i class="material-icons prefix">search</i>
                         <input placeholder="Nombre de Alumno" id="nombre_record" type="text" class="validate" />
+                        
                     </div>
                     <div style="float:right; width:40%; margin:5px;">
                         <button class="btn waves-effect waves-light  blue-grey lighten-2 edit" style="margin:5px;">Agregar Calificaciones
@@ -56,7 +59,7 @@
                         <tbody>
                         @foreach ($alumnos as $item)
                             <tr>
-                                <td><a class="resume" href="#">{{$item->carnet_alumno}}</a> </td>
+                                <td><a  href="#" data-id="{{ $item->carnet_alumno }}" class="resume">{{$item->carnet_alumno}}</a> </td>
                                 <td>{{$item->nombres}} {{$item->apellidos}}</td>
                                 <!-- <td>Segundo año</td> -->
                                 <td style="text-align:center;">-</td>
@@ -87,13 +90,15 @@
                             @endforeach                           
                         </select>                        
                     </div>
-                    <div style="float:left; width:25%; margin:10px;">
+                    <div class="input-field col s6" style="float:left; width:25%; margin:10px;">
 
+                    <i class="material-icons prefix">search</i>
                         <input placeholder="Nombre de Alumno" id="nombre_record" type="text" class="validate" />
                     </div>
                     <div style="float:right; width:40%; margin:5px;">
                         <button class="btn waves-effect waves-light  blue-grey lighten-2 edit" style="margin:5px;">Agregar Calificaciones
                             <i class="material-icons right">add</i></button>
+                            
                     </div>
 
                     <table id=dataTable class="bordered">
@@ -169,8 +174,9 @@
                             @endforeach                           
                         </select>                        
                     </div>
-                    <div style="float:left; width:25%; margin:10px;">
+                    <div class="input-field col s6" style="float:left; width:25%; margin:10px;">
 
+                    <i class="material-icons prefix">search</i>
                         <input placeholder="Nombre de Alumno" id="nombre_record" type="text" class="validate" />
                     </div>
                     <div style="float:right; width:40%; margin:5px;">
@@ -257,7 +263,7 @@
                 <div class="input-field col s12" style="width: 35%;">
 
                     <i class="material-icons prefix">art_track</i>
-                    <input id="lblCarnet" type="text" class="" name="carnet" maxlength="14" required autocomplete="off">
+                    <input id="lblCarnet" type="text" class="lblarnetc" name="carnet" maxlength="14" required autocomplete="off" onkeypress="return showName(event)"  > 
                     <label class="active">Carnet</label>
                 </div>
                 <div class="input-field col s12 m4" style="width:20%;">
@@ -273,12 +279,12 @@
             <div class="row">
                 <div class="input-field col s12" style="width:50%">
                     <i class="material-icons prefix">person</i>
-                    <input id="lblNombre" type="text" class="validate" name="nombre" required  autocomplete="off">
-                    <label class="">Nombre</label>
+                    <input id="lblNombre" type="text" class="validate" name="nombre" required  autocomplete="off" disabled>
+                    <!-- <label class="">Nombre</label> -->
                 </div>
 
                 <div class="input-field col s12 m4" style="width:25%;">
-                    <select>
+                    <select name="periodo">
                         <option value="" disabled selected>Periodo</option>
                         <option value="1">Periodo 1</option>
                         <option value="2">Periodo 2</option>
@@ -288,7 +294,7 @@
                 </div>
                 <div class="input-field col s12 m4" style="width:25%;">
                     
-                    <select>
+                    <select name="grado">
                         <option value="" disabled selected>Año Escolar</option>
                         <option value="1">NOVENO</option>
                         <option value="2">PRIMER AÑO</option>
@@ -299,23 +305,23 @@
             </div>
             <div class="row">
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
-                <label for="">MATEMATICA</label>
-                <input id="mat_nota" type="number" min="0" max="10" step=".01" require title="Necesita ser un numero" style="width: 60px; text-align:center;"  autocomplete="off">
+                <label for="" id="mat1" name="mat1" value="2">MATEMATICA</label>
+                <input id="mat_nota" name="mat_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
-                <label for="">CIENCIAS</label>
-                <input id="cien_nota"type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
+                <label for="" name="mat2" value="7">CIENCIAS</label>
+                <input id="cien_nota" name="cien_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
-                <label for="">SOCIALES</label>
-                <input id="soc_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
+                <label for="" name="mat3" value="8">SOCIALES</label>
+                <input id="soc_nota" name="soc_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
-                <label for="">LENGUAJE</label>
-                <input id="leng_nota"type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
+                <label for="" name="mat4" value="6">LENGUAJE</label>
+                <input id="leng_nota" name="leng_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
 
@@ -324,8 +330,9 @@
                 <button class="btn waves-effect waves-light blue-grey  lighten-2" type="submit">Guardar<i class="material-icons right">send</i></button>               
             
             
-            <button class="btn waves-effect waves-light blue-grey  lighten-2 exitAdd">Exit<i class="material-icons right">exit_to_app</i></button>
+            
             </div>
+            <button id="boton-exit" class="btn waves-effect waves-light blue-grey  lighten-2 exitAdd">Exit<i class="material-icons right">exit_to_app</i></button>
         </div>        
     </form>
     
@@ -338,13 +345,30 @@
         @csrf
         <div class="modal-content">
             <h5>Promedios de Periodo</h5>
+
+            <div class="row">
+
+        <table class="data" class="bordered">
+            <tr>
+            <th data-field="carnet"style="width:20%;">CARNET:</th>
+            <td >2019-SA-FT-004</td>
+                                         
+            </tr>
+            <tr>
+            <th data-field="nombre" style="width:20%;">NOMBRE:</th>
+            <td>Nombre1 Nombre2 Apellido1 Apellido2</td>
+            </tr>
+
+        </table>
+
+            </div>
             
             <table id=dataTable class="bordered">
                         <thead>                            
                             <tr>
                                 
-                                <th data-field="carnet"style="width:20%;">CARNET</th>
-                                <th data-field="nombre" style="width:30%;">NOMBRE</th>
+                                <!-- <th data-field="carnet"style="width:20%;">CARNET</th>
+                                <th data-field="nombre" style="width:30%;">NOMBRE</th> -->
                                 <th data-field="Periodo" style="text-align:center; ">PERIODO</th>
                                 <th data-field="materia1" style="text-align:center; ">MATEMATICA</th>
                                 <th data-field="materia2" style="text-align:center; ">CIENCIAS</th>
@@ -357,8 +381,8 @@
                         <tbody>
                         
                             <tr>
-                            <td rowspan="4">2019-SA-FT-004</td>
-                            <td rowspan="4">Nombre1 Apellido1</td>                        
+                            <!-- <td rowspan="4">2019-SA-FT-004</td>
+                            <td rowspan="4">Nombre1 Apellido1</td>                         -->
                             <th style="text-align:center;"> <a href="#" class="PResume"> 1 </a></th>
                             <td style="text-align:center;">10</td>
                             <td style="text-align:center;">7.4</td>
@@ -397,15 +421,7 @@
                                 <td style="text-align:center;">9.5</td>
                                 <th style="text-align:center;">8</th>
                             </tr>
-                            <tr>
-                            <!-- <td colspan="2"></td> -->
-                                <th style="text-align:center;" ><a href="#" class="PResume"> 4 </a></th>
-                                <td style="text-align:center;">-</td>
-                                <td style="text-align:center;">-</td>
-                                <td style="text-align:center;">-</td>                                
-                                <td style="text-align:center;">-</td>
-                                <th style="text-align:center;">-</th>
-                            </tr>
+                            
 
                          
                         </tbody>

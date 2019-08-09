@@ -23,13 +23,13 @@
                     <div class="row primer-fila">
                         <div class="input-field col s12 m4">
                             <i class="material-icons prefix">mode_edit</i>
-                            <input name="codigo" value="" id="lblCodigo" type="text" class="validate">
+                            <input name="codigo" value="" id="lblCodigo" type="text" class="validate" autocomplete="off">
                             <label for="lblCodigo">Codigo</label>
                         </div>
 
                         <div class="input-field col s12 m5">
                             <i class="material-icons prefix">textsms</i>
-                            <input type="text" name="id_municipio" id="municipio" class="autocomplete">  
+                            <input type="text" name="id_municipio" id="municipio" class="autocomplete" autocomplete="off">  
                             <label>Municipio</label>
                             <input type="hidden" id="idm" name="idm">
                         </div>

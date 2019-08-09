@@ -11,5 +11,7 @@ class AlumnoSeccion extends Model
 	protected $fillable = [
         'carnet_alumno',
         'id_seccion',
+        'flotante'
     ];
 }
+ 

@@ -11,31 +11,27 @@
     <h5>Asignacion de Alumnos a Secciones</h5>
 </header>
 
-<div class="fondo-cuerpo">
+<div class="fondo-cuerpo"> 
 
     <!--formulario nuevo registro-->
     <div class="row primer-fila" id="filtro-alumno-secciones">
-
+    @csrf
         <!--Class-->
-        <form id="filtro">
-            @csrf
             <div class="input-field col s12 m4">
-                <select>
-                    <option value="">Elegir CLASS</option>
+                <select id="clases">
+                    <option value="sin-elegir">Elegir CLASS</option>
                     @foreach ($clases as $clas)
                     <option value="{{ $clas->id_class}}">{{ $clas->id_class}}</option>
                     @endforeach
                 </select>
-            </div>
+            </div>     
 
-            <div class="col s12 m3" style="margin-top: 15px;">
-                <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit" name="action">
-                    <i class="material-icons left">send</i>Cargar
-                </button>
+            <div class="input-field col s12 m4">
+                <button class="btn waves-effect waves-light blue-grey lighten-2" id="btnguardar">Guardar<i
+                class="material-icons right">add</i></button>
             </div>
-        </form>
-
     </div>
+
 
     <!--Tabla-->
     <div id="dataTable">
@@ -46,44 +42,11 @@
                         <th style="width: 40%;"></th>
                         <th colspan="3" style="width: 60%;">Secciones</th>
                     </tr>
-                    <tr>
+                    <tr id="filaSecciones">
                         <th style="width: 40%;">ALUMNO</th>
-                        <th style="width: 20%;">A1</th>
-                        <th style="width: 20%;">A2</th>
-                        <th style="width: 20%;">A3</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>David Mauricio Fuentes Garcia</td>
-                        <td><label>
-                                <input type="checkbox" class="filled-in" checked="checked" />
-                                <span> </span>
-                            </label>
-                        </td>
-                        <td><label>
-                                <input type="checkbox" class="filled-in" checked="checked" />
-                                <span> </span>
-                            </label>
-                        </td>
-                        <td><label>
-                                <input type="checkbox" class="filled-in" checked="checked" />
-                                <span> </span>
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Eduardo Enrique Peña Escalante</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Nelson Alfredo Salazar Salazar</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <tbody id="tablaBody">
                 </tbody>
             </table>
         </div>

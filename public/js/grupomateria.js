@@ -14,7 +14,7 @@ $(document).ready(function(){
             url: "/asignacion-docentes",
             data: $("#addform").serialize(),
             success: function(resonse){
-                console.log(resonse);
+
                 M.toast({html: 'Grupo guardado exitosamente!', classes: 'rounded', inDuration: 5000});
                 location.reload();
             },

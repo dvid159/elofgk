@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('layout.admin');
 });
-  
+
 Route::resource('departamentos', 'DepartamentoController');
 Route::resource('municipios', 'MunicipioController');
 Route::resource('school', 'CentroEducativoController');
@@ -33,4 +33,3 @@ Route::resource('record_escolar', 'RecordEscolarController');
 
 
 
- 

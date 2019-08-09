@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     //Nuevo registro
     $('#addform').on('submit', function(e){
         e.preventDefault();
@@ -6,8 +7,8 @@ $(document).ready(function(){
             type:"POST",
             url: "/departamentos",
             data: $("#addform").serialize(),
-            success: function(resonse){
-                console.log(resonse);
+            success: function(response){
+                console.log(response);
                 console.log('Departamento guardado exitosamente!');
                 M.toast({html: 'Departamento guardado exitosamente!', classes: 'rounded', inDuration: 5000});
                 location.reload();

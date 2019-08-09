@@ -1,4 +1,9 @@
 @extends('layout.admin')
+
+@section('js')
+ <script src="{{ asset('js/alumnodetalles.js') }}"></script>
+ @endsection
+
 @section('contenido')
 
 <div class="container">
@@ -30,7 +35,10 @@
             <tbody>
                 @foreach ($data as $item)
                 <tr>
-                    <td>{{ $item->carnet_alumno }}</td>
+                    <td>
+                        <a href="{{ route('alumnos.edit',$item->carnet_alumno) }}">{{  $item->carnet_alumno }}</a>
+                    </td>
+
                     <td>{{ $item->nombres }}</td>
                     <td>{{ $item->apellidos }}</td>
                     <td>{{ $item->id_class }}</td>

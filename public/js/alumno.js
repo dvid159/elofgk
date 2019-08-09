@@ -47,9 +47,7 @@ $(document).ready(function(){
             url: "/alumnos",
             data: $("#addform").serialize(),
             success: function(resonse){
-                console.log(resonse);
-                console.log('Departamento guardado exitosamente!');
-                M.toast({html: 'Departamento guardado exitosamente!', classes: 'rounded', inDuration: 5000});
+                M.toast({html: 'Alumno guardado exitosamente!', classes: 'rounded', inDuration: 5000});
                // location.reload();
             },
             error: function(error){

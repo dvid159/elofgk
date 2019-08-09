@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materia extends Model
 {
-    protected $table = 'materia';
     public $timestamps = false;
+    protected $table = 'materia';
 	protected $fillable = ['nombre_materia'];
 }

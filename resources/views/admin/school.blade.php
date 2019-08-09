@@ -112,7 +112,7 @@
                         <td>{{ $item->codigo_centro_educativo }}</td>
                         <td>{{ $item->nombre_centro_educativo }}</td>
                         <td>{{ $item->telefono }}</td>
-                        <td>{{ $item->direccion }}</td>
+                        <td>{{ $item->direccion }}</td> 
 
                         <td>
                             <button class="waves-effect waves-light btn-small blue-grey lighten-2 edit"

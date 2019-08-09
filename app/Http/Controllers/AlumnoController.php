@@ -64,7 +64,7 @@ class AlumnoController extends Controller
             'estado'=>$request->get('estado'),
             'id_class'=>$request->get('clase')
        ));
-
+    
        $nuevoAlumno->save();
 
     }

@@ -14,10 +14,16 @@ class RecordEscolarController extends Controller
     {
         // $data = DB::table('alumno')->get();
          $data = DB::select('SELECT class.anho_egreso FROM class ORDER BY(class.anho_egreso) DESC limit 3');    
-         $alumnos = DB::select('SELECT a.carnet_alumno, a.nombres, a.apellidos FROM expediente_fgk.alumno a WHERE a.estado = 1');    
-        return view('admin.record_escolar',compact('data', 'alumnos'));
+         $alumnosN = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "NOVENO") AND (a.estado = 1)  ORDER BY n.carnet_alumno');
+         $alumnosP = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "PRIMER AÑO") AND (a.estado = 1) ORDER BY n.carnet_alumno');
+         $alumnosS = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "SEGUNDO AÑO") AND (a.estado = 1) ORDER BY n.carnet_alumno');
+
+        return view('admin.record_escolar',compact('data', 'alumnosN','alumnosP','alumnosS'));
     }
 
+    
+
+    
     public function store(Request $request)
     {
         $mat = '2';
@@ -61,22 +67,21 @@ class RecordEscolarController extends Controller
        $record->save();
     }
 
-    public function show($id)
-    {        
-        $record = Record::join('alumno', 'alumno.carnet_alumno', '=', 'notas_mined.carnet_alumno')
-        ->select('nota_mined.carnet_alumno, alumno.nombres, alumno.apellidos, notas_miined.id_materia, notas_mined.nota')
-                        ->where('notas_mined.carnet_alumno', '=', $id)
-                        ->get();
-                       
-                        // return response()->json($record->toArray());
-        //$record = DB::select('SELECT nm.carnet_alumno, a.nombres, a.apellidos, nm.id_periodo, nm.id_materia, nm.nota FROM notas_mined nm JOIN alumno a ON (nm.carnet_alumno = a.carnet_alumno)');
-       // $record = Record::where('carnet_alumno',$id)->get();
-        return response()->json($record->toArray());
+    public function update($class){
+        $alumnosClase = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "NOVENO") AND (a.estado = 1)  ORDER BY n.carnet_alumno');
+        return response()->json($alumnosClase->toArray());
     }
 
-    public function mostrar_alumnos_por_id($id){
-        $data = DB::select('SELECT class.anho_egreso FROM class ORDER BY(class.anho_egreso) DESC limit 3');    
-         $alumnos = DB::select('SELECT a.carnet_alumno, a.nombres, a.apellidos FROM expediente_fgk.alumno a WHERE a.estado = 1');    
-        return view('admin.record_escolar',compact('data', 'alumnos'));
+    public function show($id)
+    {        
+        $record = Record::join('alumno', 'notas_mined.carnet_alumno','=', 'alumno.carnet_alumno')
+                            ->select('notas_mined.carnet_alumno', 'alumno.nombres', 'alumno.apellidos', 'notas_mined.id_periodo', 'notas_mined.id_materia', 'notas_mined.nota')
+                            ->where('notas_mined.carnet_alumno', '=', $id)
+                            ->orderBy('id_periodo')
+                            ->get();                                   
+        
+        return response()->json(array($record->toArray()));
     }
+
+    
 }

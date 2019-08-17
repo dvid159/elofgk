@@ -22,11 +22,11 @@
                         <li class="tab"><a href="#op3">SEGUNDO AÑO</a></li>
                     </ul>
                 </div>
-                <!-- --------------------Tabs-----------------------------------------------------------------  -->
+                <!-- --------------------Tabs-01----------------------------------------------------------------  -->
                 <div id="op1">
-                    <div class="input-field col s12 m4" style=" float:left; width:25%; margin:10px;">
+                    <div class="input-field col s12 m4" style=" float:left; width:25%; margin:10px;">                    
                         <i class="material-icons prefix">class</i>
-                        <select id="dropdown-lista-opciones" name="id_class" class="materialSelect">
+                        <select id="dropdown-lista-opciones class1" name="id_class" class="materialSelect1">
                             <option value="" disabled selected>Select Class</option>
                             @foreach ($data as $class)
                             <option value="{{ $class->anho_egreso }}">{{ $class->anho_egreso }}</option>
@@ -57,7 +57,7 @@
                         </thead>
 
                         <tbody>
-                        @foreach ($alumnos as $item)
+                        @foreach ($alumnosN as $item)
                             <tr>
                                 <td><a  href="#" data-id="{{ $item->carnet_alumno }}" class="resume">{{$item->carnet_alumno}}</a> </td>
                                 <td>{{$item->nombres}} {{$item->apellidos}}</td>
@@ -66,24 +66,18 @@
                                 <td style="text-align:center;">-</td>
                                 <td style="text-align:center;">-</td>
                                 <td style="text-align:center;">-</td>
-                           </tr>
-                            
-                           
-
-                           
-                       
+                           </tr>                                                                                                         
                         @endforeach
                         </tbody>
                     </table>
 
                 </div>
 
-
-                <!-- ------------------------------------------------------------------------------------------- -->
+                <!-- ---------------------Tabs-02--------------------------------------------------------------------- -->
                 <div id="op2">
                 <div class="input-field col s12 m4" style=" float:left; width:25%; margin:10px;">
                         <i class="material-icons prefix">class</i>
-                        <select id="dropdown-lista-opciones" name="id_class" class="materialSelect">
+                        <select id="dropdown-lista-opciones class2" name="id_class" class="materialSelect2">
                             <option value="" disabled selected>Select Class</option>
                             @foreach ($data as $class)
                             <option value="{{ $class->anho_egreso }}">{{ $class->anho_egreso }}</option>
@@ -118,56 +112,26 @@
                         </thead>
 
                         <tbody>
-
-
+                        @foreach ($alumnosP as $item)
                             <tr>
-                                <td>2019-SA-FT-001</td>
-                                <td>Nombre1 Apellido1</td>
+                                <td><a  href="#" data-id="{{ $item->carnet_alumno }}" class="resume">{{$item->carnet_alumno}}</a> </td>
+                                <td>{{$item->nombres}} {{$item->apellidos}}</td>
                                 <!-- <td>Segundo año</td> -->
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-
-                                <!-- <td><button class="waves-effect waves-light btn-small blue-grey lighten-2 edit">
-                                        <i class="material-icons">edit</i></button></td> -->
-
-
-                            </tr>
-                            <tr>
-                                <td>2019-SA-FT-002</td>
-                                <td>Nombre1 Apellido1</td>
-                                <!-- <td>Segundo año</td> -->
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-
-                                <!-- <td><button class="waves-effect waves-light btn-small blue-grey lighten-2 edit">
-                                        <i class="material-icons">edit</i></button></td> -->
-
-                            </tr>
-                            <tr>
-                                <td>2019-SA-FT-004</td>
-                                <td>Nombre1 Apellido1</td>
-                                <!-- <td>Segundo año</td> -->
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-                                <td style="text-align:center;">0.0</td>
-
-                                <!-- <td><button class="waves-effect waves-light btn-small blue-grey lighten-2 edit">
-                                        <i class="material-icons">edit</i></button></td> -->
-                            </tr>
+                                <td style="text-align:center;">-</td>
+                                <td style="text-align:center;">-</td>
+                                <td style="text-align:center;">-</td>
+                                <td style="text-align:center;">-</td>
+                           </tr>                                                                                                         
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
 
-                <!-- ---------------------------------------------------------------------------------------- -->
+                <!-- ----------------------Tabs-03----------------------------------------------------------------- -->
                 <div id="op3">
                 <div class="input-field col s12 m4" style=" float:left; width:25%; margin:10px;">
                         <i class="material-icons prefix">class</i>
-                        <select id="dropdown-lista-opciones" name="id_class" class="materialSelect">
+                        <select id="dropdown-lista-opciones class3" name="id_class" class="materialSelect3">
                             <option value="" disabled selected>Select Class</option>
                             @foreach ($data as $class)
                             <option value="{{ $class->anho_egreso }}">{{ $class->anho_egreso }}</option>
@@ -200,47 +164,17 @@
                         </thead>
 
                         <tbody>
-
-
-                            <tr>
-                                <td><a href="">2019-SA-FT-001</a> </td>
-                                <td>Nombre1 Apellido1</td>
-                                
-                                <td style="text-align:center;">7.5</td>
-                                <td style="text-align:center;">8.9</td>
-                                <td style="text-align:center;">9.0</td>
-                                <td style="text-align:center;">7</td>
-
-                                <!-- <td><button class="waves-effect waves-light btn-small blue-grey lighten-2 edit">
-                                        <i class="material-icons">edit</i></button></td> -->
-
-
-                            </tr>
-                            <tr>
-                                <td>2019-SA-FT-002</td>
-                                <td>Nombre1 Apellido1</td>
-                                
-                                <td style="text-align:center;">7.9</td>
-                                <td style="text-align:center;">8.3</td>
-                                <td style="text-align:center;">8.1</td>
-                                <td style="text-align:center;">8.0</td>
-
-                                <!-- <td><button class="waves-effect waves-light btn-small blue-grey lighten-2 edit">
-                                        <i class="material-icons">edit</i></button></td> -->
-
-                            </tr>
-                            <tr>
-                                <td>2019-SA-FT-004</td>
-                                <td>Nombre1 Apellido1</td>
+                        @foreach ($alumnosS as $item)                       
+                        <tr>
+                                <td><a  href="#" data-id="{{ $item->carnet_alumno }}" class="resume">{{$item->carnet_alumno}}</a> </td>
+                                <td>{{$item->nombres}} {{$item->apellidos}}</td>
                                 <!-- <td>Segundo año</td> -->
-                                <td style="text-align:center;">10.0</td>
-                                <td style="text-align:center;">10</td>
-                                <td style="text-align:center;">7.4</td>
-                                <td style="text-align:center;">9.3</td>
-
-                                <!-- <td><button class="waves-effect waves-light btn-small blue-grey lighten-2 edit">
-                                        <i class="material-icons">edit</i></button></td> -->
-                            </tr>
+                                <td style="text-align:center;">-</td>
+                                <td style="text-align:center;">-</td>
+                                <td style="text-align:center;">-</td>
+                                <td style="text-align:center;">-</td>
+                           </tr>                                                                                                                                                          
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -250,9 +184,9 @@
     </div>
 </div>
 
-<!--fin de container-->
+<!------------------fin de container------------------------>
 
-<!--Ingresar notas Modal-------------------------------------------------------------->
+<!-------------------------Ingresar notas Modal-------------------------------------------------------------->
 <div id="ModalEditRecord"  class="modal fade" data-backdrop="static" data-keyboard="false">
     <form id="editform">
         @csrf
@@ -262,11 +196,11 @@
                 <!-- <input id="lblId" name="id" type="hidden"> -->
                 <div class="input-field col s12" style="width: 35%;">
 
-                    <i class="material-icons prefix">art_track</i>
+                    <i class="large material-icons prefix">art_track</i>
                     <input id="lblCarnet" type="text" class="lblarnetc" name="carnet" maxlength="14" required autocomplete="off" onkeypress="return showName(event)"  > 
                     <label class="active">Carnet</label>
                 </div>
-                <div class="input-field col s12 m4" style="width:20%;">
+                <!-- <div class="input-field col s12 m4" style="width:20%;">
                 <select requered id="dropdown-lista-opciones" name="id_class" class="materialSelect" >
                             <option value="" disabled selected>Select Class</option>
                             @foreach ($data as $class)
@@ -274,16 +208,18 @@
                             @endforeach                           
                         </select>
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12" style="width:50%">
+                </div> -->
+                <div class="input-field col s12" style="width:65%">
                     <i class="material-icons prefix">person</i>
                     <input id="lblNombre" type="text" class="validate" name="nombre" required  autocomplete="off" disabled>
                     <!-- <label class="">Nombre</label> -->
                 </div>
-
-                <div class="input-field col s12 m4" style="width:25%;">
+                
+            </div>
+            <div class="row">
+                
+            <div class="input-field col s12 m4" style="width:25%;">
+            <i class="material-icons prefix">assignment_ind</i>
                     <select name="periodo">
                         <option value="" disabled selected>Periodo</option>
                         <option value="1">Periodo 1</option>
@@ -293,7 +229,7 @@
 
                 </div>
                 <div class="input-field col s12 m4" style="width:25%;">
-                    
+                <i class="material-icons prefix">school</i>
                     <select name="grado">
                         <option value="" disabled selected>Año Escolar</option>
                         <option value="1">NOVENO</option>
@@ -302,39 +238,39 @@
                     </select>
 
                 </div>
+                
             </div>
-            <div class="row">
+            <div class="row" >
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
+                <i class=" material-icons prefix">library_books</i>
                 <label for="" id="mat1" name="mat1" value="2">MATEMATICA</label>
-                <input id="mat_nota" name="mat_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
+                <input id="mat_nota" name="mat_nota" type="number" min="0" max="10" step=".01" required style="width: 70px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
                 <label for="" name="mat2" value="7">CIENCIAS</label>
-                <input id="cien_nota" name="cien_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
+                <input id="cien_nota" name="cien_nota" type="number" min="0" max="10" step=".01" required style="width: 70px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
-                <label for="" name="mat3" value="8">SOCIALES</label>
-                <input id="soc_nota" name="soc_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
+                <label for="" name="mat3" value="8">LENGUAJE</label>
+                <input id="soc_nota" name="soc_nota" type="number" min="0" max="10" step=".01" required style="width: 70px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
                 <!-- <div class="input-field col s12" style="width: 25%"> -->
-                <label for="" name="mat4" value="6">LENGUAJE</label>
-                <input id="leng_nota" name="leng_nota" type="number" min="0" max="10" step=".01" required style="width: 60px; text-align:center;"  autocomplete="off">
+                <label for="" name="mat4" value="6">SOCIALES</label>
+                <input id="leng_nota" name="leng_nota" type="number" min="0" max="10" step=".01" required style="width: 70px; text-align:center;"  autocomplete="off">
 
                 <!-- </div> -->
-
+               
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light blue-grey  lighten-2" type="submit">Guardar<i class="material-icons right">send</i></button>               
-            
-            
-            
+            <button class="btn waves-effect waves-light blue-grey  lighten-2" type="submit">Guardar<i class="material-icons right">send</i></button>                                                   
             </div>
-            <button id="boton-exit" class="btn waves-effect waves-light blue-grey  lighten-2 exitAdd">Exit<i class="material-icons right">exit_to_app</i></button>
+            
         </div>        
     </form>
+    <div class="row"> <button id="boton-exit" class="btn waves-effect waves-light blue-grey  lighten-2 exitAdd">Exit<i class="material-icons right">exit_to_app</i></button> </div>
     
 </div>
 <!-- -------------Fin Ingresar Notal Modal-------------------------------------- -->
@@ -350,85 +286,26 @@
 
         <table class="data" class="bordered">
             <tr>
-            <th data-field="carnet"style="width:20%;">CARNET:</th>
-            <td >2019-SA-FT-004</td>
-                                         
+            <th data-field="carnet" style="width:20%;">CARNET:</th>
+            <td id="Rcarnet"></td>                                         
             </tr>
+
             <tr>
             <th data-field="nombre" style="width:20%;">NOMBRE:</th>
-            <td>Nombre1 Nombre2 Apellido1 Apellido2</td>
+            <td id="Rname"></td>
             </tr>
 
         </table>
 
             </div>
+           
+            <table id="dataTableResumen" class="bordered"> 
+            </table>
+      
             
-            <table id=dataTable class="bordered">
-                        <thead>                            
-                            <tr>
-                                
-                                <!-- <th data-field="carnet"style="width:20%;">CARNET</th>
-                                <th data-field="nombre" style="width:30%;">NOMBRE</th> -->
-                                <th data-field="Periodo" style="text-align:center; ">PERIODO</th>
-                                <th data-field="materia1" style="text-align:center; ">MATEMATICA</th>
-                                <th data-field="materia2" style="text-align:center; ">CIENCIAS</th>
-                                <th data-field="materia3" style="text-align:center; ">LENGUAJE</th>
-                                <th data-field="materia4" style="text-align:center; ">SOCIALES</th>
-                                <th data-field="PP" style="text-align:center; ">PP</th>                               
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                        
-                            <tr>
-                            <!-- <td rowspan="4">2019-SA-FT-004</td>
-                            <td rowspan="4">Nombre1 Apellido1</td>                         -->
-                            <th style="text-align:center;"> <a href="#" class="PResume"> 1 </a></th>
-                            <td style="text-align:center;">10</td>
-                            <td style="text-align:center;">7.4</td>
-                            <td style="text-align:center;">9.3</td>
-                            <td style="text-align:center;">9.3</td>
-                            <th style="text-align:center;"> 
-                            <?php                                 
-                            $periodo1 = 10;
-                            $periodo2 = 7.4;
-                            $periodo3 = 9;
-                            $periodo4 = 9;
-
-                            $media = ($periodo1+$periodo2+$periodo3+$periodo4)/4;
-                            echo $media;
-                            ?> 
-                            </td>
-                            </th>
-
-                            <tr>
-                                <!-- <td colspan="2"></td> -->
-                                <th style="text-align:center;" ><a href="#" class="PResume"> 2 </a></th>
-                                <td style="text-align:center;">7.8</td>
-                                <td style="text-align:center;">9.4</td>
-                                <td style="text-align:center;">8</td>                                
-                                <td style="text-align:center;">9.5</td>
-                                <th style="text-align:center;">8</th>
-
-                            </tr>
-                            <tr>
-
-                            <!-- <td colspan="2"></td> -->
-                                <th style="text-align:center;" ><a href="#" class="PResume"> 3 </a></th>
-                                <td style="text-align:center;">7.8</td>
-                                <td style="text-align:center;">9.4</td>
-                                <td style="text-align:center;">8</td>                                
-                                <td style="text-align:center;">9.5</td>
-                                <th style="text-align:center;">8</th>
-                            </tr>
-                            
-
-                         
-                        </tbody>
-                    </table>
-                    <button class="btn waves-effect waves-light blue-grey  lighten-2 exitResume">Exit<i class="material-icons right">exit_to_app</i></button>
-          
-          
+        <button class="btn waves-effect waves-light blue-grey  lighten-2 exitResume">Exit<i class="material-icons right">exit_to_app</i>
+        </button>
+                    
         </div>
     </form>
 </div>

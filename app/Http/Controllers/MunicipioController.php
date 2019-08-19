@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Municipio;
-use Illuminate\Support\Facades\Session;
 
 class MunicipioController extends Controller
 {

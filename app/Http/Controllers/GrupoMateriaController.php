@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\GrupoMateria;
-use Illuminate\Support\Facades\Session;
 
 class GrupoMateriaController extends Controller
 {
-    
+
     public function index()
     {
         $materiasdb = DB::table('materia')->get();
@@ -21,12 +20,12 @@ class GrupoMateriaController extends Controller
         ->join('empleado','grupo_materia.carnet_empleado','=','empleado.carnet_empleado')
         ->select('grupo_materia.id_grupo_materia','materia.nombre_materia','grupo_materia.id_seccion', 'empleado.nombres', 'empleado.apellidos')
         ->where('anho', $anio)->get();
-        
+
         return view('admin.asignacion-docentes',compact('materiasdb','seccionesdb','docentesdb','gruposdb'));
 
     }
 
-     
+
     public function store(Request $request){
 
         $idgrupo = $request->get('seccion')."-".$request->get('idmat');
@@ -44,13 +43,13 @@ class GrupoMateriaController extends Controller
 
     }
 
-    
+
     public function show($id){}
 
 
     public function edit($id){}
 
-    
+
     public function update(Request $request, $id){}
 
 

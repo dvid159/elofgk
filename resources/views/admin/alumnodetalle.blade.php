@@ -13,7 +13,7 @@
     <!--encabezado-->
         <header >
             <h5>{{ $alumno }}</h5>
-            <input id="lblId" name="id" type="hidden" value="{{  $alumno }}">
+            <input id="carnet_alumno" name="carnet_alumno" type="hidden" value="{{  $alumno }}">
         </header>
 
 
@@ -168,7 +168,11 @@
 
             <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modalTipoResponsables" style="margin-bottom: 20px;">
                     <i class="material-icons">add</i> Agregar Tipo de Responsable
-                </button>
+            </button>
+
+            <button class="waves-effect waves-light blue-grey lighten-2 btn modal-trigger" href="#modalOcupacion" style="margin-bottom: 20px;">
+                    <i class="material-icons">add</i> Agregar Ocupacion
+            </button>
 
             <table class="highlight responsive-table" style="font-size: 10px">
                 <thead>
@@ -228,42 +232,44 @@
     <div id="modalResponsables" class="modal">
         <div class="modal-content">
             <h5>Responsable</h5>
-            <form class="col s12">
+            <form class="col s12" id="addResponsable">
+                @csrf
+                <input id="carnet_alumno" name="carnet_alumno" type="hidden" value="{{  $alumno }}">
                 <div class="row">
                     <div class="input-field col s12 m4">
                         <i class="material-icons prefix">account_box</i>
-                        <input id="DUI" type="text">
-                        <label for="DUI">DUI</label>
+                        <input id="dui" name="dui" type="text">
+                        <label for="dui">DUI</label>
                     </div>
                     <div class="input-field col s12 m4">
                         <i class="material-icons prefix">person</i>
-                        <input id="first_name_r" type="text">
-                        <label for="first_name_r">Nombres</label>
+                        <input id="nombres" name="nombres" type="text">
+                        <label for="nombres">Nombres</label>
                     </div>
                     <div class="input-field col s12 m4">
                         <i class="material-icons prefix">person</i>
-                        <input id="last_name_r" type="text">
-                        <label for="last_name_r">Apellidos</label>
+                        <input id="apellidos" name="apellidos" type="text">
+                        <label for="apellidos">Apellidos</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12 m4">
                         <i class="material-icons prefix">local_phone</i>
-                        <input id="phone_r" type="text" class="validate">
-                        <label for="phone_r">Telefono</label>
+                        <input id="telefono" name="telefono" type="text" class="validate">
+                        <label for="telefono">Telefono</label>
                     </div>
                     <div class="input-field col s12 m8">
                         <i class="material-icons prefix">home</i>
-                        <input id="direction_r" type="text" class="validate">
-                        <label for="diretion_r">Direccion</label>
+                        <input id="direccion" name="direccion" type="text" class="validate">
+                        <label for="direccion">Direccion</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <i class="material-icons prefix">accessibility</i>
-                        <select id="tipo_r">
+                        <select id="id_tipo_responsable" name="id_tipo_responsable">
                             <option value="" disabled selected>Seleccionar Tipo de Responsable</option>
                             @foreach ($tipoResponsable as $tipo)
                                 <option value="{{ $tipo->id_tipo_responsable}}">{{ $tipo->tipo_responsable }}</option>
@@ -272,7 +278,7 @@
                     </div>
                     <div class="input-field col s12 m6">
                         <i class="material-icons prefix">build</i>
-                        <select name="ocupacion" id="ocupacion">
+                        <select name="id_ocupacion" id="id_ocupacion">
                             <option value="" disabled selected>Seleccionar Ocupacion</option>
                             @foreach ($ocupacion as $ocu)
                                 <option value="{{ $ocu->id_ocupacion}}">{{ $ocu->ocupacion }}</option>
@@ -290,6 +296,7 @@
         </div>
     </div>
 
+    <!-- modal registro de nuevos tipos de responsables -->
     <div id="modalTipoResponsables" class="modal">
         <form class="col s12" id="addTipoResponsable">
             @csrf
@@ -319,6 +326,37 @@
             </div>
         </form>
     </div>
+
+    <!-- modal registro de nuevas Ocupaciones -->
+    <div id="modalOcupacion" class="modal">
+            <form class="col s12" id="addOcupacion">
+                @csrf
+                <div class="modal-content">
+                    <h5>Nueva Ocupacion</h5>
+                    <div class="row">
+                        <div class="col s3">
+                            <ul class="collection">
+                                @foreach ($ocupacion as $ocu)
+                                    <li class="collection-item">{{ $ocu->ocupacion }}</li>
+                                 @endforeach
+                            </ul>
+                        </div>
+                        <div class="input-field col s9">
+                            <div class="input-field col s9">
+                                <i class="material-icons prefix">build</i>
+                                <input id="ocupacion" name="ocupacion" type="text" class="validate">
+                                <label for="ocupacion">Ocupacion</label>
+                            </div>
+                            <div class="col s9">
+                                    <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit" name="action">Guardar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
 </div>
 
 @endsection

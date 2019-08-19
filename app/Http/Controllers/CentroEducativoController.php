@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\CentroEducativo;
-use Illuminate\Support\Facades\Session;
 use JavaScript;
 
 class CentroEducativoController extends Controller
-{ 
+{
 
     public function index()
     {
@@ -19,7 +18,7 @@ class CentroEducativoController extends Controller
         JavaScript::put([
             'municipios'=>$municipiosdb
         ]);
-    
+
         return view('admin.school',compact('data','municipiosdb'));
     }
 

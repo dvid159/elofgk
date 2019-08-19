@@ -18,7 +18,24 @@ $(document).ready(function(){
             },
             error: function(error){
                 console.log(error);
-                console.log("ERROR");
+            }
+        });
+    });
+
+    //Nuevo Responsable
+    $('#addResponsable').on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type:"POST",
+            url: "/responsables",
+            data: $("#addResponsable").serialize(),
+            success: function(resonse){
+                console.log(resonse);
+                M.toast({html: 'Responsable guardado exitosamente!', classes: 'rounded', inDuration: 5000});
+                location.reload();
+            },
+            error: function(error){
+                console.log(error);
             }
         });
     });

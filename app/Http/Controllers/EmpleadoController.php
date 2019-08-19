@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Empleado;
-use Illuminate\Support\Facades\Session;
 
 class EmpleadoController extends Controller
-{ 
+{
     public function index()
     {
         $data = DB::select('SELECT e.carnet_empleado, c.cargo, e.nombres, e.apellidos, e.telefono FROM empleado e JOIN cargo c ON (c.id_cargo = e.id_cargo) ORDER BY e.carnet_empleado DESC');

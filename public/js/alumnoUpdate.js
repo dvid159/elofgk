@@ -40,4 +40,22 @@ $(document).ready(function(){
         });
     });
 
+    //Nueva Ocupacion
+    $('#addOcupacion').on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type:"POST",
+            url: "/ocupaciones",
+            data: $("#addOcupacion").serialize(),
+            success: function(resonse){
+                console.log(resonse);
+                M.toast({html: 'Ocupacion guardada exitosamente!', classes: 'rounded', inDuration: 5000});
+                location.reload();
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });
+    });
+
 });

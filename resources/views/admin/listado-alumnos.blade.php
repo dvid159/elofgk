@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('js')
- <script src="{{ asset('js/alumnodetalles.js') }}"></script>
+ <script src="{{ asset('js/alumno.js') }}"></script>
  @endsection
 
 @section('contenido')
@@ -20,7 +20,6 @@
 
     <div class="card-panel" style="border-radius: 7px;">
         <table class="highlight responsive-table">
-
             <thead>
                 <tr>
                     <th>Carnet</th>
@@ -31,7 +30,6 @@
                     <th>Estado</th>
                 </tr>
             </thead>
-
             <tbody>
                 @foreach ($data as $item)
                 <tr>

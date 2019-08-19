@@ -9,7 +9,7 @@ class AlumnoController extends Controller
 {
     public function index()
     {
-        $data = DB::select('SELECT * FROM alumno WHERE estado = 1 ORDER BY id_class DESC');
+        $data = DB::select('SELECT * FROM alumno');
         return view('admin.listado-alumnos', compact('data'));
     }
     public function create()

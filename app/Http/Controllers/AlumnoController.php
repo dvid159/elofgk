@@ -59,12 +59,14 @@ class AlumnoController extends Controller
         $ce = DB::table('centro_educativo')->get();
         $class = DB::table('class')->get();
         $ocupacion = DB::table('ocupacion')->get();
+        $tipoResponsable = DB::table('tipo_responsable')->get();
+        $responsable = DB::select('SELECT r.dui, r.nombres, r.apellidos, r.telefono, tr.tipo_responsable, o.ocupacion FROM responsable r JOIN ocupacion o ON (o.id_ocupacion = r.id_ocupacion) JOIN tipo_responsable tr ON (tr.id_tipo_responsable=r.id_tipo_responsable) WHERE r.carnet_alumno=?',[$id]);
         $alumno = $id;
         JavaScript::put([
             'municipios'=>$muni,
             'schools'=>$ce,
         ]);
-        return view('admin.alumnodetalle',compact('class','ocupacion','alumno'));
+        return view('admin.alumnodetalle',compact('class','ocupacion','alumno','responsable','tipoResponsable'));
     }
     public function show($id)
     {

@@ -25,7 +25,6 @@ class GrupoMateriaController extends Controller
 
     }
 
-
     public function store(Request $request){
 
         $idgrupo = $request->get('seccion')."-".$request->get('idmat');

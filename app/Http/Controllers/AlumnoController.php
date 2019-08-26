@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Alumno;
 use Illuminate\Support\Facades\Session;
 use JavaScript;
+
 class AlumnoController extends Controller
 {
     public function index()

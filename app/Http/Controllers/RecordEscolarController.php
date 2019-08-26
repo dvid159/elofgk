@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\record;
 use Illuminate\Support\Facades\Session;
+use JavaScript;
+
 // use Illuminate\Auth\Access\Response;
 
 class RecordEscolarController extends Controller
@@ -13,17 +13,23 @@ class RecordEscolarController extends Controller
     public function index()
     {
         // $data = DB::table('alumno')->get();
-         $data = DB::select('SELECT class.anho_egreso FROM class ORDER BY(class.anho_egreso) DESC limit 3');    
-         $alumnosN = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "NOVENO") AND (a.estado = 1)  ORDER BY n.carnet_alumno');
-         $alumnosP = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "PRIMER AÑO") AND (a.estado = 1) ORDER BY n.carnet_alumno');
-         $alumnosS = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "SEGUNDO AÑO") AND (a.estado = 1) ORDER BY n.carnet_alumno');
+         $data = DB::select('SELECT class.id_class FROM class ORDER BY(class.id_class) DESC limit 3');    
+         $alumnosN = DB::select('SELECT DISTINCT n.carnet_alumno, a.id_class, a.nombres, a.apellidos, n.id_periodo, n.id_materia, n.nota FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "NOVENO") AND (a.estado = 1)  ORDER BY n.carnet_alumno, n.id_periodo');
+         $alumnosP = DB::select('SELECT DISTINCT n.carnet_alumno, a.id_class, a.nombres, a.apellidos, n.id_periodo, n.id_materia, n.nota FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "PRIMER AÑO") AND (a.estado = 1) ORDER BY n.carnet_alumno, n.id_periodo');
+         $alumnosS = DB::select('SELECT DISTINCT n.carnet_alumno, a.id_class, a.nombres, a.apellidos, n.id_periodo, n.id_materia, n.nota FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "SEGUNDO AÑO") AND (a.estado = 1) ORDER BY n.carnet_alumno, n.id_periodo');
+         $alumnosall = DB::select('SELECT a.carnet_alumno, a.id_class, a.nombres, a.apellidos FROM alumno a');
+
+        JavaScript::put([
+            "alumnos_noveno" => $alumnosN,
+            "alumnos_primero" => $alumnosP,
+            "alumnos_segundo"  => $alumnosS, 
+            "alumnos_all" => $alumnosall,
+        ]);
 
         return view('admin.record_escolar',compact('data', 'alumnosN','alumnosP','alumnosS'));
     }
 
-    
-
-    
+        
     public function store(Request $request)
     {
         $mat = '2';
@@ -67,17 +73,13 @@ class RecordEscolarController extends Controller
        $record->save();
     }
 
-    public function update($class){
-        $alumnosClase = DB::select('SELECT DISTINCT n.carnet_alumno, a.nombres, a.apellidos FROM notas_mined n INNER JOIN alumno a ON n.carnet_alumno = a.carnet_alumno INNER JOIN grado_mined g ON n.id_grado = g.id_grado_mined WHERE (g.grado_mined = "NOVENO") AND (a.estado = 1)  ORDER BY n.carnet_alumno');
-        return response()->json($alumnosClase->toArray());
-    }
-
     public function show($id)
     {        
         $record = Record::join('alumno', 'notas_mined.carnet_alumno','=', 'alumno.carnet_alumno')
-                            ->select('notas_mined.carnet_alumno', 'alumno.nombres', 'alumno.apellidos', 'notas_mined.id_periodo', 'notas_mined.id_materia', 'notas_mined.nota')
+                            ->select('notas_mined.carnet_alumno', 'alumno.nombres', 'alumno.apellidos', 'notas_mined.id_grado','notas_mined.id_periodo', 'notas_mined.id_materia', 'notas_mined.nota')
                             ->where('notas_mined.carnet_alumno', '=', $id)
-                            ->orderBy('id_periodo')
+                            ->orderBy('id_grado')
+                            ->orderBy('id_periodo')                            
                             ->get();                                   
         
         return response()->json(array($record->toArray()));

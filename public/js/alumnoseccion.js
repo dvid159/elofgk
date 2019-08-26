@@ -16,6 +16,7 @@ $(document).ready(function(){
                     $alumnos = response['alumnos'];
                     $alumxsec = response['alumnosxseccion'];
 
+                    console.log($secciones);
                     cargarSecciones($secciones);
                     cargarAlumnos($alumnos,$secciones);
                     cargarAsignados($alumxsec,$secciones);

@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 
     //Cargar DATOS
+<<<<<<< HEAD
   /*  $id = $('#lblId').val();
     console.log($id);
 
@@ -15,6 +16,21 @@ $(document).ready(function(){
             console.log(data);
         }
     }); */
+=======
+    // $id = $('#lblId').val();
+    // console.log($id);
+
+    // $.ajax(
+    // {
+    //     url:"/alumnos/"+id,
+    //     method:'GET',
+    //     dataType:'json',
+    //     success:function(data)
+    //     {
+    //         console.log(data);
+    //     }
+    // });
+>>>>>>> 0eec00b3e11533b8ec5cbc391b728b0843c9250f
 
     //----------------------
     function cargarmunicipios(){

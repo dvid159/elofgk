@@ -17,7 +17,7 @@
             @csrf
             <div class="row nuevo-registro">
                 <div class="input-field nuevo col s12 m4">
-                    <input id="nuevo-input" type="text" name="municipio">
+                    <input id="nuevo-input" type="text" name="municipio" autocomplete="off">
                     <label class="blue-grey-text text-lighten-2 lbl-input-nuevo">Municipio</label>
                 </div>
 

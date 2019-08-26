@@ -91,9 +91,9 @@
                                 <div class="collapsible-body">
                                     <ul>
                                         <li><a href="/record_escolar" class="sidenav-close waves-effect secundary-item">Promedios Centro Escolar</a></li>
-                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Materias Oportunidades</a></li>
-                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Aptitudinales</a></li>
-                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Consolidados</a></li>
+                                        <li><a href="#" class="waves-effect secundary-item">Promedios Materias Oportunidades</a></li>
+                                        <li><a href="#" class="waves-effect secundary-item">Promedios Aptitudinales</a></li>
+                                        <li><a href="#" class="waves-effect secundary-item">Promedios Consolidados</a></li>
                                     </ul>
 
                                 </div>

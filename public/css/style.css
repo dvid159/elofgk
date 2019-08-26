@@ -153,3 +153,7 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 0;
 
 }
+
+#ModalEditRecord{
+    border-radius: 4%;
+}

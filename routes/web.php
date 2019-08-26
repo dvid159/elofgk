@@ -31,5 +31,11 @@ Route::resource('asignacion-docentes', 'GrupoMateriaController');
 Route::resource('asignacion-alumnos','AlumnoSeccionController');
 Route::resource('record_escolar', 'RecordEscolarController');
 
+Route::resource('docente', 'DocenteController');
+Route::resource('doc-alumnosxseccion', 'DocAlumnosxSeccionController');
+Route::resource('evaluaciones','EvaluacionController');
+
+
+
 
 

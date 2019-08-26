@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,6 +20,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/init.js') }}"></script>
+    <script src="{{ asset('js/docente.js') }}"></script>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -29,6 +31,7 @@
     @yield('js')
 
     <title>Expediente FGK</title>
+
 </head>
 
 <body>
@@ -44,67 +47,11 @@
                 <a href="#email"><span class="blue-grey-text text-lighten-1 email">Rol</span></a>
             </div>
         </li>
-        <ul class="collapsible">
-            <li>
-                <div class="collapsible-header waves-effect principal-item"><i class="material-icons">settings</i>Datos Generales</div>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/departamentos" class="waves-effect secundary-item">Departamentos</a></li>
-                        <li><a href="/municipios" class="waves-effect secundary-item">Municipios</a></li>
-                        <li><a href="/school" class="waves-effect secundary-item">Centros Educativos</a></li>
-                        <li><a href="/clases" class="waves-effect secundary-item">Class</a></li>
-                        <li><a href="/secciones" class="waves-effect secundary-item">Seccion</a></li>
-                        <li><a href="/materias" class="waves-effect secundary-item">Materias</a></li>
-                        <li><a href="/criterios" class="waves-effect secundary-item">Criterios Aptitudinales</a></li>
-                        <li><a href="/aptitudes" class="waves-effect secundary-item">Aptitudes</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header waves-effect principal-item"><i class="material-icons">assignment_ind</i>Personal</div>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/cargos" class="waves-effect secundary-item">Cargos</a></li>
-                        <li><a href="/empleados" class="waves-effect secundary-item">Empleados</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header waves-effect principal-item"><i class="material-icons">assignment</i>Año en Curso</div>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/asignacion-docentes" class="waves-effect secundary-item">Asignación Secciones-Docentes</a></li>
-                        <li><a href="/asignacion-alumnos" class="waves-effect secundary-item">Asignación Secciones-Alumnos</a></li>
-                        <li><a href="#" class="waves-effect">Asignación de Evaluaciones Apt.</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header waves-effect principal-item"><i class="material-icons">school</i>Alumnos</div>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/alumnos" class="waves-effect secundary-item">Listado de Alumnos</a></li>
-                                                
-                        <ul class="collapsible">
-                            <li>
-                                <div class="collapsible-header waves-effect secundary-item"><i class="material-icons">assessment</i>Record de Alumno</div>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="/record_escolar" class="sidenav-close waves-effect secundary-item">Promedios Centro Escolar</a></li>
-                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Materias Oportunidades</a></li>
-                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Aptitudinales</a></li>
-                                        <li><a href="/record_alumno" class="waves-effect secundary-item">Promedios Consolidados</a></li>
-                                    </ul>
 
-                                </div>
-                            </li>
-
-                        </ul>
-                    
-                    </ul>
-                </div>
-            </li>
+        <ul id="colapsable" class="collapsible">
         </ul>
+
+            
     </ul>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
@@ -112,5 +59,7 @@
         @yield('contenido')
     </main>
 </body>
+
+    @include ('footer')
 
 </html>

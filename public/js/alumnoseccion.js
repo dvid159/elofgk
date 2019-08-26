@@ -28,12 +28,21 @@ $(document).ready(function(){
 
     });
 
-
     $('#btnguardar').click(function(){
 
-      
+        var contadorderegistros = 0;
+
         $listadoxclase = $('tbody').children('tr');
         
+        for(var i=0; i<$listadoxclase.length; i++){
+            if (!$('input[name="'+$listadoxclase[i]['id']+'"]').is(':disabled')) {
+                if ($('input[name="'+$listadoxclase[i]['id']+'"]').is(':checked')) {
+                    contadorderegistros = contadorderegistros+1;
+                }
+            }
+        } 
+
+        var contador = 0;
         
         for(var i=0; i<$listadoxclase.length; i++){
 
@@ -62,27 +71,25 @@ $(document).ready(function(){
                             "_token": token
                         },
                         success: function(response){
-                                
+                            M.toast({html: 'Registro guardado exitosamente!', classes: 'rounded', inDuration: 5000});    
+                            contador = contador+1;
+                            if(contador==contadorderegistros){
+                                location.reload();
+                            }
                         },
                         error: function(error){
-                                
+                            console.log(error);
                         }
-                    }); 
+                    });
+                    
 
                 }
 
             }
         } 
-        
-        
-
     
     });
-
-
-
-
-    
+        
 });
 
 function cargarSecciones(sec){ 

@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
     //Cargar DATOS
-    $id = $('#lblId').val();
+  /*  $id = $('#lblId').val();
     console.log($id);
 
     $.ajax(
@@ -14,7 +14,7 @@ $(document).ready(function(){
         {
             console.log(data);
         }
-    });
+    }); */
 
     //----------------------
     function cargarmunicipios(){
@@ -24,7 +24,6 @@ $(document).ready(function(){
         for(var i=0; i<municipiosarray.length; i++){
             datamuni[municipiosarray[i].id_municipio+"-"+municipiosarray[i].municipio]=null;
         }
-        console.log(datamuni);
         return datamuni;
     }
 
@@ -44,7 +43,7 @@ $(document).ready(function(){
         for(var i=0; i<cearray.length; i++){
             datace[cearray[i].codigo_centro_educativo+"-"+cearray[i].nombre_centro_educativo]=null;
         }
-        console.log(datace);
+        
         return datace;
     }
 

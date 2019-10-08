@@ -53,7 +53,7 @@
                         <li><a href="/municipios" class="waves-effect secundary-item">Municipios</a></li>
                         <li><a href="/school" class="waves-effect secundary-item">Centros Educativos</a></li>
                         <li><a href="/clases" class="waves-effect secundary-item">Class</a></li>
-                        <li><a href="/secciones" class="waves-effect secundary-item">Seccion</a></li>
+                        <li><a href="/secciones" class="waves-effect secundary-item">Sección</a></li>
                         <li><a href="/materias" class="waves-effect secundary-item">Materias</a></li>
                         <li><a href="/criterios" class="waves-effect secundary-item">Criterios Aptitudinales</a></li>
                         <li><a href="/aptitudes" class="waves-effect secundary-item">Aptitudes</a></li>
@@ -83,27 +83,28 @@
                 <div class="collapsible-header waves-effect principal-item"><i class="material-icons">school</i>Alumnos</div>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a href="/alumnos" class="waves-effect secundary-item">Listado de Alumnos</a></li>
-                                                
-                        <ul class="collapsible">
-                            <li>
-                                <div class="collapsible-header waves-effect secundary-item"><i class="material-icons">assessment</i>Record de Alumno</div>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="/record_escolar" class="sidenav-close waves-effect secundary-item">Promedios Centro Escolar</a></li>
-                                        <li><a href="#" class="waves-effect secundary-item">Promedios Materias Oportunidades</a></li>
-                                        <li><a href="#" class="waves-effect secundary-item">Promedios Aptitudinales</a></li>
-                                        <li><a href="#" class="waves-effect secundary-item">Promedios Consolidados</a></li>
-                                    </ul>
-
-                                </div>
-                            </li>
-
-                        </ul>
-                    
+                        <li><a href="/alumnos" class="waves-effect secundary-item">Listado de Alumnos</a></li>                                                                                            
                     </ul>
                 </div>
+            </li>             
+            
+             <li>
+                <div class="collapsible-header waves-effect secundary-item"><i class="material-icons">assessment</i>Record de Alumnos</div>
+                <div class="collapsible-body">
+                    <ul>
+                     <li><a href="/record_escolar" class="sidenav-close waves-effect secundary-item">Promedios Centro Escolar</a></li>
+                     <li><a href="#" class="waves-effect secundary-item">Promedios Materias Oportunidades</a></li>
+                     <li><a href="#" class="waves-effect secundary-item">Promedios Aptitudinales</a></li>
+                     <li><a href="#" class="waves-effect secundary-item">Promedios Consolidados</a></li>
+                    </ul>
+
+                </div>
+
             </li>
+
+                        
+            
+            
         </ul>
     </ul>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>

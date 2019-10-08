@@ -9,7 +9,7 @@
 
     <!--encabezado-->
     <header>
-        <h5>Seccion</h5>
+        <h5>Sección</h5>
     </header>
 
     <ul class="collapsible">

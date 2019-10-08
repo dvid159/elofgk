@@ -1,3 +1,5 @@
+// import { userInfo } from "os";
+
 $(document).ready(function () {
     console.log(alumnos_noveno)
     $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
@@ -8,130 +10,19 @@ $(document).ready(function () {
 
     //---------------------Datos para cargar tabla principal-------------------------------------------------
     
-    var zdata = "";
-    
-    for(var x = 0; x < alumnos_noveno.length; x = x+0){
-        var carnet = alumnos_noveno[x].carnet_alumno;
-
-        zdata += '<tr>'+
-            '<td><a  href="#" data-id="' + alumnos_noveno[x].carnet_alumno + '" class="resume">' + alumnos_noveno[x].carnet_alumno + '</a> </td>' +
-            '<td>' + alumnos_noveno[x].nombres + '-' + alumnos_noveno[x].apellidos + '</td>';
-            var PFF = 0;
-            for(var z = 0; z < 16; z = z+0){
-                
-                if( x < alumnos_noveno.length){
-                if(carnet == alumnos_noveno[x].carnet_alumno ){
-                    var PF =  calcularPromedio(alumnos_noveno[x].nota, alumnos_noveno[x+1].nota, alumnos_noveno[x+2].nota, alumnos_noveno[x+3].nota);
-                    PFF += PF;
-                    if(PF <= 5){
-                        zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                    }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                    
-                   
-                }else{ 
-                  x = x - 4;
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                }else{ 
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                z = z + 4
-                x = x + 4;                  
-            }
-            PFF = (PFF/4).toFixed(2);
-            zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-            zdata += '</tr>';
-           
-    }
-    $("#Tnoveno").append(zdata);
-    
-
+    var a_noveno = llenarBaseInicial(alumnos_noveno);
+    $("#Tnoveno").append(a_noveno);
+    var a_primero = llenarBaseInicial(alumnos_primero);
+    $("#Tprimero").append(a_primero);
+    var a_segundo = llenarBaseInicial(alumnos_segundo);
+    $("#Tsegundo").append(a_segundo);
     //--------------------------------------------------------------------------------------------------------------------------------------------------------
-    var zdata = "";
     
-    for(var x = 0; x < alumnos_primero.length; x = x+0){
-        var carnet = alumnos_primero[x].carnet_alumno;
-
-        zdata += '<tr>'+
-            '<td><a  href="#" data-id="' + alumnos_primero[x].carnet_alumno + '" class="resume">' + alumnos_primero[x].carnet_alumno + '</a> </td>' +
-            '<td>' + alumnos_primero[x].nombres + '-' + alumnos_primero[x].apellidos + '</td>';
-            var PFF = 0;
-            for(var z = 0; z < 16; z = z+0){
-                
-                if( x < alumnos_primero.length){
-                if(carnet == alumnos_primero[x].carnet_alumno ){
-                    var PF =  calcularPromedio(alumnos_primero[x].nota, alumnos_primero[x+1].nota, alumnos_primero[x+2].nota, alumnos_primero[x+3].nota);
-                    PFF += PF;
-                    if(PF <= 5){
-                        zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                    }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                    
-                   
-                }else{ 
-                  x = x - 4;
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                }else{ 
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                z = z + 4
-                x = x + 4;                  
-            }
-            PFF = (PFF/4).toFixed(2);
-            zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-            zdata += '</tr>';
-           
-    }
-    $("#Tprimero").append(zdata);
-
-    //----------------------------------------------------------------------------------------------------------------------------------------------------
-    var zdata = "";
-    if(alumnos_segundo.length > 0){
-    for(var x = 0; x < alumnos_segundo.length; x = x+0){
-        var carnet = alumnos_segundo[x].carnet_alumno;
-
-        zdata += '<tr>'+
-            '<td><a  href="#" data-id="' + alumnos_segundo[x].carnet_alumno + '" class="resume">' + alumnos_segundo[x].carnet_alumno + '</a> </td>' +
-            '<td>' + alumnos_segundo[x].nombres + '-' + alumnos_segundo[x].apellidos + '</td>';
-            var PFF = 0;
-            for(var z = 0; z < 16; z = z+0){
-                
-                if( x < alumnos_segundo.length){
-                if(carnet == alumnos_segundo[x].carnet_alumno ){
-                    var PF =  calcularPromedio(alumnos_segundo[x].nota, alumnos_segundo[x+1].nota, alumnos_segundo[x+2].nota, alumnos_segundo[x+3].nota);
-                    PFF += PF;
-                    if(PF <= 5){
-                        zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                    }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                    
-                   
-                }else{ 
-                  x = x - 4;
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                }else{ 
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                z = z + 4
-                x = x + 4;                  
-            }
-            PFF = (PFF/4).toFixed(2);
-            zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-            zdata += '</tr>';
-           
-    }
-
-    }else{zdata += '<tr> <td colspan="7" style="text-align:center;"> -NO EXISTEN REGISTROS- </td></tr>';
-}
-    $("#Tsegundo").append(zdata);
-    //---------------------------------------------------------------------------------------------------------------------------------------------------
-    
-
-
 
     //----------------Crear tabla resumen ----------------------------------------------------------------------------------------
-    $('.resume').click(function () {
+    $('.resume').click(function() {
         var id = $(this).data("id");
+        M.toast({ html: id, classes: 'rounded', inDuration: 5000 });                
         console.log(id);
 
         $.ajax(
@@ -190,141 +81,28 @@ $(document).ready(function () {
     //----------------actualizar tabla por clase(select)---------------------------------------------------------------------------------
     //-------------------NOVENO---------------------------------------------
     $('.materialSelect1').change(function (e) {
-        var clase = $('.materialSelect1').val();        
-    $("#Tnoveno").empty();
-        var zdata = "";
-    
-    for(var x = 0; x < alumnos_noveno.length; x = x+0){
-        if(alumnos_noveno[x].id_class == clase || clase == "all"){
-        var carnet = alumnos_noveno[x].carnet_alumno;
+        var clase = $('.materialSelect1').val().split("-");        
+        // $("#Tnoveno").empty();
+        // var af_noveno = llenarBaseFiltrada(alumnos_noveno, clase);    
+        // $("#Tnoveno").append(af_noveno);
 
-        zdata += '<tr>'+
-            '<td><a  href="#" data-id="' + alumnos_noveno[x].carnet_alumno + '" class="resume">' + alumnos_noveno[x].carnet_alumno + '</a> </td>' +
-            '<td>' + alumnos_noveno[x].nombres + '-' + alumnos_noveno[x].apellidos + '</td>';
-            var PFF = 0;
-            for(var z = 0; z < 16; z = z+0){
-                
-                if( x < alumnos_noveno.length){
-                if(carnet == alumnos_noveno[x].carnet_alumno ){
-                    var PF =  calcularPromedio(alumnos_noveno[x].nota, alumnos_noveno[x+1].nota, alumnos_noveno[x+2].nota, alumnos_noveno[x+3].nota);
-                    PFF += PF;
-                    if(PF <= 5){
-                        zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                    }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                    
-                   
-                }else{ 
-                  x = x - 4;
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                }else{ 
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                z = z + 4
-                x = x + 4;                  
-            }
-            PFF = (PFF/4).toFixed(2);
-            zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-            zdata += '</tr>';
-        }else{            
-            x = x+4} 
-        console.log(zdata);
-    }
-    
-    $("#Tnoveno").append(zdata);
+        M.toast(clase[1]);
+
 
     });
     //---------------- PRIMER AÑO-------------------------------------------
     $('.materialSelect2').change(function (e) {
         var clase = $('.materialSelect2').val();
         $("#Tprimero").empty();
-        var zdata = "";
-    
-        for(var x = 0; x < alumnos_primero.length; x = x+0){
-            if(alumnos_primero[x].id_class == clase || clase == "all"){
-            var carnet = alumnos_primero[x].carnet_alumno;
-    
-            zdata += '<tr>'+
-                '<td><a  href="#" data-id="' + alumnos_primero[x].carnet_alumno + '" class="resume">' + alumnos_primero[x].carnet_alumno + '</a> </td>' +
-                '<td>' + alumnos_primero[x].nombres + '-' + alumnos_primero[x].apellidos + '</td>';
-                var PFF = 0;
-                for(var z = 0; z < 16; z = z+0){
-                    
-                    if( x < alumnos_primero.length){
-                    if(carnet == alumnos_primero[x].carnet_alumno ){
-                        var PF =  calcularPromedio(alumnos_primero[x].nota, alumnos_primero[x+1].nota, alumnos_primero[x+2].nota, alumnos_primero[x+3].nota);
-                        PFF += PF;
-                        if(PF <= 5){
-                            zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                        }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                        
-                       
-                    }else{ 
-                      x = x - 4;
-                        zdata += '<td style="text-align:center;">-</td>'; 
-                        }
-                    }else{ 
-                        zdata += '<td style="text-align:center;">-</td>'; 
-                        }
-                    z = z + 4
-                    x = x + 4;                  
-                }
-                PFF = (PFF/4).toFixed(2);
-                zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-                zdata += '</tr>';
-            }else{                
-                x = x+4}
-               
-        }
-        $("#Tprimero").append(zdata);
-    
-
+        var af_primero = llenarBaseFiltrada(alumnos_primero, clase);
+        $("#Tprimero").append(af_primero);    
     });
     //-------------------SEGUNDO AÑO-----------------------------------------
     $('.materialSelect3').change(function (e) {
         var clase = $('.materialSelect3').val();
-        $("#Tsegundo").empty();
-        var zdata = "";
-    if(alumnos_segundo.length > 0){
-    for(var x = 0; x < alumnos_segundo.length; x = x+0){
-        if(alumnos_primero[x].id_class == clase || clase == "all"){
-        var carnet = alumnos_segundo[x].carnet_alumno;
-
-        zdata += '<tr>'+
-            '<td><a  href="#" data-id="' + alumnos_segundo[x].carnet_alumno + '" class="resume">' + alumnos_segundo[x].carnet_alumno + '</a> </td>' +
-            '<td>' + alumnos_segundo[x].nombres + '-' + alumnos_segundo[x].apellidos + '</td>';
-            var PFF = 0;
-            for(var z = 0; z < 16; z = z+0){
-                
-                if( x < alumnos_segundo.length){
-                if(carnet == alumnos_segundo[x].carnet_alumno ){
-                    var PF =  calcularPromedio(alumnos_segundo[x].nota, alumnos_segundo[x+1].nota, alumnos_segundo[x+2].nota, alumnos_segundo[x+3].nota);
-                    PFF += PF;
-                    if(PF <= 5){
-                        zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                    }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                    
-                   
-                }else{ 
-                  x = x - 4;
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                }else{ 
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                z = z + 4
-                x = x + 4;                  
-            }
-            PFF = (PFF/4).toFixed(2);
-            zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-            zdata += '</tr>';
-        }else{           
-            x = x+4}
-    }
-
-    }else{zdata += '<tr> <td colspan="7" style="text-align:center;"> -NO EXISTEN REGISTROS- </td></tr>';
-}
-    $("#Tsegundo").append(zdata);
+        $("#Tsegundo").empty();        
+        var af_segundo = llenarBaseFiltrada(alumnos_segundo, clase);
+        $("#Tsegundo").append(af_segundo);
     });
     // ---------------Termina actualizar tabla por clase-------------------------------------------------------------------------
 
@@ -368,118 +146,17 @@ $(document).ready(function () {
     //-----------------------key press busqueda por nombre---------------------------------------------------//
     $('#nombre_recordN').keyup(function(e){
         var key = $('#nombre_recordN').val().toLowerCase();
-        
-
-        $("#Tnoveno").empty();
-        var zdata = "";
-    
-    for(var x = 0; x < alumnos_noveno.length; x = x+0){
-        if (alumnos_noveno[x].nombres.toLowerCase().indexOf(key,0) >= 0 || alumnos_noveno[x].apellidos.toLowerCase().indexOf(key,0) >= 0) {
-        var carnet = alumnos_noveno[x].carnet_alumno;
-
-        zdata += '<tr>'+
-            '<td><a  href="#" data-id="' + alumnos_noveno[x].carnet_alumno + '" class="resume">' + alumnos_noveno[x].carnet_alumno + '</a> </td>' +
-            '<td>' + alumnos_noveno[x].nombres + '-' + alumnos_noveno[x].apellidos + '</td>';
-            var PFF = 0;
-            for(var z = 0; z < 16; z = z+0){
-                
-                if( x < alumnos_noveno.length){
-                if(carnet == alumnos_noveno[x].carnet_alumno ){
-                    var PF =  calcularPromedio(alumnos_noveno[x].nota, alumnos_noveno[x+1].nota, alumnos_noveno[x+2].nota, alumnos_noveno[x+3].nota);
-                    PFF += PF;
-                    if(PF <= 5){
-                        zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                    }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                    
-                   
-                }else{ 
-                  x = x - 4;
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                }else{ 
-                    zdata += '<td style="text-align:center;">-</td>'; 
-                    }
-                z = z + 4
-                x = x + 4;                  
-            }
-            PFF = (PFF/4).toFixed(2);
-            zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-            zdata += '</tr>';
-        }else{            
-            x = x+4} 
-        console.log(zdata);
-    }
-    
-    $("#Tnoveno").append(zdata);
-
-           
+        buscarPNombre(key);           
     });
 
     $('#nombre_recordP').keyup(function(e){
         var key = $('#nombre_recordP').val().toLowerCase();
-          
-        $("#Tprimero").empty();
-        var zdata = "";
-    
-        for(var x = 0; x < alumnos_primero.length; x = x+0){
-            if (alumnos_primero[x].nombres.toLowerCase().indexOf(key,0) >= 0 || alumnos_primero[x].apellidos.toLowerCase().indexOf(key,0) >= 0) {
-            var carnet = alumnos_primero[x].carnet_alumno;
-    
-            zdata += '<tr>'+
-                '<td><a  href="#" data-id="' + alumnos_primero[x].carnet_alumno + '" class="resume">' + alumnos_primero[x].carnet_alumno + '</a> </td>' +
-                '<td>' + alumnos_primero[x].nombres + '-' + alumnos_primero[x].apellidos + '</td>';
-                var PFF = 0;
-                for(var z = 0; z < 16; z = z+0){
-                    
-                    if( x < alumnos_primero.length){
-                    if(carnet == alumnos_primero[x].carnet_alumno ){
-                        var PF =  calcularPromedio(alumnos_primero[x].nota, alumnos_primero[x+1].nota, alumnos_primero[x+2].nota, alumnos_primero[x+3].nota);
-                        PFF += PF;
-                        if(PF <= 5){
-                            zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                        }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
-                        
-                       
-                    }else{ 
-                      x = x - 4;
-                        zdata += '<td style="text-align:center;">-</td>'; 
-                        }
-                    }else{ 
-                        zdata += '<td style="text-align:center;">-</td>'; 
-                        }
-                    z = z + 4
-                    x = x + 4;                  
-                }
-                PFF = (PFF/4).toFixed(2);
-                zdata += '<td style="text-align:center;">'+ PFF +'</td>';
-                zdata += '</tr>';
-            }else{                
-                x = x+4}
-               
-        }
-        $("#Tprimero").append(zdata);
-
+        buscarPNombre(key);
     });
 
     $('#nombre_recordS').keyup(function(e){
         var key = $('#nombre_recordS').val().toLowerCase();
-        var alumN = alumnos_segundo;
-        var Z = "";
-        $('#Tsegundo').empty();
-
-        for (var x = 0; x < alumN.length; x++) {
-            if (alumN[x].nombres.toLowerCase().indexOf(key,0) >= 0) {
-                Z += '<tr>' +
-                    '<td><a  href="#" data-id="' + alumN[x].carnet_alumno + '" class="resume">' + alumN[x].carnet_alumno + '</a> </td>' +
-                    '<td>' + alumN[x].nombres + '-' + alumN[x].apellidos + '</td>' +
-                    '<td style="text-align:center;">-</td>' +
-                    '<td style="text-align:center;">-</td>' +
-                    '<td style="text-align:center;">-</td>' +
-                    '<td style="text-align:center;">-</td>' +
-                    '</tr>';
-            }
-        }
-        $("#Tsegundo").append(Z);       
+        buscarPNombre(key);       
     });
 
 
@@ -505,26 +182,178 @@ $(document).ready(function () {
     });
     //--------------------------------------------------------------------------------------------------------//
 
+    //--------------------- funciones aparte---------------------------//
+    function calcularPromedio(n1, n2, n3, n4) {
+    var p = (parseInt(n1) + parseInt(n2) + parseInt(n3) + parseInt(n4));
+    return ((p) / 4);
+    }
 
-
-
+    function llenarBaseInicial(tabla_alumno){
+        var zdata = "";
+        
+        for(var x = 0; x < tabla_alumno.length; x = x+0){
+            var carnet = tabla_alumno[x].carnet_alumno;
+            var period = 0;
+            zdata += '<tr>'+
+                '<td><a  href="#" data-id="' + tabla_alumno[x].carnet_alumno + '" class="resume">' + tabla_alumno[x].carnet_alumno + '</a> </td>' +
+                '<td>' + tabla_alumno[x].nombres + '-' + tabla_alumno[x].apellidos + '</td>';
+                var PFF = 0;
+                for(var z = 0; z < 16; z = z+0){
+                    
+                    if( x < tabla_alumno.length){
+                    if(carnet == tabla_alumno[x].carnet_alumno ){
+                        var PF =  calcularPromedio(tabla_alumno[x].nota, tabla_alumno[x+1].nota, tabla_alumno[x+2].nota, tabla_alumno[x+3].nota);
+                        PFF += PF;
+                        if(PF <= 5){
+                            zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
+                        }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
+                        
+                    period++;   
+                    }else{ 
+                      x = x - 4;
+                        zdata += '<td style="text-align:center;">-</td>'; 
+                        }
+                    }else{ 
+                        zdata += '<td style="text-align:center;">-</td>'; 
+                        }
+                    z = z + 4
+                    x = x + 4;                  
+                }
+                PFF = (PFF/period).toFixed(2);
+                zdata += '<td style="text-align:center;">'+ PFF +'</td>';
+                zdata += '</tr>';
+               
+        }
     
-});
+        return zdata;
+    }
+    
+    function llenarBaseFiltrada(tabla_alumno, clase){
+        var zdata = "";
+    
+        for(var x = 0; x < tabla_alumno.length; x = x+0){
+            if(tabla_alumno[x].id_class == clase || clase == "all"){
+            var carnet = tabla_alumno[x].carnet_alumno;
+    
+            zdata += '<tr>'+
+                '<td><a  href="#" data-id="'+tabla_alumno[x].carnet_alumno+'" class="resume">' + tabla_alumno[x].carnet_alumno + '</a> </td>' +
+                '<td>' + tabla_alumno[x].nombres + '-' + tabla_alumno[x].apellidos + '</td>';
+                var PFF = 0;
+                for(var z = 0; z < 16; z = z+0){
+                    
+                    if( x < tabla_alumno.length){
+                    if(carnet == tabla_alumno[x].carnet_alumno ){
+                        var PF =  calcularPromedio(tabla_alumno[x].nota, tabla_alumno[x+1].nota, tabla_alumno[x+2].nota, tabla_alumno[x+3].nota);
+                        PFF += PF;
+                        if(PF <= 5){
+                            zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
+                        }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';
+                              }
+                        
+                       
+                    }else{ 
+                      x = x - 4;
+                        zdata += '<td style="text-align:center;">-</td>'; 
+                        }
+                    }else{ 
+                        zdata += '<td style="text-align:center;">-</td>'; 
+                        }
+                    z = z + 4
+                    x = x + 4;                  
+                }
+                PFF = (PFF/4).toFixed(2);
+                zdata += '<td style="text-align:center;">'+ PFF +'</td>';
+                zdata += '</tr>';
+            }else{                
+                x = x+4}
+               
+        }
+        return zdata;
+    }
 
-
-//-------------------------key press formulario ingreso de notas----------------------------------------//
-function showName(e) {
-  //  See notes about 'which' and 'key'
-    if (e.keyCode == 13) {
-        document.getElementById("lblNombre").value = "";
-        document.getElementById("lblNombre").value = "nombre de alumno";
+    function buscarPNombre(clase){
+    var tabla = document.getElementById('dataTable');
+    var busqueda = clase;
+    var cellsOfRow="";
+    var found=false;
+    var compareWith="";
+    for (var i = 1; i < tabla.rows.length; i++) {
+        cellsOfRow = tabla.rows[i].getElementsByTagName('td');
+        found = false;
+        for (var j = 0; j < cellsOfRow.length && !found; j++) { 
+            compareWith = cellsOfRow[j].innerHTML.toLowerCase(); 
+            if (busqueda.length == 0 || (compareWith.indexOf(busqueda) > -1))
+            {
+                found = true;
+            }
+        }
+        if(found)
+        {
+            tabla.rows[i].style.display = '';
+        } else {
+            tabla.rows[i].style.display = 'none';
+        }
     }
 }
 
+    //-------------------------key press formulario ingreso de notas----------------------------------------//
+    function showName(e) {
+    //  See notes about 'which' and 'key'
+      if (e.keyCode == 13) {
+          document.getElementById("lblNombre").value = "";
+          document.getElementById("lblNombre").value = "nombre de alumno";
+      }
+    }
+  
+});
+
+/**
+ * ------------------------------------------Metodos borrados----------------------------------------------------*
+ * -------------busqueda por filtro de nombre------------------
+ * // $("#Tprimero").empty();
+        // var zdata = "";
+    
+        // for(var x = 0; x < alumnos_primero.length; x = x+0){
+        //     if (alumnos_primero[x].nombres.toLowerCase().indexOf(key,0) >= 0 || alumnos_primero[x].apellidos.toLowerCase().indexOf(key,0) >= 0) {
+        //     var carnet = alumnos_primero[x].carnet_alumno;
+    
+        //     zdata += '<tr>'+
+        //         '<td><a  href="#" data-id="' + alumnos_primero[x].carnet_alumno + '" class="resume">' + alumnos_primero[x].carnet_alumno + '</a> </td>' +
+        //         '<td>' + alumnos_primero[x].nombres + '-' + alumnos_primero[x].apellidos + '</td>';
+        //         var PFF = 0;
+        //         for(var z = 0; z < 16; z = z+0){
+                    
+        //             if( x < alumnos_primero.length){
+        //             if(carnet == alumnos_primero[x].carnet_alumno ){
+        //                 var PF =  calcularPromedio(alumnos_primero[x].nota, alumnos_primero[x+1].nota, alumnos_primero[x+2].nota, alumnos_primero[x+3].nota);
+        //                 PFF += PF;
+        //                 if(PF <= 5){
+        //                     zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
+        //                 }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
+                        
+                       
+        //             }else{ 
+        //               x = x - 4;
+        //                 zdata += '<td style="text-align:center;">-</td>'; 
+        //                 }
+        //             }else{ 
+        //                 zdata += '<td style="text-align:center;">-</td>'; 
+        //                 }
+        //             z = z + 4
+        //             x = x + 4;                  
+        //         }
+        //         PFF = (PFF/4).toFixed(2);
+        //         zdata += '<td style="text-align:center;">'+ PFF +'</td>';
+        //         zdata += '</tr>';
+        //     }else{                
+        //         x = x+4}
+               
+        // }
+        // $("#Tprimero").append(zdata);
+ * 
+ */
 
 
-//------------------------------------------------//
-function calcularPromedio(n1, n2, n3, n4) {
-    var p = (parseInt(n1) + parseInt(n2) + parseInt(n3) + parseInt(n4));
-    return ((p) / 4);
-}
+
+
+

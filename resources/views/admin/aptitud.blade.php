@@ -78,8 +78,9 @@
 <div id="ModalEdit" class="modal">
     <form id="editform">
         @csrf
-        <div class="modal-content">
+        
             <h5>Modificar</h5>
+            <div class="modal-content">
             <div class="row">
                 <input id="lblId" name="id" type="hidden">
 

@@ -135,8 +135,9 @@
 <div id="ModalEdit" class="modal">
     <form id="editform">
         @csrf
-        <div class="modal-content">
+        
             <h5>Modificar</h5>
+            <div class="modal-content">
             <div class="row">
                 <div class="input-field col s12 m4">
                     <i class="material-icons prefix">mode_edit</i>

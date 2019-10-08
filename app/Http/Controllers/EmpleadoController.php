@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Empleado;
+use App\Aptitud;
 use Illuminate\Support\Facades\Session;
 
 class EmpleadoController extends Controller
@@ -37,6 +38,15 @@ class EmpleadoController extends Controller
         'observaciones' => $request->get('observaciones')
         ));
        $empleado->save();
+
+       $aptitud = new Aptitud(array(
+        'id_criterio' => 1,
+        'nombre_aptitud' => 'vestimenta' 
+
+
+       ));
+
+       $aptitud->save();
     }
 
     public function destroy ($id)

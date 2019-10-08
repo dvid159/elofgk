@@ -162,13 +162,12 @@
 
 <!-------------------------Ingresar notas Modal-------------------------------------------------------------->
 <div id="ModalEditRecord"  class="modal fade" data-backdrop="static" data-keyboard="false">
-<h5>Ingreso de Calificaciones</h5>
+    <h5>Ingreso de Calificaciones</h5>
         <div class="modal-content">
         <form id="editform">
         @csrf
             
-            <div class="row">
-                <!-- <input id="lblId" name="id" type="hidden"> -->
+            <div class="row">                
                 <div class="input-field col s12" style="width: 35%;">
 
                     <i class="large material-icons prefix">art_track</i>
@@ -260,9 +259,9 @@
 <div id="ModalResumeRecord" class="modal fade" data-backdrop="static" data-keyboard="false">
     <!-- <form id="resumeform">
         @csrf -->
-        <div class="modal-content">
+        
             <h5>Promedios de Periodo</h5>
-
+            <div class="modal-content">
             <div class="row">
 
         <table class="data" class="bordered">

@@ -3,9 +3,13 @@ To Do (sistema completo)
 ----------------Autenticación--------------------------------------------------------------------------
 
 -Opcion de password olvidada(?)
+
 -Mostrar alerta de autenticacion erronea
+
 -Verificar errores de sesion al abrir en otra pestaña/navegador
+
 -Modificar actividad del usuario en BD con campo activo/inactivo (relacionado a registro nuevo empleado)
+
 -Recordar quitar link de logout al estar seguros de buen funcionamiento de toda la autenticacion
 
 ------------------Home--------------------------------------------------------------------------------

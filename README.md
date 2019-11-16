@@ -5,9 +5,11 @@ To Do (sistema completo)
 -Verificar errores de sesion al abrir en otra pestaña/navegador
 -Modificar actividad del usuario en BD con campo activo/inactivo (relacionado a registro nuevo empleado)
 -Recordar quitar link de logout al estar seguros de buen funcionamiento de toda la autenticacion
+
 ------------------Home--------------------------------------------------------------------------------
 -Notificaciónes(?)
 -Informacion de Navbar(?)
+
 
 --------------Generales-------------------------------------------------------------------------------
 -Modificar campos unicos en BD
@@ -18,8 +20,10 @@ To Do (sistema completo)
 -Modulo de alumno (visualizacion de notas, notificacion de carte de prevencion y demas)
 
 
+
 ---------------Departemento--------------------------------------------------------------------------
 -Manejo de errores para ingreso de campo repetido
+
 
 ----------------Municipios-----------------------------------------------------------------------------
 -Error de agregar sin seleccionar un departemanto antes
@@ -27,10 +31,12 @@ To Do (sistema completo)
 -Manejo de errores para ingreso de campo repetido
 
 
+
 --------------Centro Educativo------------------------------------------------------------------------
 -Agregar: -Limitar caracteres de campos: --Codigo,Telefono,
 -Deshacer una accion por si elimina un centro por error(?)
 -Manejo de errores para ingreso de campo repetido
+
 
 ----------------Class------------------------------------------------------------------------------------
 -Definir formato de clase al ingresar una nueva
@@ -39,12 +45,15 @@ To Do (sistema completo)
 -Manejo de errores para ingreso de campo repetido
 -No modifica las clases
 
+
 --------------Seccion----------------------------------------------------------------------------------
 -Definir formato del campo seccion
 -Revisar constrains al momento de ingresar nueva seccion
 
+
 --------------Aptitudes---------------------------------------------------------------------------------
 -Error de agregar sin seleccionar un criterio antes
+
 
 --------------Empleado--------------------------------------------------------------------------------
 -Definir y limitar formato para DUI a solo numeros
@@ -56,16 +65,20 @@ To Do (sistema completo)
 -Manejdar empleados repetidos en BD(en general)
 -Manejo de cargo de usuario y tabla user para autenticacion con roles
 
+
 -------------Año en Curso----------------------------------------------------------------------------------
 -Manejo de errores
+
 
 --------------Alumnos--------------------------------------------------------------------------------------
 -Carga de datos al formulario de nuevo alumno desde enlace carnet de lista alumnos
 -Subir foto de alumno al ingrsar un nuevo alumno
 -Revisar funcionamiento total de paginas con alumno detalle
 
+
 --------------Nuevo-alumno-------------------------------------------------------------------------------
 -Responsibidad de tablas responsables y centros educativos
+
 
 
 -------------Promedios Centro Esolar----------------------------------------------------------------------
@@ -73,14 +86,18 @@ To Do (sistema completo)
 -Mostrar notas de promedio correspondiente en detalle de notas en links desde carnet
 -Modulo de edicion de notas con confirmacion con password
 
+
 ---------Promedios FGK---------------------------------------------------------------------------------
 -Hacer todo el modulo de notas
+
 
 --------Promedios Aptitudinales-------------------------------------------------------------------------
 -Hacer todo el modulo de notas
 
+
 --------Promedios Consolidados-------------------------------------------------------------------------
 -Modulo de consolidados con resumenes de calificaciones
 -Modulo estadistico en poblacion de alumnos, Centros Educativos etc
+
 
 --------------------------------------------------

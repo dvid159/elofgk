@@ -1,71 +1,86 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+To Do (sistema completo)
+----------------Autenticación--------------------------------------------------------------------------
+-Opcion de password olvidada(?)
+-Mostrar alerta de autenticacion erronea
+-Verificar errores de sesion al abrir en otra pestaña/navegador
+-Modificar actividad del usuario en BD con campo activo/inactivo (relacionado a registro nuevo empleado)
+-Recordar quitar link de logout al estar seguros de buen funcionamiento de toda la autenticacion
+------------------Home--------------------------------------------------------------------------------
+-Notificaciónes(?)
+-Informacion de Navbar(?)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+--------------Generales-------------------------------------------------------------------------------
+-Modificar campos unicos en BD
+-Opcion de ocultar el menù para visualizar tablas grandes
+-Manejo de hojas excel (importar/exportar) para calificaciones para modulo Docente
+-Manejo y archivacion de plantillas word para hojas de prevencion, honor roll, master honor roll etc.
+-Modulo de Docente (ingreso de notas, modificacion(con permisos de un admin), visualizacion, impresion de listas
+-Modulo de alumno (visualizacion de notas, notificacion de carte de prevencion y demas)
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---------------Departemento--------------------------------------------------------------------------
+-Manejo de errores para ingreso de campo repetido
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+----------------Municipios-----------------------------------------------------------------------------
+-Error de agregar sin seleccionar un departemanto antes
+-Ingresar un mismo municipio
+-Manejo de errores para ingreso de campo repetido
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+--------------Centro Educativo------------------------------------------------------------------------
+-Agregar: -Limitar caracteres de campos: --Codigo,Telefono,
+-Deshacer una accion por si elimina un centro por error(?)
+-Manejo de errores para ingreso de campo repetido
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+----------------Class------------------------------------------------------------------------------------
+-Definir formato de clase al ingresar una nueva
+-Limitar caracteres en campos de años
+-Error al ingresar una nueva clase<-------------------prioridad--------------------->
+-Manejo de errores para ingreso de campo repetido
+-No modifica las clases
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost you and your team's skills by digging into our comprehensive video library.
+--------------Seccion----------------------------------------------------------------------------------
+-Definir formato del campo seccion
+-Revisar constrains al momento de ingresar nueva seccion
 
-## Laravel Sponsors
+--------------Aptitudes---------------------------------------------------------------------------------
+-Error de agregar sin seleccionar un criterio antes
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+--------------Empleado--------------------------------------------------------------------------------
+-Definir y limitar formato para DUI a solo numeros
+-Definir y limitar formato para NIT a solo numeros
+-Formato de carnet
+-Agregar campo email a BD
+-Llenar tabla de usuarios para autenticacion al llenar un nuevo empleado(si cumple con el rol:admin,docente)
+-Limitar campo telefono
+-Manejdar empleados repetidos en BD(en general)
+-Manejo de cargo de usuario y tabla user para autenticacion con roles
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
+-------------Año en Curso----------------------------------------------------------------------------------
+-Manejo de errores
 
-## Contributing
+--------------Alumnos--------------------------------------------------------------------------------------
+-Carga de datos al formulario de nuevo alumno desde enlace carnet de lista alumnos
+-Subir foto de alumno al ingrsar un nuevo alumno
+-Revisar funcionamiento total de paginas con alumno detalle
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+--------------Nuevo-alumno-------------------------------------------------------------------------------
+-Responsibidad de tablas responsables y centros educativos
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+-------------Promedios Centro Esolar----------------------------------------------------------------------
+-Arreglar filtrar nombres por class(select)
+-Mostrar notas de promedio correspondiente en detalle de notas en links desde carnet
+-Modulo de edicion de notas con confirmacion con password
 
-## License
+---------Promedios FGK---------------------------------------------------------------------------------
+-Hacer todo el modulo de notas
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+--------Promedios Aptitudinales-------------------------------------------------------------------------
+-Hacer todo el modulo de notas
+
+--------Promedios Consolidados-------------------------------------------------------------------------
+-Modulo de consolidados con resumenes de calificaciones
+-Modulo estadistico en poblacion de alumnos, Centros Educativos etc
+
+--------------------------------------------------

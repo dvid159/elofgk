@@ -1,0 +1,249 @@
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+body{
+    background-image: url("../img/fondoFredo2.jpg");
+    background-attachment: fixed;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+#body_login{
+    background-image: url("../img/MaterialFontLogin.jpg");
+    /* background-image:fixed; */
+}
+main {
+    margin-top: 60px;
+    flex: 1 0 auto;
+    padding-left: 300px;
+  }
+
+/*ESTILO DE MENU*/
+
+.nav-wrapper {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(209, 21, 46, 0.911);     
+    height: 55px;
+    line-height: 55px;   
+    
+  }
+  
+  #nav_admin{
+    height: 55px;
+    line-height: 55px;
+    z-index: 100;
+    position: fixed;
+  }
+
+  #navbar_login{
+    
+    background-color:rgb(230, 235, 240);
+    color: black;
+
+  }
+
+  .app {
+ 
+    background-color: rgb(241, 241, 241);
+    color: black;
+ 
+  }
+
+.user-view.encabezado-aside{
+    background-color: rgb(241, 241, 241);
+    margin-bottom: 0px;
+    
+}
+
+
+.collapsible-header.waves-effect.principal-item:hover{
+    background-color: rgba(209, 21, 46, 0.911);
+    color: white;
+}
+
+.waves-effect.secundary-item:hover{
+    /* background-color: rgba(174, 173, 173, 0.911); */
+    background-color: rgba(63, 63, 63, 0.50);
+    color: rgb(0, 0, 0);
+}
+
+#menu_logo{
+    background-color: rgba(63, 63, 63, 0.911);
+    height: 55px;
+    
+}
+
+/*ENCABEZADOS*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+h5{
+    font-family: 'Roboto', sans-serif;
+    background-color:rgba(209, 21, 46, 0.911);
+    text-align: center;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  
+}
+
+/* MAIN - CONTENIDO*/
+
+#login_main{
+    padding-left: 0%;   
+     
+}
+
+
+
+@media only screen and (max-width : 975px) {
+    main{
+        padding-left: 0;
+    }
+          
+}
+
+.container{
+    width: 90%;
+}
+
+.email_container{
+    padding-top: 5%;
+   padding-left: 20%;
+   width: 80%;
+  
+}
+.login_container{    
+   padding-left: 35%;
+  
+}
+
+#login{
+    align-content: space-around;
+}
+#login_form{   
+    
+    width: 40%;   
+    border-radius: 10px;    
+    background-color:rgb(230, 235, 240);
+}
+#email_form{   
+        
+    border-radius: 10px;    
+    background-color:rgb(230, 235, 240);
+}
+
+
+/*NUEVO REGISTRO - CRUDS - TABLAS SENCILLAS */
+
+.fondo-cuerpo{
+    background-color: white;
+    padding-top: 20px;
+}
+
+.row.nuevo-registro{
+    padding-left: 15px;
+    vertical-align:center;
+}
+
+.waves-effect.waves-light.btn.add{
+        margin-top: 15px;
+}
+
+#nuevo-input:focus{
+    border-bottom: 1px solid #90a4ae;
+    box-shadow: 0 1px 0 0 #90a4ae;
+}
+
+.lbl-input-nuevo{
+    font-weight: bold;
+}
+
+.item-periodo{
+    font-weight: bold;
+}
+
+.table-notas-head{
+    font-size: 5%;
+
+}
+
+
+#dataTable{
+    padding-top: 10px;
+}
+
+th{
+    font-size: 14px;
+    padding-bottom: 0px;
+}
+
+tr{
+    font-size: 13px;
+    padding-bottom: 0px;
+}
+
+.tabs .indicator {
+    background-color:rgba(209, 21, 46, 0.911);
+    height: 3px;
+    /*Custom Color Of Indicator*/
+  }
+
+  .tabs {
+    background-color:gray;
+  }
+
+  .tab{
+    color:white;
+  }
+
+.modal{
+    border-bottom-left-radius: 2%;
+    border-top-left-radius: 2%;
+    border-top-right-radius: 2%;
+    border-bottom-right-radius: 2%;
+}
+
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }
+
+  #btnGuardar-notas{
+     margin-left: 5%;
+     margin-bottom: 15px;
+
+  }
+
+  .row.primer-fila{
+      margin-top: 25px;
+
+  }
+
+  .collapsible-body.asignacion-seccion{
+        background-color: white;
+  }
+
+  #filtro-alumno-secciones{
+        padding-left: 20px;
+  }
+
+/* quitar flechas de input's de tipo numero */
+input[type=number]::-webkit-outer-spin-button,
+
+input[type=number]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+

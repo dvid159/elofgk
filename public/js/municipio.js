@@ -1,6 +1,8 @@
 $(document).ready(function(){
     //Nuevo registro
     $('#addform').on('submit', function(e){
+
+       
         e.preventDefault();
         $.ajax({
             type:"POST",
@@ -13,6 +15,7 @@ $(document).ready(function(){
                 location.reload();
             },
             error: function(error){
+                M.toast({html: 'Error: Verifique que los campos esten llenos y no repetidos', classes: 'rounded', inDuration: 5000});
                 console.log(error);
                 console.log("ERROR");
             }

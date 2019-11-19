@@ -37,16 +37,16 @@ To Do (sistema completo)
 
 ---------------Departemento--------------------------------------------------------------------------
 
--Manejo de errores para ingreso de campo repetido
+-Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
 
 ----------------Municipios-----------------------------------------------------------------------------
 
--Error de agregar sin seleccionar un departemanto antes
+-Error de agregar sin seleccionar un departemanto antes (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
--Ingresar un mismo municipio
+-Ingresar un mismo municipio (Hecho)
 
--Manejo de errores para ingreso de campo repetido
+-Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
 
 

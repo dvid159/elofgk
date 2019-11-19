@@ -21,7 +21,7 @@ To Do (sistema completo)
 
 --------------Generales-------------------------------------------------------------------------------
 
--Modificar campos unicos en BD
+-Modificar campos unicos en BD (hecho)
 
 -Opcion de ocultar el menù para visualizar tablas grandes
 
@@ -102,6 +102,8 @@ To Do (sistema completo)
 
 -Manejo de cargo de usuario y tabla user para autenticacion con roles
 
+-Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)
+
 
 -------------Año en Curso----------------------------------------------------------------------------------
 
@@ -116,6 +118,7 @@ To Do (sistema completo)
 
 -Revisar funcionamiento total de paginas con alumno detalle
 
+-Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)
 
 --------------Nuevo-alumno-------------------------------------------------------------------------------
 

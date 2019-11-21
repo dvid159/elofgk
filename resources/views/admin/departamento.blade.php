@@ -17,7 +17,7 @@
             <div class="row nuevo-registro">
 
                 <div class="input-field nuevo col s12 m4">
-                    <input id="nuevo-input" type="text" name="departamento" autocomplete="off">
+                    <input id="nuevo-input" type="text" name="departamento" autocomplete="off" required>
                     <label for="nuevo" class="blue-grey-text text-lighten-2 lbl-input-nuevo">Departamento</label>
                 </div>
 
@@ -25,7 +25,11 @@
                         class="material-icons right">add</i>Agregar</button>
             </div>
         </form>
-
+        @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 
         <!--Tabla-->
         <div id="dataTable">

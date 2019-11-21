@@ -16,18 +16,19 @@ class DepartamentoController extends Controller
         
     public function index()
     {
-        $data = DB::table('departamento')->get();
+        $data = DB::table('departamento')->orderBy('id_departamento')->get();
 
         return view('admin.departamento',compact('data'));
     }
 
     public function store(Request $request)
     {
-
        $departamento = new Departamento(array(
         'departamento' => $request->get('departamento')
         ));
-       $departamento->save();
+        $departamento->save();
+            return  json_encode('creado');                                   
+
     }
 
     public function destroy ($id)

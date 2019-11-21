@@ -17,7 +17,7 @@
             <div class="row nuevo-registro">
                 <!--input nuevo-->
                 <div class="input-field nuevo col s12 m4">
-                    <input id="lblCargo" type="text" name="cargo">
+                    <input id="lblCargo" type="text" name="cargo" required>
                     <label for="nuevo" class="blue-grey-text text-lighten-2 lbl-input-nuevo">Cargos</label>
                 </div>
 

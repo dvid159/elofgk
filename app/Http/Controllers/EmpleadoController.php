@@ -43,16 +43,16 @@ class EmpleadoController extends Controller
         'estado' => $request->get('estado'),
         'observaciones' => $request->get('observaciones')
         ));
-     //  $empleado->save();
+       $empleado->save();
 
        $adm = 0;
        $doc = 0;
-       if($request->get('cargo')==1)
+       if($request->get('cargo')==2)
        {
            $adm=1; 
        }
 
-       if($request->get('cargo')==2)
+       if($request->get('cargo')==1)
        {
            $doc=1;
        }
@@ -73,16 +73,7 @@ class EmpleadoController extends Controller
 
        ));
        $nuevoUser->save();
-
-
-       $aptitud = new Aptitud(array(
-        'id_criterio' => 1,
-        'nombre_aptitud' => 'vestimenta' 
-
-
-       ));
-
-       $aptitud->save();
+      
     }
 
     public function destroy ($id)

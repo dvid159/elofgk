@@ -12,6 +12,7 @@ $(document).ready(function(){
                 location.reload();
             },
             error: function(error){
+                M.toast({html: 'Verifique que los campos esten llenos', classes: 'rounded', inDuration: 5000});
                 console.log(error);
                 console.log("ERROR");
             }

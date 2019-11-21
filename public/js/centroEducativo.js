@@ -32,11 +32,18 @@ $(document).ready(function(){
             data: $("#addform").serialize(),
             success: function(resonse){
                 console.log(resonse);
-                console.log('Centro Educativo guardado exitosamente!');
-                M.toast({html: 'Centro Educativo guardado exitosamente!', classes: 'rounded', inDuration: 5000});
-                location.reload();
+
+                if(resonse == "error"){
+                    M.toast({html: 'Codigo de Centro Educativo ya existente', classes: 'rounded', inDuration: 7000});
+                }else{
+                    console.log('Centro Educativo guardado exitosamente!');
+                    M.toast({html: 'Centro Educativo guardado exitosamente!', classes: 'rounded', inDuration: 5000});                    
+                    location.reload();
+                }
+                
             },
             error: function(error){
+                M.toast({html: 'Verifique que el centro educativo no este repetido', classes: 'rounded', inDuration: 5000});
                 console.log(error);
                 console.log(data);
             }
@@ -88,6 +95,7 @@ $(document).ready(function(){
             url: "/admin/school/"+id,
             data: $("#editform").serialize(),
             success: function(resonse){
+                // console.log(resonse);
                 console.log($("#editform").serialize());
                 console.log('Municipio actualizado exitosamente!');
                 M.toast({html: 'Municipio actualizado exitosamente!', classes: 'rounded', inDuration: 5000});

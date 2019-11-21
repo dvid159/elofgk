@@ -17,7 +17,7 @@
             <div class="row nuevo-registro">
                 <!--input nuevo-->
                 <div class="input-field nuevo col s12 m6">
-                    <input id="lblAptitud" type="text" name="aptitud" autocomplete="off">
+                    <input id="lblAptitud" type="text" name="aptitud" autocomplete="off" required>
                     <label for="nuevo" class="blue-grey-text text-lighten-2 lbl-input-nuevo">Aptitud</label>
                 </div>
 
@@ -90,7 +90,7 @@
                 </div>
 
                 <div class="input-field selectionar col s12 m6">
-                    <select id="criterio" name="id_criterio">
+                    <select id="criterio" name="id_criterio" >
                         <option value="" disabled selected>Seleccionar</option>
                         @foreach ($criterio as $c)
                         <option value='{{ $c->id_criterio }}'>{{ $c->nombre_criterio }}</option>

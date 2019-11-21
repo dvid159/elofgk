@@ -14,7 +14,7 @@ $(document).ready(function(){
                 location.reload();
             },
             error: function(error){
-                M.toast({html: 'Error: Verifique que los campos esten llenos y no repetidos', classes: 'rounded', inDuration: 5000});
+                M.toast({html: 'Departamento ya existente', classes: 'rounded', inDuration: 5000});
                 console.log(error);
                 console.log("ERROR");
             }

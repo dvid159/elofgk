@@ -1,5 +1,7 @@
 To Do (sistema completo)
 
+(?) = opcional o extra para comodidad
+
 ----------------Autenticación--------------------------------------------------------------------------
 
 -Opcion de password olvidada(?)
@@ -21,9 +23,9 @@ To Do (sistema completo)
 
 --------------Generales-------------------------------------------------------------------------------
 
--Modificar campos unicos en BD (hecho)
+-Modificar campos que son unicos en BD (hecho)
 
--Opcion de ocultar el menù para visualizar tablas grandes
+-Opcion de ocultar el menù para visualizar tablas grandes: sobre todo para el consolidado(?)
 
 -Manejo de hojas excel (importar/exportar) para calificaciones para modulo Docente
 
@@ -33,30 +35,32 @@ To Do (sistema completo)
 
 -Modulo de alumno (visualizacion de notas, notificacion de carte de prevencion y demas)
 
+-Dato curioso: al tratar de ingresar a BD si hay error de campo unico y el id es auto increment no lo guarda el contador sigue hasta el siguiente registro Ej: dato actual: 1-Santa ana - ingreso: santa ana(error) - id = 2 - ingreso: san salvador(id = 3) - tabla: 1 - Santa Ana, 3 - san salvador
 
+-Atributo required a input necesarios y evitar enviar formularios vacios(en proceso y verificacion necesaria)
 
----------------Departemento--------------------------------------------------------------------------
+---------------Departamento--------------------------------------------------------------------------
 
 -Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
 
 ----------------Municipios-----------------------------------------------------------------------------
 
--Error de agregar sin seleccionar un departemanto antes (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
+-Error de agregar sin seleccionar un departamanto antes (Hecho con dudas)(Error de campo not null en BD y solo muestra mensaje de verificacion)
 
--Ingresar un mismo municipio (Hecho)
+-Municipio vacio (Hecho)
 
 -Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
+--------------Centro Educativo (CE)------------------------------------------------------------------------
 
-
---------------Centro Educativo------------------------------------------------------------------------
-
--Agregar: -Limitar caracteres de campos: --Codigo,Telefono,
+-Agregar: -Limitar caracteres de campos: --Codigo,Telefono (50%) solo numeros+, no funciona el maxlength en type number-
 
 -Deshacer una accion por si elimina un centro por error(?)
 
--Manejo de errores para ingreso de campo repetido
+-Manejo de error: Evitar enviar un centro vacio con un dato vacio (hecho)
+
+-Manejo de errores para ingreso de codigo repetido (Hecho)
 
 
 ----------------Class------------------------------------------------------------------------------------
@@ -78,10 +82,16 @@ To Do (sistema completo)
 
 -Revisar constrains al momento de ingresar nueva seccion
 
+-Restringir longitud de año
+
+-------------Materia-----------------------------------------------------------------------------------
+
+-Opcion a largo plazo: uso de materias por sede en BD (peticion de SS) permite ingresar materias repetidas
+
 
 --------------Aptitudes---------------------------------------------------------------------------------
 
--Error de agregar sin seleccionar un criterio antes
+-Error de agregar sin seleccionar un criterio antes (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
 
 --------------Empleado--------------------------------------------------------------------------------

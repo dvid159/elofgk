@@ -21,17 +21,17 @@
                     <div class="row primer-fila">
                         <div class="input-field col s12 m4">
                             <i class="material-icons prefix">class</i>
-                            <input name="class" value="" id="lblClass" type="text" class="validate">
+                            <input name="class" value="" id="lblClass" type="text" class="validate" maxlength="10" required>
                             <label for="lblClass">Class</label>
                         </div>
                         <div class="input-field col s12 m4">
                             <i class="material-icons prefix">date_range</i>
-                            <input name="ingreso" id="lblIngreso" type="number" min="2012" max="2100" class="validate">
+                            <input name="ingreso" id="lblIngreso" type="number" min="2012" max="2100"  class="validate" maxlength="4" required>
                             <label for="lblIngreso">Año de Ingreso</label>
                         </div>
                         <div class="input-field col s12 m4">
                             <i class="material-icons prefix">date_range</i>
-                            <input name="egreso" id="lblEgreso" type="number" min="2012" max="2100" class="validate">
+                            <input name="egreso" id="lblEgreso" type="number" min="2012" max="2100"  class="validate" maxlength="4" required>
                             <label for="lblEgreso">Año de Egreso</label>
                         </div>
                     </div>

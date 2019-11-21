@@ -21,8 +21,8 @@
                     <label class="blue-grey-text text-lighten-2 lbl-input-nuevo">Municipio</label>
                 </div>
 
-                <div class="input-field selectionar col s12 m4">
-                    <select id="dropdown-lista-opciones" name="id_departamento" class="materialSelect" required>
+                <div class="input-field col s12 m4">
+                    <select id="dropdown-lista-opciones" name="id_departamento">
                         <option value="" disabled selected>Seleccionar</option>
                         @foreach ($depart as $d)
                         <option value="{{ $d->id_departamento }}">{{ $d->departamento }}</option>

@@ -46,6 +46,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+       // if ($exception->getStatusCode() == 500) {
+            //return response()->view('errors.500', [], 500);
+        //    throw new MyCustomException('Mensaje de error que queramos');
+     //   }
+
+
         return parent::render($request, $exception);
     }
 }

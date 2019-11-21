@@ -23,28 +23,28 @@
                     <div class="row primer-fila">
                         <div class="input-field col s12 m4">
                             <i class="material-icons prefix">mode_edit</i>
-                            <input name="codigo" value="" id="lblCodigo" type="text" class="validate" autocomplete="off">
-                            <label for="lblCodigo">Codigo</label>
+                            <input name="codigo" value="" id="lblCodigo" type="number" min="10000" max="99999" class="validate"  maxlength="5" autocomplete="off" required>
+                            <label for="lblCodigo">Código</label>
                         </div>
 
                         <div class="input-field col s12 m5">
                             <i class="material-icons prefix">textsms</i>
-                            <input type="text" name="id_municipio" id="municipio" class="autocomplete" autocomplete="off">  
+                            <input type="text" name="id_municipio" id="municipio" class="autocomplete" autocomplete="off" required>  
                             <label>Municipio</label>
                             <input type="hidden" id="idm" name="idm">
                         </div>
 
                         <div class="input-field col s12 m3">
                             <i class="material-icons prefix">phone</i>
-                            <input name="telefono" id="lblTelefono" type="text" class="validate">
+                            <input name="telefono" id="lblTelefono" type="number" class="validate" maxlength="9" required>
                             <label for="lblTelefono">Telefono</label>
                         </div>
                     </div>
                     
                     <div class="input-field col s12">
                             <i class="material-icons prefix">school</i>
-                            <input name="nombre" value="" id="lblNombre" type="text" class="validate">
-                            <label for="lblNombre">Nombre</label>
+                            <input name="nombre" value="" id="lblNombre" type="text" class="validate" autocomplete="off" required>
+                            <label for="lblNombre">Nómbre</label>
                         </div>
                     
                     <div class="row segunda-fila">
@@ -79,13 +79,13 @@
                         
                         <div class="input-field col s12">
                             <i class="material-icons prefix">home</i>
-                            <input name="direccion" value="" id="lblDireccion" type="text" class="validate">
-                            <label for="lblDireccion">Direccion</label>
+                            <input name="direccion" value="" id="lblDireccion" type="text" class="validate" required>
+                            <label for="lblDireccion">Dirección</label>
                         </div>
                         <div class="input-field col s12">
                             <i class="material-icons prefix">insert_comment</i>
                             <textarea name="descripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
-                            <label for="lblDescripcion">Descripcion</label>
+                            <label for="lblDescripcion">Descripcion - Campo Opcional</label>
                         </div>
                     </div>
                     <button class="waves-effect waves-light btn add blue-grey lighten-2"><i
@@ -144,7 +144,7 @@
             <div class="row">
                 <div class="input-field col s12 m4">
                     <i class="material-icons prefix">mode_edit</i>
-                    <input name="codigo" id="lblCodigo" type="text" class="validate">
+                    <input name="codigo" id="lblCodigo" type="number"  min="10000" max="99999" class="validate" maxlength="5" required>
                     <label for="lblCodigo" class="active">Codigo</label>
                 </div>
 
@@ -161,13 +161,13 @@
 
                 <div class="input-field col s12 m3">
                     <i class="material-icons prefix">phone</i>
-                    <input name="telefono" id="lblTelefono" type="text" class="validate">
+                    <input name="telefono" id="lblTelefono" type="number" class="validate" maxlength="5" required>
                     <label for="lblTelefono">Telefono</label>
                 </div>
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">school</i>
-                    <input id="lblNombre" name="nombre" type="text" class="validate">
+                    <input id="lblNombre" name="nombre" type="text" class="validate" required>
                     <label class="active">Nombre</label>
                 </div>
                 
@@ -203,22 +203,23 @@
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">home</i>
-                    <input name="direccion" id="lblDireccion" type="text" class="validate">
+                    <input name="direccion" id="lblDireccion" type="text" class="validate" required>
                     <label for="lblDireccion">Direccion</label>
                 </div>
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">insert_comment</i>
                     <textarea name="descripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
-                    <label for="lblDescripcion">Descripcion</label>
+                    <label for="lblDescripcion">Descripcion - Campo Opcional</label>
                 </div>
 
             </div>
-        </div>
-        <div class="modal-footer">
+            <div class="modal-footer">
             <button class="btn waves-effect waves-light blue-grey  lighten-2" type="submit">Guardar<i
                     class="material-icons right">send</i></button>
         </div>
+        </div>
+        
     </form>
 
 </div>

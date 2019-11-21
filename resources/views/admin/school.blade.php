@@ -24,9 +24,9 @@
                         <div class="input-field col s12 m4">
                             <i class="material-icons prefix">mode_edit</i>
                             <input name="codigo" value="" id="lblCodigo" type="number" min="10000" max="99999" class="validate"  maxlength="5" autocomplete="off" required>
-                            <label for="lblCodigo">Código</label>
+                            <label for="lblCodigo">Código: 00000</label>
                         </div>
-
+            
                         <div class="input-field col s12 m5">
                             <i class="material-icons prefix">textsms</i>
                             <input type="text" name="id_municipio" id="municipio" class="autocomplete" autocomplete="off" required>  
@@ -37,7 +37,7 @@
                         <div class="input-field col s12 m3">
                             <i class="material-icons prefix">phone</i>
                             <input name="telefono" id="lblTelefono" type="number" class="validate" maxlength="9" required>
-                            <label for="lblTelefono">Telefono</label>
+                            <label for="lblTelefono">Telefono: 0000-0000</label>
                         </div>
                     </div>
                     
@@ -144,7 +144,7 @@
             <div class="row">
                 <div class="input-field col s12 m4">
                     <i class="material-icons prefix">mode_edit</i>
-                    <input name="codigo" id="lblCodigo" type="number"  min="10000" max="99999" class="validate" maxlength="5" required>
+                    <input name="codigo" id="lblCodigo" type="number"  min="10000" max="99999" class="validate" maxlength="5" readonly required>
                     <label for="lblCodigo" class="active">Codigo</label>
                 </div>
 

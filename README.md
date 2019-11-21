@@ -2,7 +2,7 @@ To Do (sistema completo)
 
 (?) = opcional o extra para comodidad
 
-----------------Autenticación--------------------------------------------------------------------------
+----------------Autenticación---(0/5)-----------------------------------------------------------------------
 
 -Opcion de password olvidada(?)
 
@@ -14,16 +14,18 @@ To Do (sistema completo)
 
 -Recordar quitar link de logout al estar seguros de buen funcionamiento de toda la autenticacion
 
-------------------Home--------------------------------------------------------------------------------
+------------------Home---(0/2)-----------------------------------------------------------------------------
 
 -Notificaciónes(?)
 
 -Informacion de Navbar(?)
 
 
---------------Generales-------------------------------------------------------------------------------
+--------------Generales---(1/9)----------------------------------------------------------------------------
 
 -Modificar campos que son unicos en BD (hecho)
+
+-Revisar por algun autocomplite(en proceso)
 
 -Opcion de ocultar el menù para visualizar tablas grandes: sobre todo para el consolidado(?)
 
@@ -39,12 +41,12 @@ To Do (sistema completo)
 
 -Atributo required a input necesarios y evitar enviar formularios vacios(en proceso y verificacion necesaria)
 
----------------Departamento--------------------------------------------------------------------------
+---------------Departamento---(1/1)-----------------------------------------------------------------------
 
 -Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
 
-----------------Municipios-----------------------------------------------------------------------------
+----------------Municipios---(1/3)--------------------------------------------------------------------------
 
 -Error de agregar sin seleccionar un departamanto antes (Hecho con dudas)(Error de campo not null en BD y solo muestra mensaje de verificacion)
 
@@ -52,18 +54,16 @@ To Do (sistema completo)
 
 -Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
---------------Centro Educativo (CE)------------------------------------------------------------------------
+--------------Centro Educativo (CE)---(3/3)---------------------------------------------------------------------
 
--Agregar: -Limitar caracteres de campos: --Codigo,Telefono (50%) solo numeros+, no funciona el maxlength en type number-
-
--Deshacer una accion por si elimina un centro por error(?)
+-Agregar: -Limitar caracteres de campos: --Codigo,Telefono (Hecho)
 
 -Manejo de error: Evitar enviar un centro vacio con un dato vacio (hecho)
 
 -Manejo de errores para ingreso de codigo repetido (Hecho)
 
 
-----------------Class------------------------------------------------------------------------------------
+----------------Class---(0/5)---------------------------------------------------------------------------------
 
 -Definir formato de clase al ingresar una nueva
 
@@ -76,7 +76,7 @@ To Do (sistema completo)
 -No modifica las clases
 
 
---------------Seccion----------------------------------------------------------------------------------
+--------------Seccion---(0/3)-------------------------------------------------------------------------------
 
 -Definir formato del campo seccion
 
@@ -84,17 +84,17 @@ To Do (sistema completo)
 
 -Restringir longitud de año
 
--------------Materia-----------------------------------------------------------------------------------
+-------------Materia----(0/1)-------------------------------------------------------------------------------
 
 -Opcion a largo plazo: uso de materias por sede en BD (peticion de SS) permite ingresar materias repetidas
 
 
---------------Aptitudes---------------------------------------------------------------------------------
+--------------Aptitudes---(0/1)------------------------------------------------------------------------------
 
 -Error de agregar sin seleccionar un criterio antes (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
 
 
---------------Empleado--------------------------------------------------------------------------------
+--------------Empleado---(0/9)-----------------------------------------------------------------------------
 
 -Definir y limitar formato para DUI a solo numeros
 
@@ -102,7 +102,7 @@ To Do (sistema completo)
 
 -Formato de carnet
 
--Agregar campo email a BD
+-Agregar campo email a BD y formulario (50%) falta la BD
 
 -Llenar tabla de usuarios para autenticacion al llenar un nuevo empleado(si cumple con el rol:admin,docente)
 
@@ -115,12 +115,12 @@ To Do (sistema completo)
 -Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)
 
 
--------------Año en Curso----------------------------------------------------------------------------------
+-------------Año en Curso---(0/1)-------------------------------------------------------------------------------
 
 -Manejo de errores
 
 
---------------Alumnos--------------------------------------------------------------------------------------
+--------------Alumnos---(0/4)-----------------------------------------------------------------------------------
 
 -Carga de datos al formulario de nuevo alumno desde enlace carnet de lista alumnos
 
@@ -130,13 +130,13 @@ To Do (sistema completo)
 
 -Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)
 
---------------Nuevo-alumno-------------------------------------------------------------------------------
+--------------Nuevo-alumno---(0/1)----------------------------------------------------------------------------
 
 -Responsibidad de tablas responsables y centros educativos
 
 
 
--------------Promedios Centro Esolar----------------------------------------------------------------------
+-------------Promedios Centro Esolar---(0/3)-------------------------------------------------------------------
 
 -Arreglar filtrar nombres por class(select)
 
@@ -155,7 +155,7 @@ To Do (sistema completo)
 -Hacer todo el modulo de notas
 
 
---------Promedios Consolidados-------------------------------------------------------------------------
+--------Promedios Consolidados---(0/2)----------------------------------------------------------------------
 
 -Modulo de consolidados con resumenes de calificaciones
 

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){    
     //Nuevo registro
     $('#addform').on('submit', function(e){
         e.preventDefault();
@@ -13,6 +13,7 @@ $(document).ready(function(){
                 location.reload();
             },
             error: function(error){
+                M.toast({html: 'Varifique que todos los campos esten llenos correctamente!', classes: 'rounded', inDuration: 5000});
                 var datos = $("#addform").serialize();
                 console.log(datos);
                 console.log(error);

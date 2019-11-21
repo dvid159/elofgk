@@ -22,13 +22,13 @@
                      <div class="row primer-fila">
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">account_circle</i>
-                             <input name="nombre" id="lblNombre" type="text" class="validate">
+                             <input name="nombre" id="lblNombre" type="text" class="validate" autocomplete="off" required>
                              <label for="lblNombre">Nombre</label>
                          </div>
 
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">account_circle</i>
-                             <input name="apellido" id="lblApellido" type="text" class="validate">
+                             <input name="apellido" id="lblApellido" type="text" class="validate" autocomplete="off" required>
                              <label for="lblApellido">Apellidos</label>
                          </div>
 
@@ -49,19 +49,19 @@
                      <div class="row segunda-fila">
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">date_range</i>
-                             <input id="fecha" name="fecha" type="text" class="datepicker">
+                             <input id="fecha" name="fecha" type="text" class="datepicker" autocomplete="off" required>
                              <label for="fecha">Fecha de Nacimiento</label>
                          </div>
 
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">picture_in_picture</i>
-                             <input name="dui" id="lblDUI" type="text" class="validate">
+                             <input name="dui" id="lblDUI" type="text" class="validate" autocomplete="off" required>
                              <label for="lblDUI">DUI</label>
                          </div>
 
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">picture_in_picture</i>
-                             <input name="nit" id="lblNIT" type="text" class="validate">
+                             <input name="nit" id="lblNIT" type="text" class="validate" autocomplete="off" required>
                              <label for="lblNIT">NIT</label>
                          </div>
                      </div>
@@ -69,7 +69,7 @@
 
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">payment</i>
-                             <input name="carnet" id="lblCarnet" type="text" class="validate">
+                             <input name="carnet" id="lblCarnet" type="text" class="validate" autocomplete="off" required>
                              <label for="lblCarnet">Carnet</label>
                          </div>
 
@@ -84,12 +84,17 @@
                          </div>
 
                          <div class="input-field col s12 m4">
+                         <i class="material-icons prefix">local_phone</i>
                              <input name="telefono" id="lblTelefono" type="text" class="validate">
                              <label for="lblTelefono">Telefono</label>
                          </div>
 
+                     </div>
+                         <div class="row cuarta-fila">
                          <div class="input-field col s12 m4">
+                         <i class="material-icons prefix">location_on</i>
                              <select id="municipio" name="municipio">
+                                 
                                  <option disabled selected>Seleccione Municipio</option>
                                  @foreach ($municipio as $m)
                                  <option value="{{ $m->id_municipio }}">{{ $m->municipio }}</option>
@@ -99,25 +104,35 @@
                          </div>
 
                          <div class="input-field col s12 m8">
-                            <input name="direccion" id="lblDireccion" type="text" class="validate">
+                         <i class="material-icons prefix">home</i>
+                            <input name="direccion" id="lblDireccion" type="text" class="validate" autocomplete="off" required>
                             <label for="lblDireccion">Direccion</label>
                         </div>
 
                      </div>
 
-                     <div class="row cuarta-fila">
+                     <div class="row quinta-fila">
+
+                     <div class="input-field col s12 m4">
+                             <i class="material-icons prefix">email</i>
+                             <input name="email" id="lblemail" type="email" class="validate"autocomplete="off" required>
+                             <label for="lblemail">Email</label>
+                         </div>
+
                          <div class="input-field col s12 m4">
+                         <i class="material-icons prefix">check</i>
                             <select id="estado" name="estado">
                                  <option disabled selected>Seleccione Estado</option>
                                  <option value="1">Activo</option>
                                  <option value="0">Inactivo</option>
-
                             </select>
                             <label>Estado</label>
                          </div>
+
+                         
                      </div>
 
-                     <div class="row quinta-fila">
+                     <div class="row sexta-fila">
                          <div class="input-field col s12">
                              <input name="observaciones" id="lblObservaciones" type="text" class="validate">
                              <label for="lblObservaciones">Observaciones</label>

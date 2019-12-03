@@ -21,6 +21,7 @@ class Empleado extends Model
         'direccion',
         'id_municipio',
         'estado',
-        'observaciones'];
+        'observaciones',
+        'email'];
 }
  

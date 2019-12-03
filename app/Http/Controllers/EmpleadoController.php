@@ -41,10 +41,10 @@ class EmpleadoController extends Controller
         'direccion' => $request->get('direccion'),
         'id_municipio' => $request->get('municipio'),
         'estado' => $request->get('estado'),
-        'observaciones' => $request->get('observaciones')
+        'observaciones' => $request->get('observaciones'),
+        'email' => $request->get('email')
         ));
-       $empleado->save();
-
+       
        $adm = 0;
        $doc = 0;
        if($request->get('cargo')==2)
@@ -66,13 +66,16 @@ class EmpleadoController extends Controller
        $nuevoUser = new User(array(
         'carnet'=>$request->get('carnet'),
         'name'=>$request->get('nombre'),
-        'email'=>('docente2@gmail.com'),
+        'email'=>$request->get('email'),
         'is_admin'=>$adm,
         'is_docente'=>$doc,
         'password'=> bcrypt($request->get('carnet'))
 
        ));
+
+       $empleado->save();
        $nuevoUser->save();
+       
       
     }
 

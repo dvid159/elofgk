@@ -13,7 +13,7 @@ $(document).ready(function(){
                 location.reload();
             },
             error: function(error){
-                M.toast({html: 'Varifique que todos los campos esten llenos correctamente!', classes: 'rounded', inDuration: 5000});
+                M.toast({html: 'Varifique que todos los campos esten llenos correctamente y que no exista ducplicidad con un antiguo reigstro!', classes: 'rounded', inDuration: 5000});
                 var datos = $("#addform").serialize();
                 console.log(datos);
                 console.log(error);

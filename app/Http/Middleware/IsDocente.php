@@ -21,6 +21,7 @@ class IsDocente
             return redirect('/admin/home');
         }
 
-        return redirect('home')->with('error', "No tienes permiso de Docente");
+        // return redirect('home')->with('error', "No tienes permiso de Docente");
+        return back()->with('error', "No tienes permiso de Docente");
     }
 }

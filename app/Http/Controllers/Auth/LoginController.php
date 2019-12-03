@@ -47,8 +47,8 @@ public function login(Request $request)
         $input = $request->all();
    
         $this->validate($request, [
-            'name' => 'required',
-            'password' => 'required',
+            'name' => 'required|string',
+            'password' => 'required|string',
         ]);
    
       
@@ -63,8 +63,8 @@ public function login(Request $request)
                 return redirect()->route('home');
             }
         }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+           return redirect()->route('login')->withErrors(['name' => 'Estas credenciales no concuerdan con nuestros registros'])
+           ->withInput(request(['name']));
         }
           
     }

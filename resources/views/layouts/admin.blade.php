@@ -44,7 +44,7 @@
                         <a><i class="material-icons">notifications</i></a>
                     </li>
                     <li>
-                        <a>{{ Auth::user()->carnet }}</a>
+                        <a>{{ Auth::user()->carnet}}</a>
                     </li>
                     <li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -64,12 +64,14 @@
         <ul id="slide-out" class="sidenav sidenav-fixed z-depth-3">
         <div id="menu_logo"> <img id="logo" src="{{ asset('img/oportunidades.png') }}"></div>
             <li>
-                <div class="user-view encabezado-aside">
-                    <!-- <div>
-                        <img id="logo" src="{{ asset('img/logo_oportunidades_login.png') }}">
-                    </div> -->
+                <div class="user-view encabezado-aside">                   
                     <a href="#name"><span class="blue-grey-text text-lighten-1 name"> <div class="chip"><img src="../img/user_round.png" alt="Contact Person"> {{ Auth::user()->name }} </div></span></a>
-                    <a href="#email"><span class="blue-grey-text text-lighten-1 email">Rol: Administrador</span></a>
+                    @if(Auth::user()->is_admin == 1 && Auth::user()->is_docente == 0)
+                            <a href="#email"><span class="blue-grey-text text-lighten-1 email">Rol: Administrador</span></a>
+                            @elseif(Auth::user()->is_admin == 1 && Auth::user()->is_docente == 1)
+                            <a href="#email"><span class="blue-grey-text text-lighten-1 email">Rol: Ayudante de administracion</span></a>
+                            @endif
+                    
                 </div>
             </li>
             <ul class="collapsible">
@@ -93,7 +95,12 @@
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="/admin/cargos" class="waves-effect secundary-item">Cargos</a></li>
+
+                            @if(Auth::user()->is_admin == 1 && Auth::user()->is_docente == 0)
                             <li><a href="/admin/empleados" class="waves-effect secundary-item">Empleados</a></li>
+                            @elseif(Auth::user()->is_admin == 1 && Auth::user()->is_docente == 1)
+                            <li><a href="/admin/empleados" class="waves-effect secundary-item" style="display:none">Empleados</a></li>
+                            @endif
                         </ul>
                     </div>
                 </li>
@@ -127,7 +134,11 @@
 
 
                 <li>
-                    <div class="collapsible-header waves-effect principal-item"><i class="material-icons">assessment</i>Record de Alumnos</div>
+                    @if(Auth::user()->is_admin == 1 && Auth::user()->is_docente == 0)
+                    <div class="collapsible-header waves-effect principal-item" ><i class="material-icons" >assessment</i>Record de Alumnos</div>
+                    @elseif(Auth::user()->is_admin == 1 && Auth::user()->is_docente == 1)
+                    <div class="collapsible-header waves-effect principal-item" style="display:none"><i class="material-icons">assessment</i>Record de Alumnos</div>
+                    @endif
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="/admin/record_escolar" class="waves-effect secundary-item">Promedios Centro Escolar</a></li>

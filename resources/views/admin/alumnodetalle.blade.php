@@ -92,7 +92,7 @@
                 <div class="row">
                     <div class="input-field col s12 m3">
                         <i class="material-icons prefix">email</i>
-                        <input id="email" name="email" type="email" class="validate">
+                        <input id="email" name="email" type="email" class="validate" autocomplete="off" required>
                         <label for="email">Email</label>
                     </div>
 

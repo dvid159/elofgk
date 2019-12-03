@@ -7,7 +7,7 @@
 @include ('footer')
 
 @section('contenido')
-<div class="container">
+<div class="container"  style = "width: 97%;">
     <!--encabezado-->
     <header>
         <h5>Record de Alumnos: Centros Educativos</h5>
@@ -15,7 +15,7 @@
     <div class="fondo-cuerpo">
         @csrf
         <div class="card transparent">
-            <div class="card-content  lighten-4">
+            <!-- <div class="card-content  lighten-4"> -->
 
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
@@ -46,7 +46,8 @@
                             <i class="material-icons right">add</i></button>
                     </div>
                 <!-- -------------------------------------------Tabla------------------------- -->
-                    <table id=dataTable class="bordered">
+                <div class="card-content  lighten-4" style="padding-top: 0px;">    
+                <table id=dataTable class="bordered">
                         <thead>
                             <tr>
                                 <th data-field="carnet" style="width:20%;">Carnet</th>
@@ -64,7 +65,7 @@
                         </tbody>
                     </table>
                 </div>
-
+                </div>
                 <!-- ---------------------Tabs-02--------------------------------------------------------------------- -->
                 <div id="op2">
                 <div class="input-field col s12 m4" style=" float:left; width:25%; margin:10px;">
@@ -77,8 +78,7 @@
                         </select>                        
                     </div>
                     <div class="input-field col s6" style="float:left; width:25%; margin:10px;">
-
-                    <i class="material-icons prefix">search</i>
+                        <i class="material-icons prefix">search</i>
                         <input placeholder="Nombre de Alumno" id="nombre_recordP" type="text" class="validate"/>
                     </div>
                     <div style="float:right; width:40%; margin:5px;">
@@ -86,7 +86,8 @@
                             <i class="material-icons right">add</i></button>
                             
                     </div>
-
+<!-- -----------------------------Tabla-------------------------------------------- -->
+                    <div class="card-content  lighten-4" style="padding-top: 0px;">    
                     <table id=dataTable class="bordered">
                         <thead>
 
@@ -109,7 +110,7 @@
                         </tbody>
                     </table>
                 </div>
-
+                </div>
                 <!-- ----------------------Tabs-03----------------------------------------------------------------- -->
                 <div id="op3">
                 <div class="input-field col s12 m4" style=" float:left; width:25%; margin:10px;">
@@ -131,6 +132,8 @@
                             <i class="material-icons right">add</i></button>
                     </div>
 
+                    <!-- ----------------------------Tabla------------------------------------------- -->
+                    <div class="card-content  lighten-4" style="padding-top: 0px;">    
                     <table id=dataTable class="bordered">
                         <thead>                            
                             <tr>
@@ -152,8 +155,9 @@
                         </tbody>
                     </table>
                 </div>
+                </div>
                 <!-- --------------------End Tabs-------------------------- -->
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 </div>

@@ -35,69 +35,57 @@
 </head>
 
 <body>
-<div class="navbar-fixed">
-         <nav> <!--bar navbar-expand-md navbar-light navbar-laravel -->
+
+         <nav id="nav_docente"> <!--bar navbar-expand-md navbar-light navbar-laravel -->
             <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <!-- <a class="navbar-brand" href="{{ url('/admin') }}">
                     {{ config('app.name', 'Oportunidades') }}
-                </a> -->
-
-                
-                   
-
+                </a> -->                                   
                     <!-- Right Side Of Navbar -->
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <!-- Authentication Links -->
-                       <li class="nav-item">
-                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->carnet }} <span class="caret"></span>
-                                </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            
-                                
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                </form>
-
-
-                                
-                            
-                        </li>
-                    </ul>
+                    <ul class="right">                    
+                    <li>
+                        <a><i class="material-icons">notifications</i></a>
+                    </li>
+                    <li>
+                        <a>{{ Auth::user()->carnet}}</a>
+                    </li>
+                    <li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">                                                
+                                {{ __('Cerrar Sesión') }}
+                            </a>
+                        </form>
+                    </li>
+                </ul>
                 
             </div>
         </nav>
-</div>
+
 
 
     <!--MENU-->
+    <div>
     <ul id="slide-out" class="sidenav sidenav-fixed z-depth-3">
+    <div id="menu_logo"> <img id="logo" src="{{ asset('img/oportunidades.png') }}"></div>
    
-        <li>
-            <div class="user-view encabezado-aside">
-                <div>
-                    <img id="logo" src="{{ asset('img/oportunidades.png') }}">
+    <li>
+                <div class="user-view encabezado-aside">                   
+                    <a href="#name"><span class="blue-grey-text text-lighten-1 name"> <div class="chip"><img src="../img/user_round.png" alt="Contact Person"> {{ Auth::user()->name }} </div></span></a>
+                         <a href="#email"><span class="blue-grey-text text-lighten-1 email">Rol: Docente</span></a>
+                            
+                    
                 </div>
-                <a href="#name"><span class="blue-grey-text text-lighten-1 name">Nombre Usuario</span></a>
-                <a href="#email"><span class="blue-grey-text text-lighten-1 email">Rol</span></a>
-            </div>
-        </li>
+            </li>
 
         <ul id="colapsable" class="collapsible">
         </ul>
 
             
-    </ul>
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
+    </ul>    
+</div>
     <main>
         @yield('contenido')
     </main>

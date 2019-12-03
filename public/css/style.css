@@ -38,6 +38,13 @@ main {
     position: fixed;
   }
 
+  #nav_docente{
+    height: 55px;
+    line-height: 55px;
+    z-index: 100;
+    position: fixed;
+  }
+
   #navbar_login{
     
     background-color:rgb(230, 235, 240);
@@ -112,6 +119,7 @@ h5{
 
 .container{
     width: 90%;
+    
 }
 
 .email_container{
@@ -145,7 +153,8 @@ h5{
 
 .fondo-cuerpo{
     background-color: white;
-    padding-top: 20px;
+    
+    
 }
 
 .row.nuevo-registro{

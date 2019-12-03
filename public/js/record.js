@@ -146,7 +146,7 @@ $(document).ready(function () {
         var key = $('#nombre_recordN').val().toLowerCase();
         buscarPNombre(key);           
     });
-
+    
     $('#nombre_recordP').keyup(function(e){
         var key = $('#nombre_recordP').val().toLowerCase();
         buscarPNombre(key);

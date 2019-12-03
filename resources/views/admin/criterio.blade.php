@@ -8,7 +8,7 @@
 <div class="container">
     <!--encabezado-->
     <header>
-        <h5>Criterios de Evaluacion Aptitudinal</h5>
+        <h5>Criterios de Evaluación Aptitudinal</h5>
     </header>
 
     <div class="fondo-cuerpo">

@@ -55,14 +55,14 @@
 
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">picture_in_picture</i>
-                             <input name="dui" id="lblDUI" type="text" class="validate" autocomplete="off" required>
-                             <label for="lblDUI">DUI</label>
+                             <input name="dui" id="lblDUI" type="text" maxlenght="7" required pattern="[0-9]+" class="validate" autocomplete="off" required>
+                             <label for="lblDUI">DUI:0000000-0</label>
                          </div>
 
                          <div class="input-field col s12 m4">
                              <i class="material-icons prefix">picture_in_picture</i>
-                             <input name="nit" id="lblNIT" type="text" class="validate" autocomplete="off" required>
-                             <label for="lblNIT">NIT</label>
+                             <input name="nit" id="lblNIT" type="text" maxlength="17" data class="validate" autocomplete="off" required>
+                             <label for="lblNIT">NIT:0000-000000-000-0</label>
                          </div>
                      </div>
                      <div class="row tercera-fila">
@@ -85,7 +85,7 @@
 
                          <div class="input-field col s12 m4">
                          <i class="material-icons prefix">local_phone</i>
-                             <input name="telefono" id="lblTelefono" type="text" class="validate">
+                             <input name="telefono" id="lblTelefono" type="text" maxlength="9" class="validate">
                              <label for="lblTelefono">Telefono</label>
                          </div>
 
@@ -115,7 +115,7 @@
 
                      <div class="input-field col s12 m4">
                              <i class="material-icons prefix">email</i>
-                             <input name="email" id="lblemail" type="email" class="validate"autocomplete="off" required>
+                             <input  id="lblemail" name="email" type="email" class="validate" autocomplete="off" required>
                              <label for="lblemail">Email</label>
                          </div>
 

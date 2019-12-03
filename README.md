@@ -2,17 +2,19 @@ To Do (sistema completo)
 
 (?) = opcional o extra para comodidad
 
-----------------Autenticación---(0/5)-----------------------------------------------------------------------
+----------------Autenticación---(2/6)-----------------------------------------------------------------------
 
 -Opcion de password olvidada(?)
 
--Mostrar alerta de autenticacion erronea
+-Mostrar alerta de autenticacion erronea(hecho)
 
 -Verificar errores de sesion al abrir en otra pestaña/navegador
 
--Modificar actividad del usuario en BD con campo activo/inactivo (relacionado a registro nuevo empleado)
+-Modificar actividad del usuario en BD con campo activo/inactivo (persona inactiva no puede acceder, ralacionado a nuevo empleado)(50% -> BD)
 
 -Recordar quitar link de logout al estar seguros de buen funcionamiento de toda la autenticacion
+
+-ocultar opciones para usuario 'ayudante de administracion' (hecho)
 
 ------------------Home---(0/2)-----------------------------------------------------------------------------
 
@@ -27,8 +29,6 @@ To Do (sistema completo)
 
 -Revisar por algun autocomplite(en proceso)
 
--Opcion de ocultar el menù para visualizar tablas grandes: sobre todo para el consolidado(?)
-
 -Manejo de hojas excel (importar/exportar) para calificaciones para modulo Docente
 
 -Manejo y archivacion de plantillas word para hojas de prevencion, honor roll, master honor roll etc.
@@ -37,22 +37,15 @@ To Do (sistema completo)
 
 -Modulo de alumno (visualizacion de notas, notificacion de carte de prevencion y demas)
 
--Dato curioso: al tratar de ingresar a BD si hay error de campo unico y el id es auto increment no lo guarda el contador sigue hasta el siguiente registro Ej: dato actual: 1-Santa ana - ingreso: santa ana(error) - id = 2 - ingreso: san salvador(id = 3) - tabla: 1 - Santa Ana, 3 - san salvador
-
 -Atributo required a input necesarios y evitar enviar formularios vacios(en proceso y verificacion necesaria)
 
----------------Departamento---(1/1)-----------------------------------------------------------------------
+-Averiguar por que no carga imagenes en nuevo-alumno form y iconos en pestañas de navegador en unas vistas
 
--Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
+-Dar de baja a un alumno,empleado,docente
 
+---------------Departamento---(0)-----------------------------------------------------------------------
 
-----------------Municipios---(1/3)--------------------------------------------------------------------------
-
--Error de agregar sin seleccionar un departamanto antes (Hecho con dudas)(Error de campo not null en BD y solo muestra mensaje de verificacion)
-
--Municipio vacio (Hecho)
-
--Manejo de errores para ingreso de campo repetido (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
+----------------Municipios---(0)--------------------------------------------------------------------------
 
 --------------Centro Educativo (CE)---(3/3)---------------------------------------------------------------------
 
@@ -84,57 +77,59 @@ To Do (sistema completo)
 
 -Restringir longitud de año
 
--------------Materia----(0/1)-------------------------------------------------------------------------------
+-------------Materia----(0)-------------------------------------------------------------------------------
 
 -Opcion a largo plazo: uso de materias por sede en BD (peticion de SS) permite ingresar materias repetidas
 
+--------------Aptitudes---(1/2)------------------------------------------------------------------------------
 
---------------Aptitudes---(0/1)------------------------------------------------------------------------------
+-Error de agregar sin seleccionar un criterio antes (Hecho)
 
--Error de agregar sin seleccionar un criterio antes (Hecho con dudas)(Error de campo repetido en BD y solo muestra mensaje de verificacion)
+-Permite campos repetidor
 
+--------------Empleado---(4/9)-----------------------------------------------------------------------------
 
---------------Empleado---(0/9)-----------------------------------------------------------------------------
+-Definir y limitar formato para DUI a solo numeros(mascara)
 
--Definir y limitar formato para DUI a solo numeros
-
--Definir y limitar formato para NIT a solo numeros
-
--Formato de carnet
-
--Agregar campo email a BD y formulario (50%) falta la BD
-
--Llenar tabla de usuarios para autenticacion al llenar un nuevo empleado(si cumple con el rol:admin,docente)
+-Definir y limitar formato para NIT a solo numeros(mascara)
 
 -Limitar campo telefono
 
--Manejdar empleados repetidos en BD(en general)
+-Definir formato de carnet
 
--Manejo de cargo de usuario y tabla user para autenticacion con roles
+-Agregar campo email a BD y formulario (hecho)
 
--Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)
+-Llenar tabla de usuarios para autenticacion al llenar un nuevo empleado(si cumple con el rol:admin,docente) (hecho)
+
+-Manejar empleados repetidos en BD(en general)(hecho)
+
+-Manejo de cargo de usuario y tabla user para autenticacion con roles(a definicion del orden de roles)(hecho)
+
+-Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)(se registra en una tabla y no en otra y no permite ingresar otra vez) (sujeto a errores)
 
 
--------------Año en Curso---(0/1)-------------------------------------------------------------------------------
+-------------Año en Curso---(0/3)-------------------------------------------------------------------------------
 
 -Manejo de errores
 
+-Quitar los toast al momento de guardar
 
---------------Alumnos---(0/4)-----------------------------------------------------------------------------------
+-Que al momento de recargar se mantenga en la pagina que estaba trabajando no una vacia
 
--Carga de datos al formulario de nuevo alumno desde enlace carnet de lista alumnos
 
--Subir foto de alumno al ingrsar un nuevo alumno
+--------------Alumnos---(0/6)-----------------------------------------------------------------------------------
+
+-Carga de datos al formulario de nuevo alumno desde enlace carnet de lista alumnos(En proceso)
+
+-Subir foto de alumno al ingrsar un nuevo alumno(EN proceso)
 
 -Revisar funcionamiento total de paginas con alumno detalle
 
 -Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)
 
---------------Nuevo-alumno---(0/1)----------------------------------------------------------------------------
-
 -Responsibidad de tablas responsables y centros educativos
 
-
+-No aparece foto en perfil de usuario
 
 -------------Promedios Centro Esolar---(0/3)-------------------------------------------------------------------
 

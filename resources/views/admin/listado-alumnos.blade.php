@@ -2,6 +2,13 @@
 
 @section('js')
  <script src="{{ asset('js/alumno.js') }}"></script>
+ <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+ <script type="text/javascript">
+    $(document).ready(function(){
+        $('#grid').DataTable();
+    }
+</script>
  @endsection
 
 @section('contenido')
@@ -19,7 +26,7 @@
     </div>
 
     <div class="card-panel" style="border-radius: 7px;">
-        <table class="highlight responsive-table">
+        <table id="grid" class="highlight responsive-table">
             <thead>
                 <tr>
                     <th>Carnet</th>

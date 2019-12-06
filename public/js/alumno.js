@@ -48,7 +48,7 @@ $(document).ready(function(){
             data: $("#addform").serialize(),
             success: function(resonse){
                 M.toast({html: 'Alumno guardado exitosamente!', classes: 'rounded', inDuration: 5000});
-               // location.reload();
+                location.reload();
             },
             error: function(error){
                 console.log(error);

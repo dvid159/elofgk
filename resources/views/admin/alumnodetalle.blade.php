@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('js')
-<script src="{{ asset('js/alumno.js') }}"></script>
+{{-- <script src="{{ asset('js/alumno.js') }}"></script> --}}
 <script src="{{ asset('js/alumnoUpdate.js') }}"></script>
 @endsection
 
@@ -11,13 +11,14 @@
 <div class="container">
 
     <!--encabezado-->
-        <header >
-            <h5>{{ $alumno }}</h5>
-            <input id="carnet_alumno" name="carnet_alumno" type="hidden" value="{{  $alumno }}">
-        </header>
+    <form id="editform" class="col s12" autocomplete="off" enctype="multipart/form-data">
+            <header >
+                <h5>{{ $alumno }}</h5>
+                <input id="carnet_alumno" name="carnet_alumno" type="hidden" value="{{  $alumno }}">
+            </header>
 
 
-        <form id="editform" class="col s12" autocomplete="off" enctype="multipart/form-data">
+
             @csrf
             <div class="card-panel" style="border-radius: 7px;">
 
@@ -30,24 +31,25 @@
                         <div class="row">
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="first_name" name="nombres" type="text" class="validate">
-                                <label for="first_name">Nombres</label>
+                                <input id="nombres" name="nombres" type="text" class="validate">
+                                <label class="active" for="nombres">Nombres</label>
                             </div>
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="last_name" name="apellidos" type="text" class="validate">
-                                <label for="last_name">Apellidos</label>
+                                <input id="apellidos" name="apellidos" type="text" class="validate">
+                                <label for="apellidos">Apellidos</label>
                             </div>
 
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m6">
                                 <i class="material-icons prefix">date_range</i>
-                                <input id="a_datepicker" name="fecha" type="text" class="datepicker">
-                                <label for="a_datepicker">Fecha de Nacimiento</label>
+                                <input id="fecha" name="fecha" type="text" class="datepicker">
+                                <label for="fecha">Fecha de Nacimiento</label>
                             </div>
-                            <div class="input-field col s12 m6" name="sexo" id="div-genero">
-                                <p> <label>Sexo</label>
+                            <div class="input-field col s12 m6">
+                                <p>
+                                    <label>Sexo</label>
                                     <label>
                                         <input name="sexo" id="sexo" value="F" type="radio" />
                                         <span>F</span>
@@ -77,8 +79,8 @@
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <i class="material-icons prefix">home</i>
-                        <input id="direction" name="direccion" type="text" class="validate">
-                        <label for="direction">Direccion</label>
+                        <input id="direccion" name="direccion" type="text" class="validate">
+                        <label for="direccion">Direccion</label>
                     </div>
 
                     <div class="input-field col s12 m4">
@@ -99,8 +101,8 @@
 
                     <div class="input-field col s12 m3">
                         <i class="material-icons prefix">local_phone</i>
-                        <input id="phone" name="tel" type="text" class="validate">
-                        <label for="phone">Numero de Telefono</label>
+                        <input id="tel" name="tel" type="text" class="validate">
+                        <label for="tel">Numero de Telefono</label>
                     </div>
 
                 </div>
@@ -115,7 +117,7 @@
 
                     <div class="input-field col s12 m4">
                         <i class="material-icons prefix">today</i>
-                        <select name="turno">
+                        <select id="turno" name="turno">
                             <option value="" disabled selected>Elige una opción</option>
                             <option value="0">Matutino</option>
                             <option value="1">Vespertino</option>
@@ -140,7 +142,7 @@
 
                     <div class="input-field col s12 m3">
                         <i class="material-icons prefix">done</i>
-                        <select name="estado">
+                        <select id="estado" name="estado">
                             <option value="" disabled selected>Elige una opción</option>
                             <option value="0">Activo</option>
                             <option value="1">Inactivo</option>
@@ -150,7 +152,7 @@
 
                 </div>
 
-                <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit">Agregar<i class="material-icons right">add</i></button>
+                <button class="btn waves-effect waves-light blue-grey lighten-2" type="submit">Actualizar informacion<i class="material-icons right">add</i></button>
 
             </div>
         </form>
@@ -198,13 +200,12 @@
                         <td>{{ $item->ocupacion }}</td>
                     </tr>
                     @endforeach
-
                 </tbody>
             </table>
 
         </div>
 
-        <!--Tabla responsables-->
+        <!--Tabla CE-->
         <header>
             <h5>Centros Escolares</h5>
         </header>
@@ -220,8 +221,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($bitacora as $item)
                     <tr>
+                        <td>{{ $item->nombre_centro_educativo }}</td>
+                        <td>{{ $item->grado_cursado }}</td>
+                        <td>{{ $item->anho }}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
 

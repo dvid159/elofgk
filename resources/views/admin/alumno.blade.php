@@ -68,7 +68,7 @@
                 <div class="file-field input-field col s12 m6">
                     <div class="btn waves-light blue-grey lighten-2">
                         <span>Foto</span>
-                        <input type="file" name="foto">
+                        <input type="file" accept="image/*" name="foto" id="foto">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">

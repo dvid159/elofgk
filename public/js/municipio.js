@@ -30,8 +30,6 @@ $(document).ready(function(){
             dataType:'json',
             success:function(data)
             {
-                console.log(data);
-                console.log(data[0].id_departamento);
                 $('#lblId').val(data[0].id_municipio);
                 $('#departamento').val(data[0].id_departamento);
                 $('#lblMunicipio').val(data[0].municipio);

@@ -22,6 +22,7 @@ class Alumno extends Model
         'email', 'contrasenha',
         'codigo_centro_educativo',
         'turno_educativo',
-        'estado', 'observaciones'
+        'estado',
+        'observaciones'
     ];
 }

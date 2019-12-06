@@ -26,6 +26,7 @@ Route::resource('aptitudes', 'AptitudController');
 Route::resource('cargos', 'CargoController');
 Route::resource('empleados', 'EmpleadoController');
 Route::get('nuevo-alumno','AlumnoController@create');
+Route::post('bitacoras','BitacoraCEA@store');
 Route::resource('alumnos', 'AlumnoController');
 Route::resource('asignacion-docentes', 'GrupoMateriaController');
 Route::resource('asignacion-alumnos','AlumnoSeccionController');

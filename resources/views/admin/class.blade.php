@@ -19,25 +19,12 @@
                     @csrf
                     <!--formulario nuevo registro-->
                     <div class="row primer-fila">
-                        <div class="input-field col s12 m4">
-                            <i class="material-icons prefix">class</i>
-                            <input name="class" value="" id="lblClass" type="text" class="validate">
-                            <label for="lblClass">Class</label>
-                        </div>
-                        <div class="input-field col s12 m4">
+                        <div class="input-field col s12 m3">
                             <i class="material-icons prefix">date_range</i>
                             <input name="ingreso" id="lblIngreso" type="number" min="2012" max="2100" class="validate">
                             <label for="lblIngreso">Año de Ingreso</label>
                         </div>
-                        <div class="input-field col s12 m4">
-                            <i class="material-icons prefix">date_range</i>
-                            <input name="egreso" id="lblEgreso" type="number" min="2012" max="2100" class="validate">
-                            <label for="lblEgreso">Año de Egreso</label>
-                        </div>
-                    </div>
-
-                    <div class="row segunda-fila">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m9">
                             <i class="material-icons prefix">insert_comment</i>
                             <textarea name="descripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
                             <label for="lblDescripcion">Descripcion</label>

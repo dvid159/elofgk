@@ -8,7 +8,7 @@
 <div class="container">
     <!--encabezado-->
     <header>
-        <h5>Clases</h5>
+        <h5>Class</h5>
     </header>
 
     <ul class="collapsible">
@@ -19,25 +19,12 @@
                     @csrf
                     <!--formulario nuevo registro-->
                     <div class="row primer-fila">
-                        <div class="input-field col s12 m4">
-                            <i class="material-icons prefix">class</i>
-                            <input name="class" value="" id="lblClass" type="text" class="validate" maxlength="10" required>
-                            <label for="lblClass">Class</label>
-                        </div>
-                        <div class="input-field col s12 m4">
+                        <div class="input-field col s12 m3">
                             <i class="material-icons prefix">date_range</i>
-                            <input name="ingreso" id="lblIngreso" type="number" min="2012" max="2100"  class="validate" maxlength="4" required>
+                            <input name="ingreso" id="lblIngreso" type="number" min="2012" max="2100" class="validate">
                             <label for="lblIngreso">Año de Ingreso</label>
                         </div>
-                        <div class="input-field col s12 m4">
-                            <i class="material-icons prefix">date_range</i>
-                            <input name="egreso" id="lblEgreso" type="number" min="2012" max="2100"  class="validate" maxlength="4" required>
-                            <label for="lblEgreso">Año de Egreso</label>
-                        </div>
-                    </div>
-
-                    <div class="row segunda-fila">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m9">
                             <i class="material-icons prefix">insert_comment</i>
                             <textarea name="descripcion" id="lblDescripcion" class="materialize-textarea"></textarea>
                             <label for="lblDescripcion">Descripcion</label>
@@ -73,7 +60,7 @@
                                     <i class="material-icons">edit</i></button>
 
                                 <button class="waves-effect waves-light btn-small delete" style="background-color: rgba(209, 21, 46, 0.91);"
-                                    data-id="{{ $item->id_class }}">
+                                 data-id="{{ $item->id_class }}">
                                     <i class="material-icons">delete</i></button>
                         </td>
                     </tr>
@@ -88,9 +75,8 @@
 <div id="ModalEdit" class="modal">
     <form id="editform">
         @csrf
-        
+        <div class="modal-content">
             <h5>Modificar</h5>
-            <div class="modal-content">
             <div class="row">
                 <div class="input-field col s12 m4">
                     <i class="material-icons prefix">class</i>

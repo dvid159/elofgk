@@ -19,9 +19,9 @@
 
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a class="active" href="#op1" style="color:white;">NOVENO</a></li>
-                        <li class="tab"><a href="#op2" style="color:white;">PRIMER AÑO</a></li>
-                        <li class="tab"><a href="#op3" style="color:white;">SEGUNDO AÑO</a></li>
+                        <li class="tab"><a id='1' class="item-grado active" href="#op1" style="color:white;">NOVENO</a></li>
+                        <li class="tab"><a id='2' class="item-grado "href="#op2" style="color:white;">PRIMER AÑO</a></li>
+                        <li class="tab"><a id='3' class="item-grado" href="#op3" style="color:white;">SEGUNDO AÑO</a></li>
                     </ul>
                 </div>
                 <!-- --------------------Tabs-01----------------------------------------------------------------  -->
@@ -88,7 +88,7 @@
                     </div>
 <!-- -----------------------------Tabla-------------------------------------------- -->
                     <div class="card-content  lighten-4" style="padding-top: 0px;">    
-                    <table id=dataTable class="bordered">
+                    <table id=dataTable2 class="bordered">
                         <thead>
 
                             <tr>
@@ -134,7 +134,7 @@
 
                     <!-- ----------------------------Tabla------------------------------------------- -->
                     <div class="card-content  lighten-4" style="padding-top: 0px;">    
-                    <table id=dataTable class="bordered">
+                    <table id=dataTable3 class="bordered">
                         <thead>                            
                             <tr>
                                 <th data-field="carnet"style="width:20%;">Carnet</th>
@@ -175,7 +175,7 @@
                 <div class="input-field col s12" style="width: 35%;">
 
                     <i class="large material-icons prefix">art_track</i>
-                    <input id="lblCarnet" type="text" class="lblarnetc" name="carnet" maxlength="14" required autocomplete="off" onkeypress="return showName(event)" /> 
+                    <input id="lblCarnet" type="text" class="lblarnetc" name="carnet" maxlength="14" required autocomplete="off" /> 
                     <label class="active">Carnet</label>
                 </div>
                 <!-- <div class="input-field col s12 m4" style="width:20%;">
@@ -198,7 +198,7 @@
                 
             <div class="input-field col s12 m4" style="width:40%;">
                 <i class="material-icons prefix">school</i>
-                    <select name="grado" required>
+                    <select id="grado" name="grado" required>
                         <option value="" disabled selected>Seleccione el Año Escolar</option>
                         <option value="1">NOVENO</option>
                         <option value="2">PRIMER AÑO</option>
@@ -210,7 +210,7 @@
 
             <div class="input-field col s12 m4" style="width:40%;">
             <i class="material-icons prefix">assignment_ind</i>
-                    <select name="periodo" required>
+                    <select id="periodo" name="periodo" required>
                         <option value="" disabled selected> Seleccione un periodo</option>
                         <option value="1">PERIODO 1</option>
                         <option value="2">PERIODO 2</option>

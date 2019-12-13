@@ -24,10 +24,14 @@ class ClassController extends Controller
 
     public function store(Request $request)
     {
+        $egreso = $request->get('ingreso')+2;
+        // $id_class = "CLASS-".$request->get('ingreso')+2;
+        $id_class = "CLASS-".$egreso;
+
        $class = new Clase(array(
-        'id_class' => $request->get('class'),
+        'id_class' => $id_class,
         'anho_ingreso' => $request->get('ingreso'),
-        'anho_egreso' => $request->get('egreso'),
+        'anho_egreso' => $egreso,
         'descripcion' => $request->get('descripcion')
        ));
        $class->save();

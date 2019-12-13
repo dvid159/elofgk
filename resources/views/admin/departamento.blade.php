@@ -48,7 +48,7 @@
                             <td>{{ $item->id_departamento }}</td>
                             <td>{{ $item->departamento }}</td>
                             <td>
-                                <button class="waves-effect waves-light btn-small blue-grey lighten-2 edit"
+                                <button class="waves-effect waves-light btn-small blue-grey lighten-2 edit" 
                                     data-id="{{ $item->id_departamento }}">
                                     <i class="material-icons">edit</i></button>
 

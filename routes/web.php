@@ -31,10 +31,14 @@ Route::resource('/admin/aptitudes', 'AptitudController');
 Route::resource('/admin/cargos', 'CargoController');
 Route::resource('/admin/empleados', 'EmpleadoController');
 Route::get('nuevo-alumno','AlumnoController@create');
+Route::post('/admin/bitacoras','BitacoraCEA@store');
 Route::resource('/admin/alumnos', 'AlumnoController');
 Route::resource('/admin/asignacion-docentes', 'GrupoMateriaController');
 Route::resource('/admin/asignacion-alumnos','AlumnoSeccionController');
 Route::resource('/admin/record_escolar', 'RecordEscolarController');
+Route::resource('/admin/tiporesponsable', 'TipoResponsableController');
+Route::resource('/admin/responsables', 'ResponsableController');
+Route::resource('/admin/ocupaciones', 'OcupacionController');
 Route::resource('/admin/record_fgk', 'RecordFGKController');
 Route::resource('/admin/consolidados', 'ConsolidadosController');
 

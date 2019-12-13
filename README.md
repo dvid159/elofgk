@@ -87,7 +87,7 @@ To Do (sistema completo)
 
 -Permite campos repetidor
 
---------------Empleado---(4/9)-----------------------------------------------------------------------------
+--------------Empleado---(4/10)-----------------------------------------------------------------------------
 
 -Definir y limitar formato para DUI a solo numeros(mascara)
 
@@ -107,6 +107,7 @@ To Do (sistema completo)
 
 -Inconsistencia de id al guardar en tabla user para autenticacion(metodo store)(se registra en una tabla y no en otra y no permite ingresar otra vez) (sujeto a errores)
 
+-Al momento de cambiar el cargo de alguien se debe cambiar permisos en la tabla user para la autenticacion
 
 -------------Año en Curso---(0/3)-------------------------------------------------------------------------------
 
@@ -131,9 +132,9 @@ To Do (sistema completo)
 
 -No aparece foto en perfil de usuario
 
--------------Promedios Centro Esolar---(0/3)-------------------------------------------------------------------
+-------------Promedios Centro Esolar---(1/3)-------------------------------------------------------------------
 
--Arreglar filtrar nombres por class(select)
+-Arreglar filtrar nombres por class(hecho)
 
 -Mostrar notas de promedio correspondiente en detalle de notas en links desde carnet
 

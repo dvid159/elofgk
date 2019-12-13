@@ -1,8 +1,16 @@
 @extends('layouts.admin')
 
 @section('js')
- <!-- <script src="{{ asset('js/alumnodetalles.js') }}"></script> -->
- @endsection
+<script src="{{ asset('js/alumno.js') }}"></script>
+ <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+ <script type="text/javascript">
+    $(document).ready(function(){
+        $('#grid').DataTable();
+    });
+</script>
+
+@endsection
 
 @section('contenido')
 
@@ -20,14 +28,14 @@
         <a href="/nuevo-alumno" class="btn waves-effect waves-light blue-grey lighten-2">
         Registrar nuevo alumno<i class="material-icons right">add</i></a>
     </div>
-        <table class="highlight responsive-table">
+        <table id="grid" class="highlight responsive-table">
 
             <thead>
                 <tr>
                     <th>Carnet</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Secci&oacute;n</th>
+                    <th>Clase</th>
                     <th>Turno</th>
                     <th>Estado</th>
                 </tr>

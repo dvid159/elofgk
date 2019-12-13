@@ -20,14 +20,18 @@ $(document).ready(function () {
     //----------------Crear tabla resumen ----------------------------------------------------------------------------------------
     $('.resume').click(function() {
         var id = $(this).data("id");
-        M.toast({ html: id, classes: 'rounded', inDuration: 5000 });                
-        console.log(id);
+      
+        var grado = $(".item-grado.active").attr('id');
 
+        //$info = array(['id','grado']);
+        var array = [id, grado];
+        console.log(array);
         $.ajax(
             {
                 url: "/admin/record_escolar/" + id,
                 method: 'GET',
-                dataType: 'json',
+                data: {'array': JSON.stringify(array)},
+                // dataType: 'json',
                 success: function (data) {
                     console.log(data);
                     console.log(data[0].length);
@@ -76,31 +80,87 @@ $(document).ready(function () {
 
 
     });
+
+
+    $('.prom').click(function(){
+       var grado = $(".item-grado.active").attr('id');  
+       var data = $(this).data("id").split("/");
+       data.push(grado);
+       var id = data[0];
+    //    var id = data[0];
+
+        console.log(data,id);        
+
+        $.ajax(
+            {
+                url:"/admin/record_escolar/"+ id +"/edit",
+                method:'GET',
+                data:{'data': JSON.stringify(data)},
+                success:function(data){
+                    console.log(data);
+                    $('#lblCarnet').val(data[0].carnet_alumno);
+                    $('#lblNombre').val(data[0].nombres+' '+data[0].apellidos);
+
+                    for( i = 0; i < 4 ; i++){
+
+                        if(data[i].id_materia == 2){
+                            $('#mat_nota').val(data[i].nota);
+                        }else if(data[i].id_materia == 7){
+                            $('#cien_nota').val(data[i].nota);
+                        }else if(data[i].id_materia == 6){
+                            $('#leng_nota').val(data[i].nota);
+                        }else if(data[i].id_materia == 8){
+                            $('#soc_nota').val(data[i].nota);
+                        }
+                    }
+                    $('#grado').val(grado);
+                    $('#periodo').val(data[0].id_periodo);
+                    $('select').formSelect();
+
+                 $('#ModalEditRecord').modal('open');
+
+
+                },error: function (error) {
+                    console.log(error);
+                    console.log("ERROR");
+                }
+
+        });
+    });
+
+
     //----------------actualizar tabla por clase(select)---------------------------------------------------------------------------------
     //-------------------NOVENO---------------------------------------------
     $('.materialSelect1').change(function (e) {
+        if($('.materialSelect1').val() != "all"){
         var clase = $('.materialSelect1').val().split("-");        
-        // $("#Tnoveno").empty();
-        // var af_noveno = llenarBaseFiltrada(alumnos_noveno, clase);    
-        // $("#Tnoveno").append(af_noveno);
-
-        M.toast(clase[1]);
-
-
+        data_tabla = document.getElementById('dataTable');
+        buscarPNombre(clase[1], data_tabla);
+        }else{
+            buscarPNombre("",data_tabla)
+    }
+        
     });
     //---------------- PRIMER AÑO-------------------------------------------
     $('.materialSelect2').change(function (e) {
-        var clase = $('.materialSelect2').val();
-        $("#Tprimero").empty();
-        var af_primero = llenarBaseFiltrada(alumnos_primero, clase);
-        $("#Tprimero").append(af_primero);    
+        if($('.materialSelect2').val() != "all"){
+        var clase = $('.materialSelect2').val().split("-");
+        data_tabla = document.getElementById('dataTable2');
+        buscarPNombre(clase[1], data_tabla); 
+        }else{
+            buscarPNombre("",data_tabla)
+        }
+       
     });
     //-------------------SEGUNDO AÑO-----------------------------------------
     $('.materialSelect3').change(function (e) {
-        var clase = $('.materialSelect3').val();
-        $("#Tsegundo").empty();        
-        var af_segundo = llenarBaseFiltrada(alumnos_segundo, clase);
-        $("#Tsegundo").append(af_segundo);
+        if($('.materialSelect3').val() != "all"){
+        var clase = $('.materialSelect3').val().split("-");
+        data_tabla = document.getElementById('dataTable3');
+        buscarPNombre(clase[1], data_tabla); 
+        }else{
+            buscarPNombre("",data_tabla)
+        }
     });
     // ---------------Termina actualizar tabla por clase-------------------------------------------------------------------------
 
@@ -144,20 +204,23 @@ $(document).ready(function () {
     //-----------------------key press busqueda por nombre---------------------------------------------------//
     $('#nombre_recordN').keyup(function(e){
         var key = $('#nombre_recordN').val().toLowerCase();
-        buscarPNombre(key);           
+        data_tabla = document.getElementById('dataTable');
+        buscarPNombre(key, data_tabla);           
     });
     
     $('#nombre_recordP').keyup(function(e){
         var key = $('#nombre_recordP').val().toLowerCase();
-        buscarPNombre(key);
+        data_tabla = document.getElementById('dataTable2');
+        buscarPNombre(key, data_tabla);
     });
 
     $('#nombre_recordS').keyup(function(e){
         var key = $('#nombre_recordS').val().toLowerCase();
-        buscarPNombre(key);       
+        data_tabla = document.getElementById('dataTable3');
+        buscarPNombre(key, data_tabla);       
     });
 
-
+//--------------------------------busqueda de alumno en guardar notas--------------------------------------------//
     $('#lblCarnet').keyup(function(e){
         $('#lblNombre').val("");
         if($('#lblCarnet').val().length == 14){
@@ -169,6 +232,8 @@ $(document).ready(function () {
                     $('#lblNombre').val(alumnos[x].nombres +' '+ alumnos[x].apellidos);
                     var long = alumnos[x].nombres;
                     console.log(long);
+                }else{
+                    $('#lblNombre').val("Alumno no encontrado");
                 }
 
 
@@ -203,8 +268,8 @@ $(document).ready(function () {
                         var PF =  calcularPromedio(tabla_alumno[x].nota, tabla_alumno[x+1].nota, tabla_alumno[x+2].nota, tabla_alumno[x+3].nota);
                         PFF += PF;
                         if(PF <= 5){
-                            zdata += '<td style="text-align:center; color: red">'+ PF +'</td>';
-                        }else{zdata += '<td style="text-align:center;">'+ PF +'</td>';}
+                            zdata += '<td  style="text-align:center;"><a href=# data-id="'+ tabla_alumno[x].carnet_alumno + "/"+ tabla_alumno[x].id_periodo +'" data-toggle="tooltip" title="Matematica:'+ tabla_alumno[x].nota +'&#10;Lenguaje:' + tabla_alumno[x+1].nota +'&#10;Ciencias:'+ tabla_alumno[x+2].nota +'&#10;Sociales:'+ tabla_alumno[x+3].nota +'" class="prom" style="text-align:center; color: red" >' + PF +'</a> </td>';
+                        }else{zdata += '<td style="text-align:center;"><a href=# data-id="'+ tabla_alumno[x].carnet_alumno + "/"+ tabla_alumno[x].id_periodo +'" data-toggle="tooltip" title="Matematica:'+ tabla_alumno[x].nota +'&#10;Lenguaje:' + tabla_alumno[x+1].nota +'&#10;Ciencias:'+ tabla_alumno[x+2].nota +'&#10;Sociales:'+ tabla_alumno[x+3].nota +'" class="prom" style="color: black" >'+ PF +'</a> </td>';}
                         
                     period++;   
                     }else{ 
@@ -269,8 +334,8 @@ $(document).ready(function () {
         return zdata;
     }
 
-    function buscarPNombre(clase){
-    var tabla = document.getElementById('dataTable');
+    function buscarPNombre(clase, table){
+    var tabla = table;
     var busqueda = clase;
     var cellsOfRow="";
     var found=false;
